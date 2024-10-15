@@ -1,0 +1,401 @@
+@charset "utf-8";
+/* CSS Document */
+ 
+
+.page-context-header  {
+    width: 100%;
+    background-color: #4FA39D;
+    background-image: url(https://virtual.flacso.org.ar/theme/gflacso/vale/oim/fondo.svg)!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+    
+.page-context-header:before {
+    content: "";
+    float: left;
+    padding-bottom: 8.2%;
+  }
+
+.page-context-header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.page-header-headings.titulo_curso.medium, .page-header-headings.titulo_curso.big  {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.titulo_curso h2, .titulo_curso h1
+{
+    text-align: left!important;
+    font-family: 'Roboto Condensed' !important;
+    color: #fff !important;
+    font-size: 2vw !important;
+    font-weight: 400 !important;
+    padding-right: 2%!important;
+	padding-left: 20%!important;
+    margin: 0px !important;
+    border-radius: 0px !important;
+    background: none;
+    line-height: 110%!important;
+    max-width: 90%;
+    min-width: 470px;
+}
+
+#region-main
+{
+    border:none;
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+
+/* Navegación */
+
+
+
+
+/**
+ * código colores pestañas
+ *
+ * -------------------------------------------------------------------
+ */
+
+
+#region-main .nav-tabs li:nth-child(4) a:hover,
+#region-main .nav-tabs li:nth-child(4) a.active
+{
+    background-color: #d7282f!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #d7282f!important;
+}
+
+
+#region-main .nav-tabs li:nth-child(4) a
+
+{
+   
+    border: 2px solid #d7282f!important;
+}
+
+/*------------------------------------*/
+
+#region-main .nav-tabs li:nth-child(5) a:hover,
+#region-main .nav-tabs li:nth-child(5) a.active
+{
+    background-color: #ff6633!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #ff6633!important;
+}
+
+
+#region-main .nav-tabs li:nth-child(5) a
+
+{
+   
+    border: 2px solid #ff6633!important;
+}
+
+/*------------------------------------*/
+
+
+
+#region-main .nav-tabs li:nth-child(6) a:hover,
+#region-main .nav-tabs li:nth-child(6) a.active
+{
+    background-color: #57b6b2!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #57b6b2!important;
+}
+
+
+#region-main .nav-tabs li:nth-child(6) a
+
+{
+   
+    border: 2px solid #57b6b2!important;
+}
+
+/*------------------------------------*/
+
+
+#region-main .nav-tabs li:nth-child(7) a:hover,
+#region-main .nav-tabs li:nth-child(7) a.active
+{
+    background-color: #108c83!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #108c83!important;
+}
+
+
+#region-main .nav-tabs li:nth-child(7) a
+
+{
+   
+    border: 2px solid #108c83!important;
+}
+
+/*------------------------------------*/
+
+
+
+#region-main .nav-tabs li:nth-child(8) a:hover,
+#region-main .nav-tabs li:nth-child(8) a.active
+{
+    background-color: #3a8dde!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #3a8dde!important;
+}
+
+
+#region-main .nav-tabs li:nth-child(8) a
+
+{
+   
+    border: 2px solid #3a8dde!important;
+}
+
+/*------------------------------------*/
+
+
+#region-main .nav-tabs li:nth-child(9) a:hover,
+#region-main .nav-tabs li:nth-child(9) a.active
+{
+    background-color: #0062a5!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #0062a5!important;
+}
+
+
+#region-main .nav-tabs li:nth-child(9) a
+
+{
+   
+    border: 2px solid #0062a5!important;
+}
+
+/*------------------------------------*/
+
+
+
+
+
+/**
+ * código colores pestañas fin
+ *
+ * -------------------------------------------------------------------
+ */
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .nav.nav-tabs.mb-3
+    {
+    margin: 0!important;
+    padding: 0 !important;
+    }
+}
+
+.nav.nav-tabs.mb-3 {
+    text-align: center!important;
+    display: block!important;
+    font-family: 'Roboto condensed'!important;
+    font-size: 16px!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item {
+    margin: 0 0 4px 0!important;
+    padding: 0!important;
+    display: inline-block!important;
+    cursor: pointer!important;
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a {
+    padding: 10px!important;
+    display: block!important;
+    color: #000!important;
+    background-color: #fff;
+    border: 2px solid #0033a1!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a:hover { 
+   background-color: #0033A0!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+}
+
+
+.nav.nav-tabs.mb-3 .nav-item a.active {
+    background-color: #0033A0!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #0033a1!important;
+
+}
+
+
+
+
+
+
+
+
+
+    
+@media only screen and (max-width: 768px) {
+     .page-context-header {
+        background-color: #4FA39D;
+        background-image: none!important;
+}
+	
+	@media only screen and (max-width: 600px) {
+     .page-context-header {
+        background-color: #4FA39D;
+        background-image: none!important;
+}
+    
+    .titulo_curso h2, .titulo_curso h1 {
+       font-weight: 400 !important;
+    padding-left: 0!important;
+    padding-right: 2%!important;
+    text-align: center!important;
+    max-width: 100%;
+    float: none;
+       }
+}
+
+.course-content ul.section .activity a .instancename {
+    color: #0033A0;
+        font-weight: bold;
+
+}
+
+
+/**
+ * CRONOGRAMA
+ *
+ * -------------------------------------------------------------------
+ */
+
+
+
+.vtl {
+  position: relative;
+  padding: 10px 0;
+  max-width: 350px;
+    font-family: 'Roboto Condensed'!important;
+}
+
+.vtl::before {
+  content: '';
+  width: 3px;
+  background-color: #0033A0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+    z-index: 1;
+}
+div.ewrap {
+  padding: 0 0 10px 0;
+  position: relative;
+  width: 100%;
+}
+
+div.event {
+  padding: 3px 12px;
+  background-color: #e0e0d1;
+  position: relative;
+    color: #0033A0;
+}
+
+strong.date {
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+
+}
+p.text {
+  margin: 0;
+      color: #0033A0;
+        font-size: 1em!important;
+        line-height: 140%;
+    font-weight: normal;
+}
+
+#conversatorio {
+  color: #800080!important;
+}
+
+#clase {
+  background-color: #e0e0d1;
+}
+
+#magistral {
+  background-color: #FFE97C;
+}
+
+#actividad {
+  color: #d200bd;
+}
+
+div.ewrap::after {
+  content: '';
+  background: #0033A0;
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  position: absolute;
+  top: 7px;
+  left: -4px;
+    z-index: 2;
+}
+
+
+.numero {
+    font-family: 'roboto slab';
+    font-size: 1.8em;
+    font-weight: 600;
+    text-align: center;
+    width: 1.4em;
+    height: 1.4em;
+    margin: auto;
+    border: 3px solid #337691;
+    border-radius: 50%;
+    line-height: 1.2em;
+    color: #fff;
+    background-color: #d200bd;
+    }
+

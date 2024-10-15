@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Roboto Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100&amp;display=swap" rel="stylesheet">
+    <title>[SUBJECT]</title>
+    
+  <style type="text/css">
+		body{
+			padding-top:0 !important;
+			padding-bottom:0 !important;
+			margin:0 !important;
+			width:100% !important;
+			-webkit-text-size-adjust:100% !important;
+			-ms-text-size-adjust:100% !important;
+			-webkit-font-smoothing:antialiased !important;
+		}
+	@media screen and (max-width:600px){
+		.editorial p{
+			line-height:13px !important;
+			font-size:12px !important;
+		}
+
+}		.tableContent img{
+			border:0 !important;
+			display:inline-block !important;
+			outline:none !important;
+		}
+		p,h1,h2,h3,ul,ol,li,div{
+			margin:0;
+			padding:0;
+		}
+		h1,h2{
+			font-weight:normal;
+			background:transparent !important;
+			border:none !important;
+		}
+		td,table{
+			vertical-align:top;
+		}
+		td.middle{
+			vertical-align:middle;
+		}
+		a{
+			text-decoration:none;
+		}
+		a.link1{
+			font-size:16px;
+			color:#a5a5a5;
+		}
+		a.link2{
+			font-size:18px;
+			font-weight:bold;
+			color:#000000;
+			text-decoration:underline;
+		}
+		a.link3{
+			font-size:15px;
+			font-weight:bold;
+			color:#ffffff;
+			background-color:#2da4a8;
+			padding:11px 15px;
+			text-decoration:none;
+			border-radius:5px;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;
+			text-align:center;
+			display:inline-block;
+		}
+		h1{
+			font-size:24px;
+			font-weight:bold;
+			color:#000000;
+			line-height:150%;
+		}
+		h2{
+			font-size:18px;
+			font-weight:bold;
+			color:#000000;
+			line-height:150%;
+		}
+		p{
+			font-size:16px;
+			color:#000000;
+			line-height:150%;
+			text-align:left;
+		}
+		.bgItem{
+			background:#ffffff;
+		}
+		.bgBody{
+			background:#fff;
+		}
+		.DescBanner{
+			background:#51545C;
+			width:310px;
+			height:196px;
+			padding:15px;
+			font-family:'Roboto',sans-serif;
+		}
+		.DescBanner h1,h2,h3,h4,p{
+			color:#fff;
+		}
+		.DescBanner h2{
+			font-weight:400;
+			font-size:14px;
+			height:25px;
+			color:#fff;
+		}
+		.DescBanner h1{
+			font-weight:900;
+			font-size:20px;
+			line-height:20px;
+			margin:5px 0;
+		}
+		.DescBanner p{
+			font-weight:500;
+			font-size:12px;
+			line-height:12px;
+			margin:5px 0 18px;
+			color:#fff;
+		}
+		.DescBanner a{
+			background:#EE3D8F;
+			border-radius:10px;
+			padding:5px 10px;
+			color:#fff;
+		}
+		.Azul{
+			background:#51beef;
+		}
+		.Azul .contentEditable{
+			padding:10px 0 10px 10px;
+		}
+		.Azul h3{
+			font-weight:700;
+			font-size:12px;
+			height:25px;
+			color:#fff;
+		}
+		.Azul h3 span{
+			font-weight:200;
+			font-size:12px;
+			height:25px;
+		}
+		.Azul h1{
+			font-weight:200;
+			font-size:25px;
+			color:#fff;
+		}
+		.Azul p{
+			font-size:13px;
+			font-height:20px;
+			color:#fff;
+		}
+		.Azul p span{
+			padding-left:5px;
+		}
+		.Titulos{
+			border-bottom:1px solid #50535C;
+		}
+		.Titulos h1{
+			font-family:'Roboto',sans-serif;
+			color:#50535C;
+			font-size:17px;
+			font-weight:400;
+		}
+		.Noticia h1,h2,h3,h4,p{
+			color:#000;
+			font-family:'Roboto',sans-serif;
+		}
+		.Noticia h2 a{
+			color:black;
+		}
+		.Noticia h3{
+			font-weight:400;
+			font-size:13px;
+			margin-bottom:5px;
+			line-height:13px;
+		}
+		.Noticia h2{
+			font-weight:900;
+			font-size:22px;
+			margin-bottom:5px;
+			line-height:20px;
+		}
+		.Noticia p{
+			font-weight:400;
+			font-size:14px;
+			margin-bottom:15px;
+			line-height:16px;
+		}
+		.Noticia p span{
+			color:#50535C;
+			font-size:12px;
+		}
+		.Noticia tr{
+			border-bottom:1px solid #50535C;
+		}
+		.ElDato h2{
+			font-family:'Roboto',sans-serif;
+			font-weight:900;
+			font-size:23px;
+			line-height:23px;
+		}
+		.Adelanto{
+			padding:30px;
+		}
+		.AdelantoAbajo{
+			padding:0 20px 10px;
+		}
+		.Adelanto h1{
+			color:#fff;
+			text-align:left;
+			line-height:21px;
+			font-size:21px;
+			font-family:'Roboto',sans-serif;
+		}
+		.Adelanto h2{
+			color:#fff;
+			font-weight:200;
+			font-size:18px;
+			height:25px;
+			text-align:left;
+			font-family:'Roboto',sans-serif;
+		}
+		.Adelanto p{
+			color:#000;
+			margin:15px 0;
+			text-align:left;
+			font-size:17px;
+			line-height:17px;
+			font-family:'Roboto',sans-serif;
+		}
+		.Derechos p{
+			color:#707070;
+			font-size:12px;
+			font-family:'Encode Sans Condensed',sans-serif;
+			letter-spacing:1px;
+		}
+		.Pie{
+			background:#50535C;
+			padding:20px;
+		}
+		.Pie h1{
+			color:#fff;
+			font-family:'Encode Sans',sans-serif;
+			font-size:15px;
+			font-weight:500;
+		}
+</style><!--[if !mso]><!--><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet"><!--<![endif]--></head>
+  <body paddingwidth="0" paddingheight="0" class="bgBody" style="padding-top: 0 !important;padding-bottom: 0 !important;background-repeat: repeat;width: 100% !important;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;background: #fff;margin: 0 !important;" offset="0" toppadding="0" leftpadding="0">
+    <table width="600" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center" style="font-family: Helvetica, sans-serif;border: 1px solid #ddd;vertical-align: top;background: #fff;">
+      <tr>
+        <td align="center" class="movableContentContainer" style="vertical-align: top;">
+          
+          <!-- =============== HEADER AZUL =============== -->
+          <div class="movableContent" style="margin: 0;padding: 0;">
+            <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="Azul" style="background: #51beef;vertical-align: top;">
+              <tr>
+                <td width="550" align="left" style="vertical-align: top;">
+                  <div class="contentEditableContainer contentImageEditable" style="margin: 0;padding: 0;">
+                    <div class="contentEditable" style="padding: 5px 0px 10px 10px;margin-top: 10px;margin: 0;">
+                      <h3 style="font-weight: 700;font-size: 12px;height: 25px;color: #fff;margin: 3px 0px;padding: 0;font-family: 'Roboto',sans-serif;">NOVEDADES DE LA DIRECCIÓN NACIONAL DE TRANSPARENCIA <span style="font-weight: 200; font-size: 12px; height: 20px;">| AGOSTO 2021</span>
+                    </h3>
+                    <h1 style="font-weight: 600;font-size: 25px;color: #fff;margin: 6px 0px 0px 0px;padding: 0;line-height: 150%;background: transparent !important;border: none !important;">Construyendo conocimiento</h1>
+                    <p style="font-size: 13px;color: #fff;margin: 10px 0px 0px 0px;padding: 0;line-height: 150%;text-align: left;font-family: 'Roboto',sans-serif;font-height: 20px;"><img style="vertical-align: bottom;border: 0 !important;display: inline-block !important;outline: none !important;" src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/3b870002-e3ae-4bcb-9cae-95b4a51dbf2c.png" width="20" alt="reloj.png"><span style="padding-left: 5px; color: #fff;">tiempo estimado de lectura: 3 minutos</span>
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td width="20" style="vertical-align: top;"></td>
+            <td width="120" align="right" valign="top" style="vertical-align:top;padding-top:30px;padding-right:10px;">
+              <div class="contentEditableContainer contentTextEditable" style="margin: 0;padding: 0;">
+                <div class="contentEditable" style="margin: 0;padding: 10px 0 10px 10px;">
+                  <img src="https://virtual.flacso.org.ar/theme/gflacso/vale/observatorio/images/logo_ministerio.jpg" alt="logo_ministerio.jpg" style="border: 0 !important;display: inline-block !important;outline: none !important;">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- =============== DESTACADO =============== -->
+      <div class="movableContent editorial" style="margin: 0;padding: 0;">
+        <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+          <tr>
+            <td height="10" style="vertical-align: top;"></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+              <div class="editorial_texto" style="background: #51545C;width: 345px;height: 290px;padding: 10px;font-family: Roboto, sans-serif;margin: 0;">
+                <h2 style="font-weight: 400;font-size: 14px;height: 23px;color: #fff;margin: 0px 0px 5px 0px;padding: 0;line-height: 150%;font-family: 'Roboto',sans-serif;background: transparent !important;border: none !important;">EDITORIAL</h2>
+                <h1 style="font-weight: 900;font-size: 19px;line-height: 19px;margin: 0px 0px 5px 0px;color: #fff;padding: 0;background: transparent !important;border: none !important;">Diez motivos para invertir en <br>Infraestructura del Cuidado</h1>
+                <p style="font-weight: 500;font-size: 14px;line-height: 17px;margin: 5px 0px 15px 0px;color: #fff;padding: 0;text-align: left;font-family: 'Roboto',sans-serif;">Se lanzó un documento para visibilizar diez motivos centrales de porqué invertir en Infra- estructura del Cuidado, apuntalando su relevancia para la reducción de las brechas de género, la garantía del derecho al cuidado y la igualación de oportunidades en las infancias y las mujeres. Ha sido producido entre la Dirección Nacional de Transparencia del Ministerio de Obras Públicas y la Dirección Nacional de Economía, Igualdad y Género del Ministerio de Economía.</p>
+                <br>
+                <p style="font-weight: 500;font-size: 12px;line-height: 12px;margin: 0px 0px 5px 0px;color: #fff;padding: 0;text-align: left;font-family: 'Roboto',sans-serif;">
+                  <a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/6_1_editorial_diez_motivos_para_invertir_en_infraestructura_del_cuidado.pdf" target="_blank">LEER MÁS</a>
+                </p>
+              </div>
+            </td>
+            <td style="vertical-align: top;">
+              <div class="contentEditableContainer contentImageEditable editoria_img" style="margin: 0;padding: 0;">
+                <div class="contentEditable" style="margin: 0;padding: 0;">
+                  <img src="images/header_der.jpg" alt="Header Image" width="235" height="310" style="border: 0 !important;display: inline-block !important;outline: none !important;">
+                </div>
+              </div>
+            </td>
+            
+          </tr>
+        </table>
+      </div>
+      <!-- =============== TÍTULO NOTICIAS =============== -->
+      <div class="movableContent" style="margin: 0;padding: 0;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+          <tr>
+            <td height="20" style="vertical-align: top;"></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">
+              <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                <tr>
+                  <td colspan="3" height="11" style="vertical-align: top;"></td>
+                </tr>
+                <tr>
+                  <td width="20" style="vertical-align: top;"></td>
+                  <td style="vertical-align: top;">
+                    <div class="contentEditableContainer contentTextEditable Titulos" style="border-bottom: 1px solid #50535C;margin: 0;padding: 0;">
+                      <div class="contentEditable" style="margin: 0;padding: 0;">
+                        <h1 style="font-family: Roboto, sans-serif;color: #50535C;font-size: 17px;font-weight: 400;margin: 0;padding: 0;line-height: 150%;background: transparent !important;border: none !important;">NOTICIAS</h1>
+                      </div>
+                    </div>
+                  </td>
+                  <td width="20" style="vertical-align: top;"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" height="11" style="vertical-align: top;"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- =============== NOTICIAS =============== -->
+      <div class="movableContent" style="margin: 0;padding: 0;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+          <!-- =============== NOTICIA 1 =============== -->
+          <tr>
+            <td style="vertical-align: top;">
+              <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem Noticia" style="border-radius: 5px;-webkit-border-radius: 5px;vertical-align: top;background: #ffffff;">
+                <!-- =============== NOTICIA 2 =============== -->
+                <tr style="border-bottom: 1px solid #50535C;">
+                  <td colspan="5" height="10" style="vertical-align: top;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #50535C;">
+                  <td width="20" style="vertical-align: top;"></td>
+                  <td width="225" style="vertical-align: top;">
+                    <div class="contentEditableContainer contentImageEditable" style="margin: 0;padding: 0;">
+                      <div class="contentEditable" style="margin: 0;padding: 0;">
+                        <img src="images/img_not_1.jpg" alt="image" width="225" height="225" style="border: 0 !important;display: inline-block !important;outline: none !important;">
+                      </div>
+                    </div>
+                  </td>
+                  <td width="30" style="vertical-align: top;"></td>
+                  <td width="305" style="vertical-align: top;">
+                    <div class="contentEditableContainer contentTextEditable" style="margin: 0;padding: 0;">
+                      <div class="contentEditable" style="margin: 0;padding: 0;">
+                        <h3 style="font-weight: 400;font-size: 13px;margin-bottom: 5px;line-height: 13px;color: #000000;margin: 0;padding: 0;font-family: 'Roboto',sans-serif;">Está disponible para descargar desde su sitio web</h3>
+                        <h2 style="font-weight: 900;font-size: 22px;margin-bottom: 15px;line-height: 23px;margin: 0;padding: 0;color: #000;font-family: 'Roboto',sans-serif;background: transparent !important;border: none !important;">
+                          <a href="https://www.argentina.gob.ar/sites/default/files/6_2_aysa_presento_su_nueva_aplicacion_para_favorecer_la_transparencia.pdf" target="_blank" style="color:#000000;text-decoration:none;">AySA presentó su nueva aplicación para favorecer la transparencia</a>
+                        </h2>
+                        <br>
+                        <p style="color: #000;font-family: Roboto, sans-serif;margin: 0;padding: 0;font-size: 14px;line-height: 16px;text-align: left;font-weight: 400;margin-bottom: 15px;">Se trata de Aysa Data, un desarrollo digital que fortalece la transparencia, el acceso público a la información de gestión y la participación ciudadana.</p>
+                        <p style="margin: 0;padding: 0;font-size: 14px;color: #000;line-height: 16px;text-align: left;font-family: 'Roboto',sans-serif;font-weight: 400;margin-bottom: 15px;"><span style="color:#50535C; font-size: 12px;">5 de Julio de 2021</span>
+                      </p>
+                      <p style="line-height: 17px;font-size: 14px;margin-bottom: 10px;margin: 0;padding: 0;color: #000;text-align: left;font-family: 'Roboto',sans-serif;font-weight: 400;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/6_2_aysa_presento_su_nueva_aplicacion_para_favorecer_la_transparencia.pdf" target="_blank">LEER MÁS</a>
+                    </p>
+                    <br>
+                  </div>
+                </div>
+              </td>
+              <td width="20" style="vertical-align: top;"></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #50535C;">
+              <td style="border-bottom: 1px solid #707070;vertical-align: top;" colspan="5" height="15"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- =============== NOTICIA 2 =============== -->
+  <div class="movableContent" style="margin: 0;padding: 0;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+      <!-- =============== NOTICIA 2 =============== -->
+      <tr>
+        <td style="vertical-align: top;">
+          <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem Noticia" style="border-radius: 5px;-webkit-border-radius: 5px;vertical-align: top;background: #ffffff;">
+            <!-- =============== NOTICIA 2 =============== -->
+            <tr style="border-bottom: 1px solid #50535C;">
+              <td colspan="5" height="30" style="vertical-align: top;"></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #50535C;">
+              <td width="20" style="vertical-align: top;"></td>
+              <td width="225" style="vertical-align: top;">
+                <div class="contentEditableContainer contentImageEditable" style="margin: 0;padding: 0;">
+                  <div class="contentEditable" style="margin: 0;padding: 0;">
+                    <img src="images/img_not_2.jpg" alt="image" width="225" height="205" style="border: 0 !important;display: inline-block !important;outline: none !important;">
+                  </div>
+                </div>
+              </td>
+              <td width="30" style="vertical-align: top;"></td>
+              <td width="305" style="vertical-align: top;">
+                <div class="contentEditableContainer contentTextEditable" style="margin: 0;padding: 0;">
+                  <div class="contentEditable" style="margin: 0;padding: 0;">
+                    <h3 style="font-weight: 400;font-size: 13px;margin-bottom: 5px;line-height: 13px;color: #000000;margin: 0;padding: 0;font-family: 'Roboto',sans-serif;">Junto a especialistas y referentes de la temática</h3>
+                    <h2 style="font-weight: 900;font-size: 21px;margin-bottom: 15px;line-height: 23px;margin: 0;padding: 0;color: #000;font-family: 'Roboto',sans-serif;background: transparent !important;border: none !important;">
+                      <a href="https://www.argentina.gob.ar/sites/default/files/6_3_nuevo_ciclo_de_dialogo_de_la_obra_publica_sobre_presupuesto_con_perspectiva_de_genero.pdf" target="_blank" style="color:#000000;text-decoration:none;">Nuevo ciclo de Diálogo de la Obra Pública <br>sobre Presupuesto con perspectiva de Género</a>
+                    </h2>
+                    <br>
+                    <p style="color: #000;font-family: Roboto, sans-serif;margin: 0;padding: 0;font-size: 14px;line-height: 16px;text-align: left;font-weight: 400;margin-bottom: 15px;">Se presentó un documento elaborado por el Ministerio con la colaboración de la Jefatura de Gabinete de Minis- tros y el Ministerio de Economía de la Nación.</p>
+                      <p style="margin: 0;padding: 0;font-size: 14px;color: #000;line-height: 16px;text-align: left;font-family: 'Roboto',sans-serif;font-weight: 400;margin-bottom: 15px;"><span style="color:#50535C; font-size: 12px;">17 de junio de 2021</span>
+                    </p>
+                    <p style="line-height: 17px;font-size: 14px;margin-bottom: 10px;margin: 0;padding: 0;color: #000;text-align: left;font-family: 'Roboto',sans-serif;font-weight: 400;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/6_3_nuevo_ciclo_de_dialogo_de_la_obra_publica_sobre_presupuesto_con_perspectiva_de_genero.pdf" target="_blank">LEER MÁS</a>
+                  </p>
+                  <br>
+                </div>
+              </div>
+            </td>
+            <td width="20" style="vertical-align: top;"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #50535C;">
+            <td style="border-bottom: 1px solid #707070;vertical-align: top;" colspan="5" height="15"></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #50535C;">
+            <td colspan="5" height="20" style="vertical-align: top;"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- =============== EL DATO =============== -->
+<div class="movableContent" style="margin: 0;padding: 0;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+    <tr>
+      <td style="vertical-align: top;">
+        <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem ElDato" style="border-radius: 5px;-webkit-border-radius: 5px;vertical-align: top;background: #ffffff;">
+          <tr>
+            <td width="20" style="vertical-align: top;"></td>
+            <td valign="middle" width="80" height="100" style="vertical-align:middle;">
+              <div class="contentEditable" style="margin: 0;padding: 0;">
+                <img src="https://virtual.flacso.org.ar/theme/gflacso/vale/observatorio/images/eldato.jpg" alt="eldato.jpg" style="border: 0 !important;display: inline-block !important;outline: none !important;">
+              </div>
+              
+            </td>
+            <td width="15" style="vertical-align: top;"></td>
+            <td width="485" style="vertical-align:middle;">
+              <div class="contentEditableContainer contentTextEditable" style="margin: 0;padding: 0;">
+                <div class="contentEditable" style="margin: 0;padding: 0;">
+                  <h2 style="font-family: Roboto, sans-serif;font-weight: 900; text-align: justify; font-size: 19px;line-height: 20px;color: #EE3D8F;margin: 0;padding: 0;background: transparent !important;border: none !important;">640.000 km <span style="font-weight: 200;">de rutas y caminos comprenden el Sistema Vial Argentino</span></h2>
+									<h2 style="font-family: Roboto, sans-serif;font-weight: 900; text-align: justify; font-size: 19px;line-height: 20px;color: #EE3D8F;margin: 0;padding: 0;background: transparent !important;border: none !important;">6,2% -40.000 km-<span style="font-weight: 200;"> integran la red vial nacionalo</span></h2>
+                  <h2 style="font-family: Roboto, sans-serif;font-weight: 900; text-align: justify; font-size: 19px;line-height: 20px;color: #EE3D8F;margin: 0;padding: 0;background: transparent !important;border: none !important;">3.303,8 km -<span style="font-weight: 200;"> corresponden a autopistas y autovías</span></h2>
+
+                  
+
+
+                </div>
+              </div>
+            </td>
+            <td width="20" style="vertical-align: top;"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- =============== GRAFICO =============== -->
+<div class="movableContent" style="margin: 0;padding: 0;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+    <tr>
+      <td style="vertical-align: top;">
+        <table width="630" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem ElDato" style="border-radius: 5px;-webkit-border-radius: 5px;vertical-align: top;background: #ffffff;">
+          <tr>
+            <td style="padding-left: 25px;vertical-align: top;">
+              <img src="images/grafico.jpg" alt="grafico.jpg" style="border: 0 !important;display: inline-block !important;outline: none !important;">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5" height="30" style="vertical-align: top;"></td>
+          </tr>
+          <tr>
+            <td width="580" style="vertical-align: top;">
+              <p style="margin: 0;padding: 0;font-size: 16px;color: #000;line-height: 150%;text-align: left;font-family: 'Roboto',sans-serif;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;margin-left:40px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/6_4_el_dato.pdf" target="_blank">LEER MÁS</a>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom: 1px solid #707070;vertical-align: top;" colspan="5" height="20"></td>
+        </tr>
+      </table>
+      <!-- =============== 2 Columnas =============== -->
+      <div class="movableContent" style="margin-top: 20px;padding-top: 10px; margin: 20px 0px 0px 0px; padding: 0;">
+        <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem" style="vertical-align: top;background: #ffffff;">
+          <tr>
+            <td width="20" style="vertical-align: top;"></td>
+          </tr>
+          <tr>
+            <td width="20" style="vertical-align: top;"></td>
+            <td width="250" style="vertical-align: top;">
+              <div class="contentEditableContainer contentImageEditable" style="margin: 0;padding: 0;">
+                <div class="contentEditable" style="height: 174px;margin: 0;padding: 0;">
+                  <a href="https://twitter.com/ObrasPublicasAR/status/1420403499083436035" target="_blank" style="text-decoration: none;"><img src="images/multimedia.jpg" alt="image" width="250" height="154" style="margin-top: 20px;border: 0 !important;display: inline-block !important;outline: none !important;"></a>
+                </div>
+              </div>
+              <div class="contentEditableContainer contentImageEditable" style="margin: 0;padding: 0;">
+                <div class="contentEditable" style="background: #e9e7e3 !important;width: 230px;padding: 10px 10px 10px 10px;margin: 0;">
+                  <h1 style="font-size: 20px;line-height: 20px;color: #000000;margin-top: 10px;margin: 0;padding: 0;font-weight: bold;background: transparent !important;border: none !important;">
+                    <a href="https://twitter.com/ObrasPublicasAR/status/1420403499083436035" target="_blank" style="font-size:20px;line-height:20px;color:#000000;text-decoration:none;">En MapaInversiones la ciudadanía puede controlar nuestra obra pública</a>
+                    </h1>
+                    <p style="line-height: 17px;font-size: 14px;margin-bottom: 10px;margin: 0;padding: 0;color: #000;text-align: left;font-family: 'Roboto',sans-serif;">Con un sólo click puede conocer la ubicación, realizar un seguimiento y observar el estado de las más de 1.800 obras en marcha en todo el país.</p>
+                    <br>
+                    <br>
+                    <p style="line-height: 17px;font-size: 14px;margin-bottom: 10px;margin: 0;padding: 0;color: #000;text-align: left;font-family: 'Roboto',sans-serif;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;font-size:12px;color:#fff;text-decoration:none;" href="https://twitter.com/ObrasPublicasAR/status/1420403499083436035" target="_blank">LEER MÁS</a>
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td width="20" style="vertical-align: top;"></td>
+            <td width="250" style="vertical-align: top;">
+              <div class="contentEditableContainer contentImageEditable" style="margin: 0;padding: 0;">
+                <div class="contentEditable" style="height: 174px;margin: 0;padding: 0;">
+                  <a href="https://www.argentina.gob.ar/sites/default/files/6_5_entrevista_a_ivan_szczech.pdf" target="_blank" style="text-decoration: none;"><img src="images/voces.jpg" alt="image" width="250" height="154" style="margin-top: 20px;border: 0 !important;display: inline-block !important;outline: none !important;"></a>
+                </div>
+              </div>
+              <div class="contentEditableContainer contentImageEditable" style="margin: 0;padding: 0;">
+                <div class="contentEditable" style="background: #e9e7e3 !important;width: 230px;padding: 10px 10px 10px 10px;margin: 0;">
+                  <h1 style="font-size: 20px;line-height: 20px;color: #000000;margin-top: 10px;margin: 0;padding: 0;font-weight: bold;background: transparent !important;border: none !important;">
+                    <a href="https://www.argentina.gob.ar/sites/default/files/6_5_entrevista_a_ivan_szczech.pdf" target="_blank" style="font-size:20px;line-height:20px;color:#000000;text-decoration:none;">“El Observatorio de la Obra Pública es un punto de inflexión para el sector”</a>
+                  </h1>
+                  <br>
+                  <p style="line-height: 17px;font-size: 14px;margin-bottom: 10px;margin: 0;padding: 0;color: #000;text-align: left;font-family: 'Roboto',sans-serif;">Entrevistamos a Iván Szczech, titular de CAMARCO, institución de gran participación y protagonismo en el Observatorio de la Obra Pública.</p>
+                  <br>
+                  <br>
+                  <p style="line-height: 17px;font-size: 14px;margin-bottom: 10px;margin: 0;padding: 0;color: #000;text-align: left;font-family: 'Roboto',sans-serif;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/6_5_entrevista_a_ivan_szczech.pdf" target="_blank">LEER MÁS</a>
+                </p>
+              </div>
+            </div>
+          </td>
+          <!-- <td width="10" style="vertical-align: top;"></td> -->
+        </tr>
+      </table>
+    </div>
+    <!-- =============== ADELANTO =============== -->
+    <div class="movableContent" style="margin: 0;padding: 0;">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="vertical-align: top;">
+        <tr>
+          <td height="20" style="vertical-align: top;"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem" style="vertical-align: top;background: #ffffff;">
+        <tr>
+          <td style="vertical-align: top;">
+            <table width="560" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+              <tr>
+                <td height="10" style="vertical-align: top;"></td>
+              </tr>
+              <tr>
+                <td align="center" style="vertical-align: top;">
+                  <table width="560" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tr>
+                      <td width="68" align="center" style="vertical-align: top;">
+                        <div class="contentEditableContainer contentFacebookEditable Adelanto" style="background: #37bbed;-webkit-border-top-left-radius: 10px;-webkit-border-top-right-radius: 10px;border-top-left-radius: 10px;border-top-right-radius: 10px;padding: 10px 20px;margin: 0;">
+                          <div class="contentEditable" style="margin: 0;padding: 0;">
+                            <h2 style="color: #fff;font-weight: 200;font-size: 18px;height: 25px;text-align: left;font-family: Roboto, sans-serif;margin: 5px 0px;padding: 0;line-height: 150%;background: transparent !important;border: none !important;">ADELANTO</h2>
+                            <h1 style="color: #fff;text-align: left;line-height: 21px;font-size: 21px;font-family: Roboto, sans-serif;margin: 5px 0px;padding: 0;font-weight: bold;background: transparent !important;border: none !important;">Se viene la Red de Áreas de Integridad y Transparencia de Obras Públicas</h1>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="vertical-align: top;">
+                  <table width="560" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tr>
+                      <td width="68" align="center" style="background: #5fc2e7;vertical-align: top;">
+                        <div class="contentEditableContainer contentFacebookEditable AdelantoAbajo" style="padding: 20px 10px 20px !important;margin: 0;">
+                          <div class="contentEditable" style="margin: 0;padding: 0;">
+                            
+                            <p style="color: #000;margin: 15px 0px;text-align: left;font-size: 15px;line-height: 17px;font-family: Roboto, sans-serif;padding: 0;">El objetivo es generar un espacio de diálogo, capacitación y trabajo colaborativo entre las áreas de integridad y transparencia de APLA, ENOHSA, ACUMAR, AYSA, ERAS, INA, Corredores Viales, ORSEP, Dirección Nacional de Vialidad, Tribunal de Tasaciones de la Nación y el Ministerio de Obras Públicas.</p>
+                            <p style="color: #000;margin: 15px 0px;text-align: left;font-size: 15px;line-height: 17px;font-family: Roboto, sans-serif;padding: 0;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;margin-top:10px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/6_6_adelanto_se_viene_la_red_de_areas_de_integridad_y_transparencia_del_mop.pdf" target="_blank">LEER MÁS</a>
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- =============== Ministerio de obras públicas =============== -->
+  <div class="movableContent" style="margin: 0;padding: 0;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="vertical-align: top;">
+      <tr>
+        <td height="20" style="vertical-align: top;"></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem" style="vertical-align: top;background: #ffffff;">
+      <tr>
+        <td style="vertical-align: top;">
+          <table width="560" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+            <tr>
+              <td align="center" style="vertical-align: top;">
+                <table width="560" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tr>
+                    <td width="68" align="left" style="vertical-align: top;">
+                      <div class="contentEditableContainer contentFacebookEditable Derechos" style="margin: 0;padding: 0;">
+                        <div class="contentEditable" style="margin: 0;padding: 0;">
+                          <p style="color: #50535c;font-size: 11px;font-family: arial, sans-serif;letter-spacing: 1px;margin: 0;padding: 0;line-height: 150%;text-align: left;">© Ministerio de Obras Públicas | Todos los derechos reservados.</p>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- =============== Pie =============== -->
+  <div class="movableContent" style="margin: 0;padding: 0;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem" style="vertical-align: top;background: #ffffff;">
+      <tr>
+        <td style="vertical-align: top;"></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem Pie" style="background: #50535C;padding: 20px;vertical-align: top;">
+      <tr>
+        <td style="vertical-align: top;">
+          <table width="540" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+            <tr>
+              <td align="left" style="vertical-align: top;">
+                <table width="440" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tr>
+                    <td width="440" align="left" style="vertical-align: top;">
+                      <div class="contentEditableContainer contentFacebookEditable" style="margin: 0;padding: 0;">
+                        <div class="contentEditable" style="margin: 0;padding: 0;">
+                          <h1 style="color: #fff;font-family: 'Encode Sans', sans-serif;font-size: 16px;font-weight: 500;margin: 0;padding: 0;line-height: 150%;background: transparent !important;border: none !important;">Ministerio de Obras Públicas</h1>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td align="left" style="vertical-align: top;">
+                <table width="100" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tr>
+                    <td width="100" align="left" style="vertical-align: top;">
+                      <div class="contentEditableContainer contentFacebookEditable" style="margin: 0;padding: 0;">
+                        <div class="contentEditable" style="margin: 0;padding: 0;">
+                          <a href="#" style="text-decoration: none;"><img src="https://virtual.flacso.org.ar/theme/gflacso/vale/observatorio/images/ico_instagram.jpg" alt="ico_instagram.jpg" style="border: 0 !important;display: inline-block !important;outline: none !important;"></a>
+                          <a href="#" style="text-decoration: none;"><img src="https://virtual.flacso.org.ar/theme/gflacso/vale/observatorio/images/ico_twitter.jpg" alt="ico_twitter.jpg" style="border: 0 !important;display: inline-block !important;outline: none !important;"></a>
+                          <a href="#" style="text-decoration: none;"><img src="https://virtual.flacso.org.ar/theme/gflacso/vale/observatorio/images/ico_facebook.jpg" alt="ico_facebook.jpg" style="border: 0 !important;display: inline-block !important;outline: none !important;"></a>
+                          <a href="#" style="text-decoration: none;"><img src="https://virtual.flacso.org.ar/theme/gflacso/vale/observatorio/images/ico_web.jpg" alt="ico_web.jpg" style="border: 0 !important;display: inline-block !important;outline: none !important;"></a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+            </body>
+</html>

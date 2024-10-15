@@ -1,0 +1,749 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FLACSO Argentina</title>
+<style type="text/css">
+	/* Propios */
+         /*##############################################*/
+         .Noticia img{width: 300px; height: 200px;}
+         .redes_icono{width: 35px;}
+         .MenuRedes{width: 100%; background: #152f4e;}
+         .Pie{width: 100%;}
+         .PieRedes{width: 300px; margin-top: 20px !important;}
+         a{color: #15c;}
+         .NoticiaDobleAzul img{margin: 15px 0px 0px 0px;}
+         .Agenda{padding: 0px 40px 0px 0px; margin-top: 40px;}
+         .Agenda td{padding-right: 55px; padding-bottom: 30px;}
+         .Agenda img{padding-left: 28px;}
+         
+	/* Estilos para clientes especificos */
+			 #outlook a {padding:0;} /* Fuerza al cliente de Outlook a generar un boton para ver en la web de forma nativa. */
+			 body{width:100% !important;margin: 0 !important;padding: 0 !important;} .ReadMsgBody{width:100%; !important} .ExternalClass{width:100% !important;}  /* Fuerza a Hotmail a mostrar el email a su ancho completo */
+		 
+		 /* Plataformas Webkit y Windows Mobile. */
+			 body{-webkit-text-size-adjust:none; -ms-text-size-adjust:none;} /* Previene a la plataforma para aplicaciones Webkit y Windows Mobile que reemplace las fuentes determinadas en los estilos. */
+			img {outline:none; text-decoration:none;border:none; -ms-interpolation-mode: bicubic;}
+			 a img {border:none;}
+			 p {margin: 0px 0px !important;}
+			 table td {border-collapse: collapse;}
+			 table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+			 #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+		 
+		/*################################################*/
+         /* Resolución 640px (iPad) */
+         /*################################################*/
+			 @media only screen and (max-width: 640px) {
+				 a[href^="tel"], a[href^="sms"] { text-decoration: none;color: #ffffff; pointer-events: none;cursor: default;}
+				 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] { text-decoration: default; color: #ffffff !important;pointer-events: auto;cursor: default;}
+				 table[class=devicewidth] {width: 440px!important;text-align:center!important;}
+				 table[class=devicewidthinner] {width: 440px!important;text-align:center!important;}
+				 td[class="menu"]{text-align:center !important;}
+				 .links_top{width: 150px;}
+				 .Noticia{width: 90%;}
+				 .NoticiaTexto{width: 85%;}
+				 .Noticia img{width: 200px !important; height: 140px !important;}
+				 .redes_icono{width: 1% !important;}
+				 .NoticiaDoble{width: 100%;}
+				 .NoticiaPequeña{width: 100%;}
+				 .LogoPie img{width: 120px !important;}
+				 .Pie{width: 93%;}
+				 .Pie p{width: 85%;}
+				 .NoticiaDoble td{width: 45%;}
+				 .NoticiaDoble img{width: 90%}
+				 .vinculos{width: 50% !important;}*/
+				 .PieRedes{width: 93% !important;}
+				 .Areas img{width: 20px; height: 20px}
+				 .Areas p{font-size: 13px !important;}
+				 .Areas td td{padding-bottom: 20px;}
+				 .Agenda tr td:first-child{ padding-right: 20px !important;}
+			 }
+         /*##############################################*/
+         /* Resolución 480px (iPhone) */
+         /*##############################################*/
+			 @media only screen and (max-width: 480px) {
+				 a[href^="tel"], a[href^="sms"] {text-decoration: none; color: #ffffff;pointer-events: none;cursor: default;}
+				 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {text-decoration: default;color: #ffffff !important;  pointer-events: auto; cursor: default;}
+				 table[class=devicewidth] {width: 280px!important;text-align:center!important;}
+				 table[class=devicewidthinner] {width: 280px!important;text-align:center!important;}
+				 td[class=titulo] {width: 280px!important;text-align:center!important;}
+				 img[class="bigimage"]{width: 260px!important;}
+				 .Noticia{width: 85%;}
+				 .NoticiaTexto{width: 85%;}
+				 .Noticia img{width: 150px !important; height: 100px !important;}
+				 .redes_icono{width: 1% !important;}
+				 .NoticiaDoble{width: 65%;}
+				 .NoticiaPequeña{width: 65%;}
+				 .NoticiaDoble img{width: 80%}
+				 .Agenda td{padding: 0px 65px 25px 0px !important;}
+			 }
+
+			 /*##############################################*/
+         
+</style>
+</head>
+
+<body>
+	
+	<!--contenedor-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 850px;">
+  <tbody>
+    <tr>
+      <td>  
+		<!--Menu superior-->
+			<table border="0"  cellpadding="5" cellspacing="0" class="MenuRedes" width="100%">
+			  <tbody style="background-color: #152f4e; color: #fff; font-size:12px;  font-family: Arial, 'sans-serif'">
+			    <tr>
+			      	<td class="vinculos">
+					  <a style="text-decoration: none; color: #FFFFFF" href="https://www.flacso.org.ar/">&nbsp; &nbsp; &nbsp;www.flacso.org.ar&nbsp;&nbsp;</a> | 
+					  &nbsp;&nbsp; <a style="text-decoration: none; color: #FFFFFF" href="mailto: flacso@flacso.org.ar">&nbsp;flacso@flacso.org.ar&nbsp;</a>
+					</td>
+					<td class="redes_icono"><a href="https://www.facebook.com/flacsoarg/">
+						<img src="img/facebook.png" alt="FaceBook"/></a>
+					</td>
+					<td class="redes_icono"><a href="https://twitter.com/FLACSOARGENTINA">
+						<img src="img/twitter.png" alt="Twitter"/></a>
+					</td>
+					<td class="redes_icono"><a href="https://www.youtube.com/user/FLACSOArgentina">
+						<img src="img/youtube.png" alt="Youtube"/></a>
+					</td>
+					<td class="redes_icono"><a href="https://www.instagram.com/flacsoargentina/">
+						<img src="img/instagram.png" alt="Instagram"/></a>
+					</td>		
+					<td class="redes_icono"><a href="https://ar.linkedin.com/company/flacso">
+						<img src="img/linkedin.png" alt="Linkedin"/></a>
+					</td>
+			    </tr>
+			  </tbody>
+			</table>
+				<!--Menu superior fin-->
+				
+				
+				<!--Titulo-->
+			<table width="100%"  background="img/flacsoargetina-fondo.jpg" border="0"  cellpadding="18" >
+			  <tbody>
+			    <tr>
+			        <td>
+						<table  border="0" width="100%" height="113px" cellspacing="0" cellpadding="0">
+					  		<tbody>
+					    	<tr>
+								<td width="150" height="150"  background="https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/boletin/iicsal.jpg" >
+								</td>
+							<td width="2"></td>
+					      <td  style=" padding-left: 20px;  background: rgba(21, 47, 78, 0.8); color: #fff; font-family: Arial, 'sans-serif'; ">
+					        <p style="font-size:25px; "><b>Boletín abril 2020</b></p> </td>
+					        </tr>
+					  		</tbody>
+						</table>
+					</td>
+			    </tr>
+			  </tbody>
+			</table>
+				<!--Titulo fin-->
+
+				<!--Bloque Principal-->
+				<!--
+					<table border="0" cellspacing="0" cellpadding="20" class="Noticia">
+					  <tbody>
+					    <tr>
+					      <td valign="top"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjLJsYPtKKe6Z0RyVgCTyntjk6t1bP4hWnyQ&usqp=CAU" alt="Luis Alberto Quevedo"/></td>
+					      <td valign="top" class="NoticiaTexto"><p style="font-size:25px;  font-family:  Helvetica, Arial, 'sans-serif'; font-size: 25px; color: #152f4e; margin-bottom:20px !important;"><b>Mensaje del Director de la FLACSO Argentina</b> </p>
+					        <p style="font-size:15px;  font-family:  Helvetica, Arial, 'sans-serif'"> Compartimos el mensaje de Luis Alberto Quevedo, director de la FLACSO Sede Argentina, dirigido a la comunidad educativa con nuestro agradecimiento a todas y todos ustedes. Gracias a los alumnos, equipos docentes, investigadores y a nuestros y nuestras trabajadoras, la FLACSO Argentina sigue trabajando y a distancia hasta que nos encontremos nuevamente en nuestra Sede.</p>
+					        <b style="font-size:13px;  font-family:  Helvetica, Arial, 'sans-serif'"><a href="https://www.flacso.org.ar/noticias/mensaje-del-director-de-la-flacso-argentina/">Ver video</a>&nbsp;</b></td>
+					    </tr>
+					  </tbody>
+					</table>
+				-->
+				<!--Bloque Principal fin-->
+				<!--Novedades-->
+				
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tbody>
+					<tr>
+					  <td bgcolor="#152f4e" height="45px" style="color: #fff; font-size: 20px; padding-left: 20px;  font-family:  Helvetica, Arial, 'sans-serif'"><b> NOVEDADES ACADÉMICAS E INSTITUCIONALES </b></td>
+					</tr>
+
+				  </tbody>
+			</table>
+			<!--novedades fin-->
+
+
+			<!--noticias-->
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="Noticia">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="img/IICSAL-FLACSO.jpg" width="300"  alt=""/></td>
+			      <td valign="top" style=" font-family:  Helvetica, Arial, 'sans-serif';"><p style="font-size: 25px; color: #152f4e; margin-bottom:20px !important;"><b>Colaboración del IICSAL con la Unidad Coronavirus del MINCyT</b> </p>
+			        <p style=" font-size: 14px;"> El Instituto de Investigaciones Sociales de América Latina (IICSAL) participó del relevamiento federal organizado por la Comisión de Ciencias Sociales de la Unidad Coronavirus del Ministerio de Ciencia, Tecnología e Innovación de la Nación, con motivo de la situación sanitaria nacional e internacional ocasionada por la emergencia del COVID19.</p>
+			        <p style=" font-size: 13px; font-family:  Helvetica, Arial, 'sans-serif'; margin-bottom: 15px !important;"><a href="https://www.flacso.org.ar/noticias/colaboracion-del-iicsal-con-la-unidad-coronavirus-del-mincyt/"><strong>Seguir leyendo</strong></a></p></td>
+			    </tr>
+			  </tbody>
+			</table>
+					  
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" bgcolor="#ededed"  class="NoticiaDoble">
+			  <tbody>
+			    <tr>
+			      <td align="left" valign="top" style=""><img src="img/yomequedoencasa_01.jpg"  alt=""/>
+			        <p style="font-size: 20px; color: #152f4e; font-family:  Helvetica, Arial, 'sans-serif'; margin: 20px 0px !important"><b>Seguí aprendiendo desde tu casa</b> </p>
+			        <p style=" font-size: 13px; font-family:  Helvetica, Arial, 'sans-serif'">Renovamos nuestra experiencia educativa con espacios de apoyo en línea en el campus FLACSO Virtual Argentina</p>
+			        <p style=" font-size: 13px; font-family:  Helvetica, Arial, 'sans-serif'; margin-bottom: 15px !important;"><a href="https://www.flacso.org.ar/noticias/segui-aprendiendo-desde-tu-casa/"><strong>Seguir leyendo</strong></a></p></td>
+			     
+			      <td align="left" valign="top" style="border-left: 1px solid #ABA9A9;font-family:  Helvetica, Arial, 'sans-serif'"><img src="img/yomequedoencasa_01.jpg"  alt=""/>
+			        <p style="font-size: 20px; color: #152f4e; margin: 20px 0px !important"><b>Novedades sobre la virtualización de cursos y la atención al público</b> </p>
+			        <p style=" font-size: 13px;">Encontrá la información necesaria para mantenerte actualizado sobre las noticias de FLACSO Argentina.</p>
+			        <p style=" font-size: 13px; font-family:  Helvetica, Arial, 'sans-serif'; margin-bottom: 15px !important;"><a href="https://docs.google.com/document/d/13E1Td-F0lP_QBaFx3F0aiNb23PMND4Rl0nXBNufUumg/edit#"><strong>Seguir leyendo</strong></a></p></td>
+			    </tr>
+			  </tbody>
+			</table>
+			<!--separador videoconferencia -->
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tbody>
+					<tr>
+					  <td bgcolor="#152f4e" height="45px" style="color: #fff; font-size: 20px; padding-left: 20px;  font-family:  Helvetica, Arial, 'sans-serif'"><b> ENTREVISTAS IICSAL </b></td>
+					</tr>
+
+				  </tbody>
+			</table>
+			<!--fin separador videoconferencia -->
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="img/ped.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>	Programa de educación a distancia</b> </p>
+			        <p style=" font-size: 13px;">En septiembre el PED continuó con capacitaciones a diferentes instituciones. "Enseñar y aprender a través de Entornos Virtuales de Aprendizaje" destinado al cuerpo docente de la <a href="https://www.flacso.edu.ec/portal/" target="_blank">FLACSO Sede Ecuador</a>, y la capacitación para tutores del curso de formación en “Educación Integral de la Sexualidad - EIS” (<a href="https://www.unfpa.org/es" target="_blank">UNFPA</a> - <a href="https://www.mined.gob.sv" target="_blank">MINED</a> - <a href="https://www.flacso.org.sv/" target="_blank">FLACSO El Salvador</a>). Sigue vigente, además, “Servicios en Bibliotecas Públicas Parlamentarias”, la capacitación para trabajadores de la <a href="https://www.bcn.gob.ar" target="_blank">Biblioteca del Congreso de la Nación</a>. Desde septiembre, el PED acompaña al <a href="http://adelastudyabroad.flacso.org.ar/" target="_blank">Programa de Educación Internacional</a> (del Área de Estudios Latinoamericanos de la FLACSO Argentina) y a <a href="https://www.abuelas.org.ar/" target="_blank">Abuelas de Plaza de Mayo</a> quienes dieron inicio a la pasantía "Derechos Humanos, Justicia Social e Interculturalidad", realizado en el marco del Programa Latin American Studies Online Semester (L.A.S.O.S.). Por otro lado, el PED dará apoyo a los cursos de formación en política para mujeres de América Latina y el Caribe del <a href="https://ateneaesparidad.com/" target="_blank">Programa ATENEA</a>, realizados conjuntamente entre <a href="https://lac.unwomen.org/es" target="_blank">ONU Mujeres</a>, <a href="http://americalatinagenera.org/newsite/index.php/es/" target="_blank">PNUD</a>, <a href="https://www.idea.int/es" target="_blank">IDEA Internacional</a> y la FLACSO Argentina. Además, desde el 17 de septiembre, se acompaña el desarrollo de las <a href="https://www.flacso.org.ar/noticias/iv-jornada-de-latinrev/" target="_blank">IV Jornada de LatinREV</a>, organizadas entre la FLACSO Argentina y la <a href="http://www.uncuyo.edu.ar/" target="_blank">Universidad Nacional de Cuyo</a> (UNCuyo).</p>
+			        <p style=" font-size: 13px;"><a href="https://www.flacso.org.ar/flacso-virtual/">Leer más</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="img/IICSAL-FLACSO.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>IICSAL</b> </p>
+			        <p style=" font-size: 13px;">El pasado jueves 24 de septiembre, en el marco del nuevo espacio de trabajo para fomentar el intercambio entre becarios y becarias del CONICET, tuvo lugar un nuevo encuentro con el objetivo de conocer y analizar las distintas bases disponibles para la investigación de nuestra institución. La charla estuvo conducida por María Cecilia Corda y Leonardo Javier Alvarez, la directora y el jefe de Servicios al Público de la Biblioteca de Ciencias Sociales “Enzo Faletto” de la FLACSO Argentina respectivamente.</p>
+			        <p style=" font-size: 13px;">Por otro lado, el IICSAL participó junto a gobiernos locales y organizaciones de la sociedad civil del <a href="https://www.flacso.org.ar/noticias/iicsal-en-el-1-encuentro-nacional-de-las-ciudades-solidarias-de-argentina/">Primer Encuentro Nacional de las Ciudades Solidarias de Argentina</a> “Responsabilidad compartida: hacia un nuevo pacto solidario para el acceso a los derechos económicos, sociales y culturales de las personas refugiadas, solicitantes de asilo, apátridas y otras personas con necesidades de protección internacional, en contextos urbanos”. Un encuentro virtual organizado por el <a href="https://www.acnur.org/el-acnur.html">Alto Comisionado de las Naciones Unidas para los Refugiados</a> (ACNUR) con el objetivo de favorecer la inclusión de las personas refugiadas en la comunidad de acogida.</p>
+			        <p style=" font-size: 13px;"><a href="https://www.flacso.org.ar/instituto-de-investigaciones-de-ciencias-sociales-de-america-latina/">Leer más</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+
+
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="img/bibioteca.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>Biblioteca de Ciencias Sociales “Enzo Faletto”</b> </p>
+			        <p style=" font-size: 13px;">Nuestra Biblioteca estará presente a través de su Directora, María Cecilia Corda, y la docente de los cursos virtuales de área, Mariela Viñas, con dos presentaciones en el marco, por un lado, de la <a href="https://perio.unlp.edu.ar/congresos/node/5927">IV COMCIS: </a>América Latina en disputa. Eje: 4 Derecho a la comunicación, economía política y políticas públicas en comunicación. Facultad de Periodismo y Comunicación Social, La Plata. Y, por otro, de la XI Jornada Temas Actuales de Bibliotecología <a href="http://centromedicomdp.org.ar/biblioteca/jornada-tab/ediciones/xi-jornada-tab.aspx">TAB</a>. Eje Políticas públicas y bibliotecas, Centro Médico, Mar del Plata. Por su parte, se continúa incrementando la colección de tesis de maestrías y doctorado en el repositorio <a href="https://repositorio.flacsoandes.edu.ec/handle/10469/900">FLACSOAndes</a>, que ya llega a más de 600 documentos para su descarga abierta y gratuita. Asimismo, se están sumando al catálogo en línea las producciones de investigadores e investigadoras de FLACSO. El mismo renovó su interface para destacar las novedades incorporadas. Se están brindando de manera remota los servicios de <a href="https://www.flacso.org.ar/biblioteca/pregunte-a-la-biblioteca/">búsqueda bibliográfica</a>, localización <a href="https://www.flacso.org.ar/biblioteca/pregunte-a-la-biblioteca/">de documentos</a>  y <a href="https://www.flacso.org.ar/biblioteca/asesoramiento-en-la-elaboracion-de-tesis-y-citas-bibliograficas/">asesoramiento</a> en la elaboración de tesis y citas bibliográficas. Se continúa desarrollando hasta diciembre la capacitación al personal de la Biblioteca del Congreso de la Nación, actividad organizada junto con FLACSO Virtual: Servicios en bibliotecas públicas parlamentarias: fundamentos, recorridos y perspectivas en el siglo XXI. También comenzó el curso virtual <a href="https://www.flacso.org.ar/formacion-academica/factores-de-riesgo-en-bibliotecas/">Factores de riesgos en bibliotecas: conceptos, herramientas y aprendizajes</a>.</p>
+			        <p style=" font-size: 13px;"><a href="https://www.flacso.org.ar/biblioteca/">Leer más</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+
+
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="img/iv-jornada-latinrev.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>IV Jornada de LatinREV-FLACSO Argentina</b> </p>
+			        <p style=" font-size: 13px;">Los días jueves, hasta el 22 de octubre, se desarrollará la IV Jornada de LatinREV: “Prácticas de edición y estrategias de posicionamiento de las Revistas Académicas en Ciencias Sociales y Humanidades”; organizada en conjunto con la Universidad Nacional de Cuyo (UNCuyo). Cuenta con prestigiosos expositores que ofrecerán Conferencias Magistrales sobre temas como convocatorias, plagio, referato, estrategias de indización, entre otros. Es un evento abierto, libre, gratuito apoyado por el Programa Educación a Distancia de la FLACSO Argentina.</p>
+			        <p style=" font-size: 13px;">Ver programa completo <a href="https://bit.ly/33Bibo9">aquí</a> | Formulario de inscripción <a href="https://inscripcion.flacso.org.ar/inscripcion_interesados_datpersonal.php?idpo=8102">aquí</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+
+
+			<!--noticias fin-->
+
+			<!--separador videoconferencia -->
+
+
+			<!--separador videoconferencia -->
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tbody>
+					<tr>
+					  <td bgcolor="#152f4e" height="45px" style="color: #fff; font-size: 20px; padding-left: 20px;  font-family:  Helvetica, Arial, 'sans-serif'"><b> IICSAL EN LOS MEDIOS </b></td>
+					</tr>
+
+				  </tbody>
+			</table>
+			<!--fin separador videoconferencia -->
+
+			<!--Módulo Videoconferencia -->
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña" style="background: #ededed; border-bottom: 1px solid #ccc">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/boletin/videoconferencia.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>Webinar: Educación en la Primera Infancia: el rol de los educadores en tiempos de pandemia</b> </p>
+			        <p style=" font-size: 13px;">Raúl Mercer, coordinador del Programa de Ciencias Sociales y Salud de la FLACSO Argentina, participó del webinar organizado por OMEP (Organización Mundial para la Educación Preescolar), junto a Desiree Lopez de Maturana Luna y Mercedes Mayol Lassalle. El objetivo del encuentro fue abordar la situación del bienestar y la salud física y emocional infantil durante la pandemia.</p>
+			        <p style=" font-size: 13px;"><a href="https://www.youtube.com/watch?v=QARRcndTjEA&feature=youtu.be">Ver videoconfencia completa aquí</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña" style="background: #ededed; border-bottom: 1px solid #ccc">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/boletin/videoconferencia.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>Conversatorio “Gestión Pública y Transparencia: Política preventiva para un modelo de desarrollo con inclusión social”</b> </p>
+			        <p style=" font-size: 13px;"> En el marco del Diploma Superior en Gestión y Control de Políticas Públicas del Área Estado y Políticas Públicas de la FLACSO Argentina, se llevó a cabo un diálogo entre: Daniel García Delgado, director del Área Estado y Políticas Públicas; Félix Crous, titular de la Oficina Anticorrupción; Elizabeth Gómez Alcorta, ministra de las Mujeres, Géneros y Diversidad de la Nación; Ana Castellani, secretaría de Gestión y Empleo Público de la Nación; Christian Gruenberg, consultor internacional y miembro de FUNDAR México.</p>
+			        <p style=" font-size: 13px;"><a href="https://www.youtube.com/watch?v=Y_AGKp1tJjQ&feature=youtu.be">Ver videoconfencia completa aquí</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña" style="background: #ededed; border-bottom: 1px solid #ccc">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/boletin/videoconferencia.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>Webinario "Diálogos y convergencias sobre las vacunas para COVID-19"</b> </p>
+			        <p style=" font-size: 13px;"> En tiempos de pandemia y dilemas éticos, se realizó una actividad organizada por el Foro Latinoamericano de Comités de Ética de Investigación en Salud Grupo Argentina (FLACEIS) donde participaron como disertantes las doctoras Florencia Luna, directora del Programa Bioética de la FLACSO Argentina y Angela Gentile, jefa del departamento de epidemiología del Hospital de Niños Ricardo Guitierrez.</p>
+			        <p style=" font-size: 13px;"><a href="https://www.youtube.com/watch?v=souZ8Iy0D9o&feature=youtu.be">Ver videoconfencia completa aquí</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+
+			<!-- Fin Módulo Videoconferencia-->
+
+
+
+
+
+			<!--Queres Abonar -->
+			<!--
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/boletin/yomequedoencasa.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>¿Querés abonar y no sabés cómo?</b> </p>
+			        <p style=" font-size: 13px;"> Se encuentran habilitados todos los medios de pago electrónicos, sumate a #YoMeQuedoEnCasaConFLACSOArgentina</p>
+			        <p style=" font-size: 13px;"><a href="https://www.flacso.org.ar/noticias/queres-abonar-y-no-sabes-como/">Seguir leyendo</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+		-->
+			<!--Fin Queres Abonar-->
+
+
+			<!-- inicio Pensar la pandemia-->
+			<!--
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tbody>
+					<tr>
+					  <td bgcolor="#152f4e" height="45px" style="color: #fff; font-size: 20px; padding-left: 20px;  font-family:  Helvetica, Arial, 'sans-serif'"><b> PENSAR LA PANDEMIA </b></td>
+					</tr>
+
+				  </tbody>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" class="NoticiaPequeña" style="background: #ededed;">
+			  <tbody>
+			    <tr>
+			      <td valign="top" width="150"><img src="https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/boletin/videoconferencia.jpg" width="150"  alt=""/></td>
+			      <td valign="top" style="font-family:  Helvetica, Arial, 'sans-serif'"><p style="font-size: 20px; color: #152f4e;"><b>Pensar la pandemia</b> </p>
+			        <p style=" font-size: 13px;"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+			        <p style=" font-size: 13px;"><a href="https://www.flacso.org.ar/noticias/queres-abonar-y-no-sabes-como/">Seguir leyendo</a></p></td>
+			    </tr>
+			  </tbody>
+			</table> 
+-->
+			<!-- Fin Pensar la pandemia-->
+
+
+			<!--publicaciones y medios-->	
+			<!--
+			<table width="100%" border="0" cellspacing="0" cellpadding="20" bgcolor="#152f4e" class="NoticiaDobleAzul">
+			  <tbody>
+			    <tr>
+			      <td>
+					  <table width="100%" border="1" bordercolor="#fff" cellspacing="0" cellpadding="10">
+					  <tbody>
+							<tr>
+							  <td align="center" style="color: #fff; font-family:  Helvetica, Arial, 'sans-serif'"><p></p><img src="http://moodle-dev.flacso.org.ar/theme/gflacso/vale/Biblioteca/libro.png" width="35" height="39" al t=""/>
+							    <p style="font-size:20px; margin: 20px 0px !important;"><a  style="  color: #fff;" href="https://www.flacso.org.ar/noticias/ediciones-adquiridas-noviembre-de-2019/">Publicaciones de investigadores de la FLACSO Argentina</a></p>
+							    <p style="color: #fff;font-size:13px; font-family:  Helvetica, Arial, 'sans-serif'; margin: 20px 0px !important;"> Investigadores de la FLACSO sede Argentina, desde su lugar, no dejaron de crear y reflexionaron desde diferentes perspectivas sobre las inquietudes, los interrogantes y las percepciones que tenemos hoy todos y todas las ciudadanas. Los invitamos a leer volver a pensar nuestro contexto actual aquí.
+								 </p>
+								</td>
+							</tr>
+			  			</tbody>
+						</table>
+					</td>
+			 			<td>
+					 <table width="100%" border="1" bordercolor="#fff" cellspacing="0" cellpadding="10">
+						  <tbody>
+							<tr>
+							  <td align="center" style="color: #fff; font-family:  Helvetica, Arial, 'sans-serif'"><p></p><img src="img/revista.png" width="60" height="41" alt=""/>
+							    <p style="font-size:20px; margin: 20px 0px !important;"><a style="  color: #fff;" href="https://www.flacso.org.ar/noticias/nuevas-revistas-octubre-de-2019/">FLACSO EN LOS MEDIOS</a></p>
+							    <p style="color: #fff; font-size:13px; font-family:  Helvetica, Arial, 'sans-serif'; margin: 20px 0px !important;">Compartimos artículos de investigadores y docentes de la FLACSO Argentina, publicados en diferentes medios de comunicación, dónde ponen en relieve diversas perspectivas en relación a la situación de la pandemia. Para acceder haga clic aquí </p></td>
+							</tr>
+						  </tbody>
+						</table>
+					</td>
+
+					 </tr>
+				 </tbody>
+			</table>
+		-->
+			<!--publicaciones y medios fin-->	
+
+
+
+
+			<!-- inicio lista areas-->
+<!--
+						<table border="0" cellpadding="25" cellspacing="0" width="100%" class="Areas">
+							<tbody>
+								<tr>
+									<td>
+									<table border="0" cellpadding="3" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td width="80"><img alt="Educacion" height="77" src="img/logos/educa.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=187" style="  color: #152f4e;" target="_blank"><strong>Educaci&oacute;n</strong></a><br />
+												<a href="mailto:educa@flacso.org.ar" style="color:#826A6B;">educa@flacso.org.ar</a></p>
+												</td>
+												<td width="80"><img alt="Economía" height="77" src="img/logos/economia.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion-academica/economia-politica-con-mencion-en-economia-argentina/" style="  color: #152f4e;" target="_blank"><strong>Econom&iacute;a y Tecnolog&iacute;a</strong></a><br />
+												<a href="mailto:maestriaep@flacso.org.ar" style="color:#826A6B;">maestriaep@flacso.org.ar</a></p>
+												</td>
+												
+											</tr>
+											<tr>
+												<td width="80"><img alt="Doctorado" height="77" src="img/logos/cyc.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/noticias/inscripcione-abiertas-area-tematica-comunicacion-y-cultura/" style="  color: #152f4e;" target="_blank"><strong>Comunicaci&oacute;n y Cultura</strong></a><br />
+												<a href="mailto:comunicacion@flacso.org.ar" style="color:#826A6B;">comunicacion@flacso.org.ar</a></p>
+												</td>
+												<td width="80"><img alt="Desarrollo Humano" height="77" src="img/logos/eypp.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=189" style="  color: #152f4e;" target="_blank"><strong>Estado y Pol&iacute;ticas P&uacute;blicas</strong></a><br />
+												<a href="mailto:politicaspublicas@flacso.org.ar" style="color:#826A6B;">politicaspublicas@flacso.org.ar</a></p>
+												</td>
+												
+											</tr>
+											<tr>
+												<td width="80"><img alt="" height="77" src="img/logos/adela.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><strong><a href="http://adelastudyabroad.flacso.org.ar/" style="  color: #152f4e;" target="_blank">International Education Program</a></strong><br />
+												<a href="mailto:adelastudyabroad@flacso.org.ar" style="color:#826A6B;">adelastudyabroad@flacso.org.ar</a></p>
+												</td>
+												<td width="80"><img alt="Cambio climatico" height="77" src="img/logos/desarrollo-innovacion-y-relaciones.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=96" style="  color: #152f4e;" target="_blank"><strong>Desarrollo, Innovaci&oacute;n y Sociedad</strong></a><br />
+												<a href="mailto:cambioclimatico@flacso.org.ar" style="color:#826A6B;">cambioclimatico@flacso.org.ar</a></p>
+												</td>
+												
+											</tr>
+											<tr>
+												<td width="80"><img alt="" height="77" src="img/logos/estudios-politicos.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/noticias/inscripciones-abiertas-area-tematica-ciencia-politica-y-sociologia/" style="  color: #152f4e;" target="_blank"><strong>Estudios Pol&iacute;ticos</strong></a><br />
+												<a href="mailto:posg@flacso.org.ar" style="color:#826A6B;">posg@flacso.org.ar</a></p>
+												</td>
+												<td width="80"><img alt="Relaciones del trabajo" height="77" src="img/logos/sociedad-y-vida-contemporanea.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=16629" style="  color: #152f4e;" target="_blank"><strong>Estudios y Relaciones del Trabajo</strong></a><br />
+												<a href="mailto:programatrabajo@flacso.org.ar" style="color:#826A6B;">programatrabajo@flacso.org.ar</a></p>
+												</td>
+												
+											</tr>
+											<tr>
+												<td width="80"><img alt="" height="77" src="img/logos/desarrollo-innovacion-y-relaciones.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=198" style="  color: #152f4e;" target="_blank"><strong>Planificaci&oacute;n Participativa y Gesti&oacute;n Asociada</strong></a><br />
+												<a href="mailto:programappga@flacso.org.ar" style="color:#826A6B;">programappga@flacso.org.ar</a></p>
+												</td>
+												<td width="80"><img alt="Relaciones del trabajo" height="76" src="img/logos/desarrollohumanosalud.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=205" style="  color: #152f4e;" target="_blank"><strong>Pol&iacute;ticas Sociales </strong></a><br />
+												<a href="mailto:polsoc@flacso.org.ar" style="color:#826A6B;">polsoc@flacso.org.ar</a></p>
+												</td>
+												
+											</tr>
+											<tr>
+												<td width="80"><img alt="" height="77" src="img/logos/dbpg.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=104" style="  color: #152f4e;" target="_blank"><strong>Global Studies Programme</strong></a><br />
+												<a href="mailto:gsp@flacso.org.ar" style="color:#826A6B;">gsp@flacso.org.ar</a></p>
+												</td>
+												<td width="80"><img alt="" height="77" src="img/logos/adela.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/noticias/propuesta-de-formacion-conjunta-por-los-programas-peacso-y-proele/" style="  color: #152f4e;" target="_blank"><strong>Espa&ntilde;ol como Lengua extranjera</strong></a><br />
+												<a href="mailto:estudioslatinoamericanos@flacso.org.ar" style="color:#826A6B;">estudioslatinoamericanos@flacso.org.ar</a></p>
+												</td>
+												
+											</tr>
+											<tr>
+												<td width="80"><img alt="ceia" height="77" src="img/logos/ingles.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/noticias/cursos-de-ingles/" style="  color: #152f4e;" target="_blank"><strong>Lenguas y Culturas Extranjeras</strong></a><br />
+												<a href="mailto:ingles@flacso.org.ar" style="color:#826A6B;">ingles@flacso.org.ar</a></p>
+												</td>
+												<td width="80"><img alt="" height="75" src="img/logos/psicologia.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.aprendizaje.flacso.org.ar/" style="  color: #152f4e;" target="_blank"><strong>Psicolog&iacute;a del Conocimiento y Aprendizaje</strong></a><br />
+												<a href="mailto:aprendizaje@flacso.org.ar" style="color:#826A6B;">aprendizaje@flacso.org.ar</a></p>
+												</td>
+											</tr>
+											<tr>
+												<td width="80"><img alt="RRII" height="77" src="img/logos/rrii.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=191" style="  color: #152f4e;" target="_blank"><strong>Relaciones Internacionales</strong></a><br />
+												<a href="mailto:mri@flacso.org.ar" style="color:#826A6B;">mri@flacso.org.ar</a></p>
+												</td>
+
+												<td width="80"><img alt="" height="77" src="img/logos/doctorado.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion-academica/doctorado-en-ciencias-sociales/seminarios/" style="  color: #152f4e;" target="_blank"><strong>Doctorado en Ciencias Sociales</strong></a><br />
+												<a href="mailto:seminariosdoctorado@flacso.org.ar" style="color:#826A6B;">seminariosdoctorado@flacso.org.ar</a></p>
+												</td>
+											</tr>
+											<tr>
+												<td width="80"><img alt="" height="77" src="img/logos/dbpg.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=111" style="  color: #152f4e;" target="_blank"><strong>Derecho y Bienes P&uacute;blicos</strong></a><br />
+												<a href="mailto:dbp@flacso.org.ar" style="color:#826A6B;">dbp@flacso.org.ar</a></p>
+												</td>
+
+												<td width="80"><img alt="" height="77" src="img/logos/adela.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/noticias/propuesta-de-formacion-conjunta-por-los-programas-peacso-y-proele/" style="  color: #152f4e;" target="_blank"><strong>Estudios Avanzados en Ciencias Sociales, Humanidades y Artes</strong></a><br />
+												<a href="mailto:estudioslatinoamericanos@flacso.org.ar" style="color:#826A6B;">estudioslatinoamericanos@flacso.org.ar</a></p>
+												</td>
+											</tr>
+											<tr>
+												<td width="80"><img alt="" height="77" src="img/logos/desarrollo-innovacion-y-relaciones.png" width="76" /></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=199" style="  color: #152f4e;" target="_blank"><strong>Estudios Sociales Agrarios</strong></a><br />
+												<a href="mailto:agrarias@flacso.org.ar" style="color:#826A6B;">agrarias@flacso.org.ar</a></p>
+												</td>
+
+												<td width="80"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=24118" target="_blank"><img alt="" height="77" src="img/logos/fv.png" width="76" /></a></td>
+												<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  ">
+												<p style="font-size:16px;"><a href="https://www.flacso.org.ar/formacion/ver-mas/?id=24118" style="  color: #152f4e;" target="_blank"><strong>Programa de Educaci&oacute;n a Distancia</strong></a><br />
+												<a href="mailto:infofv@flacso.org.ar" style="color:#826A6B;">infofv@flacso.org.ar</a></p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					-->
+						<!-- fin lista areas -->
+
+						<!--Agenda-->
+							
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							  <tbody>
+								<tr>
+								  <td bgcolor="#152f4e" height="45px" style="color: #fff; font-size: 20px; padding-left: 20px;  font-family:  Helvetica, Arial, 'sans-serif'"><b> AGENDA DE ACTIVIDADES CyT  </b></td>
+								</tr>
+
+							  </tbody>
+						</table>
+						<!--agenda fin-->
+						<!-- Inicio Agenda -->
+						<table border="0" cellspacing="0" width="100%" class="Agenda">
+							<tbody>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/1410.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/conversatorio-danza/" style="  color: #152f4e;" target="_blank"><strong>Ciclo Cultura y Equidad 9° Conversatorio: Danza </strong></a></p>
+
+									<p style=" font-size: 13px;">El <a href="https://www.flacso.org.ar/institucional/unidades-academicas/comunicacion-y-cultura/" target="_blank">Área de Comunicación y Cultura</a> de la FLACSO Argentina junto con el <a href="http://www.cceba.org.ar/" target="_blank">Centro Cultural de España en Buenos Aires</a>, reunirá a profesionales del campo para conversar y reflexionar juntos/as sobre, problemáticas, desafíos y propuestas para la equidad de género en el ámbito cultural de la danza. Invitación a mujeres y disidentes con inscripción previa <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFxY2Po9XOgLgP8PlFwkGZ15DXwjn16K_DmN6FSYqzXEA6SA/viewform" target="_blank">aquí</a>.</p>
+									</td>
+								</tr>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/1410.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/charla-informativa-maestria-economia-politica-argentina-201014/" style="  color: #152f4e;" target="_blank"><strong>Charla informativa de la Maestría en Economía Política con mención en Economía Argentina</strong></a></p>
+
+									<p style=" font-size: 13px;">La <a href="https://www.flacso.org.ar/formacion-academica/economia-politica-con-mencion-en-economia-argentina/" target="_blank">Maestría en Economía Política con mención en Economía Argentina</a> de la FLACSO Argentina invita a participar del encuentro, dirigido a interesados/as y aspirantes a ingresar en la Cohorte 2021. Se presentarán en forma general los objetivos y alcances del programa y se brindará información detallada sobre los requisitos de admisión. Inscripción previa <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1KJwf4BoL359Wgh44DOvSr_a5yqM2vneDdE6kQ4q7oNUghg/viewform?gxids=7757" target="_blank">aquí</a>.</p>
+									</td>
+								</tr>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/1410.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/jornada-transformaciones-en-proceso/" style="  color: #152f4e;" target="_blank"><strong>Jornada “Transformaciones en proceso”</strong></a></p>
+
+									<p style=" font-size: 13px;">Coordina la <a href="https://www.catunescomujer.org" target="_blank">Cátedra Regional UNESCO Mujer, Ciencia y Tecnología en América Latina</a> - FLACSO Argentina el encuentro <strong>“Hacia la institucionalización de políticas y programas de igualdad de género y de cambio curricular y pedagógico en las universidades y centros de investigación de América Latina”</strong>. Transmisión en vivo por <a href="https://www.youtube.com/user/FLACSOArgentina/videos?view=2&amp;sort=dd&amp;live_view=502&amp;shelf_id=1" target="_blank">YouTube FLACSO Argentina</a>.<br>
+									&nbsp;</p>
+									</td>
+								</tr>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/1510.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/que-conversaciones-pueden-poner-a-circular-el-arte/" style="  color: #152f4e;" target="_blank"><strong>¿Qué conversaciones pueden poner a circular el arte?</strong></a></p>
+
+									<p style=" font-size: 13px;">El <a href="https://www.flacso.org.ar/investigaciones/laboratorio-cultura-y-territorio/" target="_blank">Lab de Cultura y Territorio</a> del <a href="https://www.flacso.org.ar/unidades-academicas/comunicacion-y-cultura/" target="_blank">Área de Comunicación y Cultura</a> de la FLACSO Argentina invita a la <strong>presentación del <a href="http://emiliogarciawehbi.com.ar/archivo/proyecto-filoctetes-lemnos-en-buenos-aires/" target="_blank">Proyecto Filoctetes</a> de Emilio García Wehbi </strong>para reflexionar desde las Ciencias Sociales en general y desde la Gestión Cultural en particular, alrededor de la pregunta: ¿Qué conversaciones pueden ponerse a circular desde el arte?. Por consultas e inscripciones: <a href="mailto:culturayterritorio@flacso.org.ar">culturayterritorio@flacso.org.ar</a></p>
+									</td>
+								</tr>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/1510.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/iv-jornada-de-latinrev-flacso-argentina/" style="  color: #152f4e;" target="_blank"><strong>IV Jornada de LatinREV-FLACSO Argentina</strong></a></p>
+
+									<p style=" font-size: 13px;">En esta ocasión, <a href="https://www.flacso.org.ar/latinrev/" target="_blank">LatinREV</a>, en conjunto con la Universidad Nacional de Cuyo (UNCuyo), invitan a participar de la segunda parte del <strong>Panel II: “Indización, redes sociales y buscadores bibliográficos académicos: estrategias de las revistas”</strong>. Se encuentra el formulario de inscripción disponible <a href="https://inscripcion.flacso.org.ar/inscripcion_interesados_datpersonal.php?idpo=8102" target="_blank">aquí</a>.<br>
+									&nbsp;</p>
+									</td>
+								</tr>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/2010.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/ciclo-de-charlas-los-desafios-de-la-educacion-para-el-trabajo-2020-04/" style="  color: #152f4e;" target="_blank"><strong>Ciclo de charlas: “Los desafíos de la educación para el trabajo 2020: crisis sanitaria, empleo, desigualdades”</strong></a></p>
+
+									<p style=" font-size: 13px;">El <strong>4° encuentro: "Síntesis de principales dilemas, propuestas y desafíos a futuro"</strong> es organizado por el <a href="https://www.flacso.org.ar/institucional/programas/programa-estudios-y-relaciones-del-trabaj" target="_blank">Programa Estudios y Relaciones del Trabajo</a> de la FLACSO Argentina, CLACSO, UNIPE, Fundación UOCRA y PREJET. Para recibir el link de acceso se debe completar el siguiente formulario <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1qwBuVd5RqDvH0rYqfkb6UjCnTlBAMuR-zcH1kuq7gdVB9w/viewform" target="_blank">aquí</a>.</p>
+									</td>
+								</tr>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/2210.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/iv-jornada-de-latinrev-flacso-argentina-201022/" style="  color: #152f4e;" target="_blank"><strong>Cierre de la IV Jornada de LatinREV-FLACSO Argentina</strong></a></p>
+
+									<p style=" font-size: 13px;">El último encuentro, organizado por <a href="https://www.flacso.org.ar/latinrev/" target="_blank">LatinREV</a> junto a la Universidad Nacional de Cuyo (UNCuyo), se llevará a cabo la Conferencia de cierre:<strong> "Publicar en ciencias sociales en/desde América Latina: estilos y circuitos de posicionamiento y consagración"</strong> a cargo de Fernanda Beigel. Disponible la inscripción <a href="https://inscripcion.flacso.org.ar/inscripcion_interesados_datpersonal.php?idpo=8102" target="_blank">aquí</a>.</p>
+									</td>
+								</tr>
+								<tr>
+									<td width="100"><img alt="" height="95" src="img/2810.png" width="76"></td>
+									<td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size:14px;  " valign="top">
+									<p style="font-size:16px;"><a href="https://www.flacso.org.ar/conversatorio-patrimonio-y-archivos/" style="  color: #152f4e;" target="_blank"><strong>Ciclo Cultura y Equidad 10° Conversatorio: Patrimonio y Archivos</strong></a></p>
+
+									<p style=" font-size: 13px;">El <a href="https://www.flacso.org.ar/unidades-academicas/comunicacion-y-cultura/" target="_blank">Área de Comunicación y Cultura</a> de la FLACSO Argentina junto con el Centro Cultural de España en Buenos Aires, invita a participar del conversatorio sobre patrimonio y archivos. Un ámbito de la cultura que no es ajeno a las asimetrías de poder y en el acceso a los recursos para las mujeres y géneros disidentes. Requiere inscripción previa <a href="https://docs.google.com/forms/d/e/1FAIpQLScf6Ak9nQhutYOUVkasAVxrhHxBowciQuNW1B7Z2tsmbPpMvg/viewform" target="_blank">aquí</a>.</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+			<!-- fin Agenda -->
+
+
+			<!-- inicio Publicaciones-->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom: 2px solid #ddd;">
+				  <tbody>
+					<tr>
+					  <td bgcolor="#152f4e" height="45px" style="color: #fff; font-size: 20px; padding-left: 20px;  font-family:  Helvetica, Arial, 'sans-serif'"><b> PUBLICACIONES</b></td>
+					</tr>
+
+				  </tbody>
+			</table>
+
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" class="PensarLaPandemia">
+				<tbody>
+					<tr>
+						<td align="center">
+
+							<td valign="top" style="background: #ddd; padding: 15px 5px 0px 10px;">
+								<img src="img/Global-Capital-and-Social-Difference.jpg" width="70px">
+							</td>
+							<td style="background: #ddd; padding: 0px 10px 15px 10px;" valign="top">
+								<h3><a style="display: block; color: #01416f; font-size:18px;  font-family:  Helvetica, Arial, 'sans-serif'; font-weight: 300;" href="https://www.flacso.org.ar/publicaciones/global-capital-and-social-difference/">Global Capital and Social Difference</a></h3>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">This volume offers insights into ongoing global socioeconomic transformations by directing attention to the significance of labour, work, craft, community, social institutions, social movements and emergent subjectivities in different parts of the world.</p>
+								<p style=" padding-top: 10px; font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';"><a style="color: #333" href="https://www.flacso.org.ar/publicaciones/global-capital-and-social-difference/"> Leer más </a> - <a style="color: #333" href="https://www.flacso.org.ar/publicaciones/global-capital-and-social-difference/"> Descargar </a> </p>
+							</td>
+						</td>
+
+						<td align="center">
+
+							<td valign="top" style="background: #ddd; padding: 15px 5px 0px 10px;">
+								<img src="img/propuesta-educativa-53.jpg" width="70px">
+							</td>
+							<td style="background: #ddd; padding: 0px 10px 15px 10px;" valign="top">
+								<h3><a style="display: block; color: #01416f; font-size:18px;  font-family:  Helvetica, Arial, 'sans-serif'; font-weight: 300;" href="http://propuestaeducativa.flacso.org.ar/">Revista Propuesta Educativa N 53</a></h3>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">Publicación académica del Programa Educación, Conocimiento y Sociedad del Área Educación de la FLACSO Argentina, cuyo dossier presenta la mirada de especialistas sobre "Mundo contemporáneo y Educación". Coordinado por Guillermina Tiramonti.</p>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">Accede a la descarga gratuita del nuevo número de la revista:</p>
+								<p style=" padding-top: 10px; font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';"><a style="color: #333" href="http://propuestaeducativa.flacso.org.ar/"> Leer más </a> - <a style="color: #333" href="http://propuestaeducativa.flacso.org.ar/"> Descargar </a> </p>
+							</td>
+						</td>
+					</tr>
+					<tr style="border-top: 2px solid #ddd;">
+						<td align="center">
+
+							<td valign="top" style="background: #ddd; padding: 15px 5px 0px 10px;">
+								<img src="img/DT-25.jpg" width="70px">
+							</td>
+							<td style="background: #ddd; padding: 0px 10px 15px 10px;" valign="top">
+								<h3><a style="display: block; color: #01416f; font-size:18px;  font-family:  Helvetica, Arial, 'sans-serif'; font-weight: 300;" href="https://www.flacso.org.ar/publicaciones/global-capital-and-social-difference/">La crisis del COVID-19 y las relaciones laborales en la industria siderúrgica y la agroindustria azucarera en argentina (marzo-junio 2020)</a></h3>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">Este documento de trabajo tiene por objeto abordar los impactos de la crisis del COVID-19 en las relaciones laborales en dos actividades del sector industrial en la Argentina, la siderurgia y la agroindustria azucarera, de gran incidencia económica y de empleo (período marzo-junio 2020).</p>
+								<p style=" padding-top: 10px; font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';"><a style="color: #333" href="https://www.flacso.org.ar/publicaciones/la-crisis-del-covid-19-y-las-relaciones-laborales-en-la-industria-siderurgica-y-la-agroindustria-azucarera-en-argentina/"> Leer más </a> - <a style="color: #333" href="https://www.flacso.org.ar/wp-content/uploads/2020/09/DT25_FLACSO_AEyT_-COVID19_conflictos-laborales_siderurgia-y-agroind-azucarera.pdf">Descargar</a> </p>
+							</td>
+						</td>
+
+						<td align="center">
+
+							<td valign="top" style="background: #ddd; padding: 15px 5px 0px 10px;">
+								<img src="img/DT-26.jpg" width="70px">
+							</td>
+							<td style="background: #ddd; padding: 0px 10px 15px 10px;" valign="top">
+								<h3><a style="display: block; color: #01416f; font-size:18px;  font-family:  Helvetica, Arial, 'sans-serif'; font-weight: 300;" href="http://propuestaeducativa.flacso.org.ar/">Los grupos económicos locales durante el siglo XX y las dos primeras décadas del siglo XXI</a></h3>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">Este trabajo persigue analizar la trayectoria histórica sobresaliente de esta fracción de capital tan relevante para la economía argentina (los grupos económicos locales) y avanzar en el estudio de su comportamiento reciente.</p>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">Accede a la descarga gratuita del nuevo número de la revista:</p>
+								<p style=" padding-top: 10px; font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';"><a style="color: #333" href="https://www.flacso.org.ar/wp-content/uploads/2020/09/DT26_FLACSO-AEyT_Grupos-economicos.pdf"> Leer más </a> - <a style="color:#333" href="https://www.flacso.org.ar/publicaciones/los-grupos-economicos-locales-durante-el-siglo-xx-y-las-dos-primeras-decadas-del-siglo-xxi/">Descargar</a> </p>
+							</td>
+						</td>
+					</tr>
+					<tr style="border-top: 2px solid #ddd;">
+						<td align="center">
+
+							<td valign="top" style="background: #ddd; padding: 15px 5px 0px 10px;">
+								<img src="img/DT-27.jpg" width="70px">
+							</td>
+							<td style="background: #ddd; padding: 0px 10px 15px 10px;" valign="top">
+								<h3><a style="display: block; color: #01416f; font-size:18px;  font-family:  Helvetica, Arial, 'sans-serif'; font-weight: 300;" href="https://www.flacso.org.ar/publicaciones/global-capital-and-social-difference/">Restricciones al desarrollo en la Argentina actual: el comercio exterior y la cúpula empresaria</a></h3>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">El Documento de trabajo n° 27 consta de dos artículos: “La balanza comercial argentina” (A. Wainer) y “Notas acerca de la presencia e incidencia de la cúpula empresaria en la balanza comercial de la Argentina” (E. M. Basualdo).</p>
+								<p style=" padding-top: 10px; font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';"><a style="color: #333" href="https://www.flacso.org.ar/publicaciones/restricciones-al-desarrollo-en-la-argentina-actual-el-comercio-exterior-y-la-cupula-empresaria/"> Leer más </a> - <a style="color: #333" href="https://www.flacso.org.ar/wp-content/uploads/2020/09/DT27_FLACSO-AEyT_Comercio-exterior-y-cupula-empresaria.pdf">Descargar</a> </p>
+							</td>
+						</td>
+						<td align="center">
+							<td valign="top" style="background: #ddd; padding: 15px 5px 0px 10px;">
+								<img src="img/DT-26.jpg" width="70px">
+							</td>
+							<td style="background: #ddd; padding: 0px 10px 15px 10px;" valign="top">
+								<h3><a style="display: block; color: #01416f; font-size:18px;  font-family:  Helvetica, Arial, 'sans-serif'; font-weight: 300;" href="http://propuestaeducativa.flacso.org.ar/">Los grupos económicos locales durante el siglo XX y las dos primeras décadas del siglo XXI</a></h3>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">Este trabajo persigue analizar la trayectoria histórica sobresaliente de esta fracción de capital tan relevante para la economía argentina (los grupos económicos locales) y avanzar en el estudio de su comportamiento reciente.</p>
+								<p style=" font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';">Accede a la descarga gratuita del nuevo número de la revista:</p>
+								<p style=" padding-top: 10px; font-size: 13px; color: #333; font-family:  Helvetica, Arial, 'sans-serif';"><a style="color: #333" href="https://www.flacso.org.ar/wp-content/uploads/2020/09/DT26_FLACSO-AEyT_Grupos-economicos.pdf"> Leer más </a> - <a style="color:#333" href="https://www.flacso.org.ar/publicaciones/los-grupos-economicos-locales-durante-el-siglo-xx-y-las-dos-primeras-decadas-del-siglo-xxi/">Descargar</a> </p>
+							</td>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- fin publicaciones--> 
+			<table class="Pie" border="0" cellspacing="0" cellpadding="10" bgcolor="#ccc">
+			  <tbody>
+				  <tr> <td></td></tr>
+			    <tr>
+			      <td class="LogoPie" style="padding-left: 30px; padding-right: 30px;"><img src="https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/boletin/iicsal.jpg" width="150" alt="FLACSO Argentina Facultad Latinoamericana de Ciencias Sociales"/></td>
+			      <td style="border-left: 1px solid #ABA9A9;"></td>
+			      <td style="font-family:  Helvetica, Arial, 'sans-serif'; font-size: 13px;"><p> Facultad Latinoamericana de Ciencias Sociales
+			        Tucumán 1966 (C1050AAN), Ciudad Autónoma de Buenos Aires, Argentina.
+			        Tel. + 54 11 5238 9300</p>
+			        <p> <a href="https://www.flacso.org.ar/">flacso@flacso.org.ar</a> -     <a href="mailto:https://www.flacso.org.ar/">www.flacso.org.ar</a></p>	  
+					<table class="PieRedes" border="0" cellspacing="0" cellpadding="5" >
+					  	<tbody>
+						    <tr width="100%">
+							     <td align="left" width="35"><a href="https://www.facebook.com/flacsoarg/"><img src="img/facebook.png" width="35" height="35" alt="FaceBook"/></a></td>
+								<td align="left" width="35"><a href="https://twitter.com/FLACSOARGENTINA"><img src="img/twitter.png" width="35" height="35" alt="Twitter"/></a></td>
+								<td align="left" width="35"><a href="https://www.youtube.com/user/FLACSOArgentina"><img src="img/youtube.png" width="35" height="35" alt="Youtube"/></a></td>
+								<td align="left" width="35"><a href="https://www.instagram.com/flacsoargentina/"><img src="img/instagram.png" width="35" height="35" alt="Instagram"/></a></td>		
+								<td align="left" width="35"><a href="https://ar.linkedin.com/company/flacso"><img src="img/linkedin.png" width="35" height="35" alt="Linkedin"/></a></td>	
+							</tr>
+						</tbody>
+					</table>
+					</td>
+			    </tr>
+				 <tr> <td></td></tr>
+			  </tbody>
+			</table>
+		</td>
+    </tr>
+  </tbody>
+</table>	
+		<!--contenedor fin-->
+</body>
+</html>

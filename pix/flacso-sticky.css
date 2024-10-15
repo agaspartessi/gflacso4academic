@@ -1,0 +1,227 @@
+body {
+    background-color: #fff;
+}
+
+#page {
+    margin-top: 0;
+}
+
+#page-wrapper\ columns2:before {
+    content: ' ';
+    background: url(https://virtual.flacso.org.ar/theme/gflacso/vale/ivan/FLACSO_con_fondo_Virtual.svg);
+    position: relative;
+    height: 132px;
+    display: block;
+    width: 266px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 0px;
+    left: 0px;
+    margin: 12px 0 -45px 52px;
+    z-index: 10000;
+    overflow: visible;
+    background-size: 266px;
+    background-color: #fff;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.fixed-top {
+    position: sticky;
+}
+
+.navbar {
+    height: 55px;
+    padding: 0.5rem 0.5rem;
+}
+    
+.btn-secondary, .btn-default {
+    color: #152f4e;
+    background-color: #ffffff;
+    border-color: #152f4e;
+    position: fixed;
+    top: 12px;
+}    
+.btn, #page-grade-grading-manage .actions .action, #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input, #rubric-rubric.gradingform_rubric .addcriterion {
+    
+    padding: 4px 8px !important;
+}
+    
+nav.navbar .logo img {
+    
+    max-height: 35px;
+    margin-left: 35px;
+    position: fixed;
+    top: 10px;
+    display: none;
+    visibility: hidden;
+}
+
+.btn-secondary:hover, .btn-default:hover {
+    color: #fff!important;
+    background-color: #DC522A;
+    border-color: #DC522A;
+}
+
+    
+.fa-envelope:before {
+    font-size: 16px;
+    position: fixed;
+    top: 8px;
+}
+    
+.navbar .popover-region {
+    
+    margin-top: 0px;
+    
+    position: relative;
+}
+    
+.usermenu img.userpicture {
+    
+    width: 35px;
+    
+    height: 35px;
+}
+    
+img.userpicture {
+    
+    margin-right: 0;
+}
+    
+span.usertext.mr-1 {
+    
+    font-size: .85em;
+}
+    
+.dropdown-toggle::after {
+    
+    display: inline-block;
+    
+    width: 0;
+    
+    height: 0;
+    
+    margin-left: 0;
+    
+    vertical-align: 0.255em;
+    
+    content: " ";
+    
+    border-top: 0.3em solid;
+    
+    border-right: 0.3em solid transparent;
+    
+    border-bottom: 0;
+    
+    border-left: 0.3em solid transparent;
+}
+    
+.nav .caret {
+    
+    margin-left: 0;
+}
+    
+[data-region="drawer"] {
+    position: fixed;
+    width: 285px;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 999;
+    background-color: #f2f2f2;
+    -webkit-transition: right 0.5s ease, left 0.5s ease;
+    -moz-transition: right 0.5s ease, left 0.5s ease;
+    transition: right 0.5s ease, left 0.5s ease;
+}
+
+input.form-submit, input#id_submitbutton, input#id_submitbutton2, .path-admin .buttons input[type="submit"], td.submit input, .form-buttons input, .singlebutton form input, input[type="submit"], input[type="button"], button[type="submit"], #id_submitbutton, .block button, .block_gflacso_items_viewmore .btn, .block_gflacso_items_viewmore #page-grade-grading-manage .actions .action, #page-grade-grading-manage .actions .block_gflacso_items_viewmore .action, .block_gflacso_items_viewmore #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input, #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel .block_gflacso_items_viewmore input, .block_gflacso_items_viewmore #rubric-rubric.gradingform_rubric .addcriterion, #rubric-rubric.gradingform_rubric .block_gflacso_items_viewmore .addcriterion, #page-calendar-view button.btn, #page-calendar-view #page-grade-grading-manage .actions button.action, #page-grade-grading-manage .actions #page-calendar-view button.action, #page-calendar-view #rubric-rubric.gradingform_rubric button.addcriterion, #rubric-rubric.gradingform_rubric #page-calendar-view button.addcriterion {
+       
+    position: inherit;
+}
+
+span.logo.d-none.d-sm-inline:after {
+    content: ' ';
+    background: url(https://virtual.flacso.org.ar/theme/gflacso/vale/ivan/FLACSO_Virtual_sticky.svg);
+    position: fixed;
+    height: 32px;
+    display: block;
+    width: 194px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 12px;
+    margin: 0px 0 0 35px;
+    background-color: #fff;
+}
+
+@media (max-width: 453px) {
+    [data-region="drawer"] {
+    top: 52px!important;
+    width: 100%!important;
+    z-index: 20000!important;
+    }
+
+    pan.logo.d-none.d-sm-inline:after {
+        content: ' ';
+        background: url(https://virtual.flacso.org.ar/theme/gflacso/vale/ivan/flacso-stick-2.png);
+        height: 35px;
+        width: 155px;
+        top: 14px;
+        margin-left: 35px;
+    }
+
+    #nav-drawer.closed {    
+    left: -100vw;
+    }
+
+    span.logo.d-none.d-sm-inline:after {  
+        height: 32px;
+        top: 12px; 
+        margin-left: 32px;
+    }   
+
+}
+
+.format-tiles .expand-collapse-all-btns .btn-secondary {
+    min-height: unset;
+    position: inherit;
+}
+
+.col-12, .col-xs-12 {
+    margin: 15px 0 0 0;
+}
+
+.titulo_curso h2, .titulo_curso h1 {
+    font-family: 'Roboto Condensed';
+}
+
+
+.popover-region-toggle::before {
+    bottom: -9px;
+    right: 5px;
+}
+
+.navbar .popover-region-container {
+    top: 45px;
+}
+
+.fa-bell:before {
+    position: fixed;
+    top: 20px;
+}
+
+
+ul.nav.navbar-nav.ml-auto {
+    position: fixed;
+    right: 10px;
+    top: 9px;
+}
+
+@media (min-width: 576px){
+[data-region="drawer"] {
+    padding: 0;
+}
+}

@@ -1,0 +1,186 @@
+body#page-login-index footer#page-footer {
+    display: none;
+}
+
+body#page-login-index {
+    background: #192e4d;
+color: #c6d4e8;  
+background-image: none; 
+}
+
+body#page-login-index div#page {
+color: #c6d4e8;
+}
+ 
+body#page-login-index h2.card-header.text-center img {
+position:relative;
+    left:-99999px;    }
+
+body#page-login-index h2.card-header.text-center {
+position:relative;
+top: 40px;
+background-image: url(https://virtual.flacso.org.ar/theme/gflacso/vale/ivan/logo-vertical-2.svg);
+background-repeat: no-repeat;
+    background-size: contain;
+    height: 180px;    }
+
+ .pagelayout-login #region-main {
+    overflow: visible;
+}
+
+body#page-login-index .card-header {
+    padding: 0;
+    margin-bottom: 0;
+    background-color: none;
+    border-bottom: none;
+}
+
+ body#page-login-index .card-body .col-md-5 {
+    padding: 10px;
+}
+
+body#page-login-index #loginbtn {
+    width: 100%;
+    background: #c6d4e8;
+    border: #c6d4e8 1px solid;
+    color: #192e4d;
+    font-family: 'Roboto Condensed';
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px!important;
+    letter-spacing: 1px;
+}
+
+body#page-login-index #loginbtn:hover {
+    background: #416fb0;
+    color: #fff;
+}
+
+body#page-login-index a.btn.btn-link.p-0 {
+display: none;
+}
+
+body#page-login-index label {
+    font-size: .9em;
+}
+
+body#page-login-index .forgetpass a {
+    color: #c6d4e8;
+    font-size: .9em;
+}
+
+body#page-login-index .forgetpass a:hover {
+    color: #c7a55e;
+    text-decoration: none;
+}
+
+body#page-login-index .form-control {
+display: block;
+width: 100%;
+padding: 13px;
+font-size: .9375rem;
+line-height: 1.5;
+color: #192e4d;
+background-color: #f2f2f2;
+background-clip: padding-box;
+border: none!important;
+border-radius: 5px;
+transition: none;
+}
+
+body#page-login-index .form-control:focus {
+color: #192e4d!important;
+background-color: #c6d4e8!important;
+border: none!important;
+outline: 0;
+box-shadow: none;
+}
+
+body#page-login-index .label {
+display: inline-block;
+margin-bottom: 0.5rem;
+color: #c6d4e8;
+font-size: .9em;
+}
+
+body#page-login-index .forgetpass a {
+color: #c6d4e8;
+font-size: .9em;
+}
+
+body#page-login-index .form-group, .form-buttons, .path-admin .buttons, .fp-content-center form+div, div.backup-section+form {
+    margin-bottom: 0;
+    margin-top: 2rem;
+}
+
+body#page-login-index .forgetpass.mt-3 {
+    margin: 0!important;
+}
+
+@media (min-width: 576px) { 
+
+body#page-login-index {
+    background-image: url(https://virtual.flacso.org.ar/theme/gflacso/vale/ivan/mapa.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}  
+  
+body#page-login-index .justify-content-center {
+    justify-content: right!important;
+}
+  
+ body#page-login-index div.card { 
+    right: 100px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+ 
+ body#page-login-index h2.card-header.text-center img {
+position:relative;
+    left:-99999px;    }
+
+body#page-login-index h2.card-header.text-center {
+position:relative;
+background-image: url(https://virtual.flacso.org.ar/theme/gflacso/vale/ivan/logo-flacso-campus-blanco.svg);
+background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+      background-position-x: right;
+  }
+  
+body#page-login-index .col-md-5 {
+flex: 0 0 100%;  
+max-width: 100%;  
+}
+
+body#page-login-index .mt-sm-5, .my-sm-5 {
+margin-top: 15vh!important;
+}
+
+body#page-login-index .card-body {
+    padding: 0;
+    float: right;
+    position: relative;
+    top: 35px;
+    left: 0px;
+    right: 0px;
+    margin: 0;
+    width: 45%;
+    max-width: 300px;
+}
+
+
+body#page-login-index .card-body .col-md-5 {
+    padding: 15px 15px 0;
+}
+  
+
+  
+body#page-login-index h2.card-header.text-center {
+padding: 0;
+
+    }
+
+}

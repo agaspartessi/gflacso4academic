@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: 'Roboto condensed';
+    background-color: #fff;
+    }
+    
+    .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: none!important;
+    border-bottom: #dee2e6 1px solid;
+    align-items: center;
+    height: 61px;
+    }
+    
+    .card {
+    background: none;
+    border: none;
+    }
+    
+    #page-my-index {
+    background-color: #fff;
+    }
+    
+    [data-region="blocks-column"] {
+    background: #F2F2F2;
+    border-radius: 5px;
+    }
+    
+    .card-body.p-3 {
+    max-width: 830px;
+    margin: auto;
+    width: 100%;
+    }
+    
+    .list-group-item {
+    border: none;
+    }
+    
+    li.list-group-item.course-listitem {
+    border: 1px solid #d9d9d9;
+    margin: 10px 0;
+    border-radius: 5px;
+    }
+    
+    .text-primary {
+    color: #C7A55E!important;
+    }
+    
+    .block .block-cards a.coursename, .block .block-cards span.categoryname, .block .block-cards .btn-link {
+    color: #294770;
+    font-size: 16px;
+    }
+    
+    a:hover {
+    color: #4270B1 !important;
+    text-decoration: underline;
+    }
+    
+    .btn-outline-secondary {
+    color: #4270B1;
+    border-color: #6c757d;
+    border-color: #294770;
+    border-radius: 5px;
+    }
+    
+    .btn-outline-secondary:hover {
+    
+        color: #4270B1;
+    
+        background-color: #ECF8F8;
+    
+    }
+    
+    .badge-info {
+    color: #fff;
+    background-color: #3CB5BD;
+    }
+    
+    .badge {
+    border-radius: 3px;
+    }
+    
+    .btn-secondary {
+    color: #212529;
+    background-color: #C6D4E8;
+    border-color: #C6D4E8;
+    border-radius: 5px;
+    }
+    
+    .btn-secondary:hover {
+    color: #212529;
+    background-color: #C5E9EB;
+    border-color: #b1bbc4;
+    }
+    
+    section#inst16957721 {
+    background: #fff;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    }
+    
+    .list-group-item-action:hover, .list-group-item-action:focus {
+    background-color: #C5E9EB;
+    }
+    
+    .list-group-item:first-child {
+    border-radius: 5px;
+    margin: 10px 0;
+    }
+    
+    [data-region="drawer"] {
+    background: none;
+    }
+    
+    .bg-gray {
+    background-color: #fff!important;
+    }
+    
+    
+    
+    .nav-link {
+        display: block;
+        padding: 0.5rem 0.7rem;
+    }
+    
+    
+    .btn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+        border: 1px solid #d9d9d9;
+        border-radius: 5px;
+    }
+    
+    a.bg-gray:hover, a.bg-gray:focus, button.bg-gray:hover, button.bg-gray:focus {
+        background-color: #C5E9EB!important;
+    }
+    
+    .fa, .fas {
+        font-weight: 900;
+        color: #4270b1;
+    }
+    
+    #region-main-settings-menu.has-blocks, #region-main.has-blocks {
+        display: inline-block;
+        margin: auto!important;
+        text-align: left;
+        padding-top: 0;
+        max-width: 830px;
+    }
+    
+    div#region-main-box {
+        text-align: center;
+    }

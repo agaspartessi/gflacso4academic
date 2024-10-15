@@ -1,0 +1,430 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Mostrar la página cuando termine todo el CSS */
+
+#page{
+    font-family: 'Roboto';
+    opacity:1 !important;
+    transition:  all 1s ease !important;
+     background-repeat: no-repeat;
+     background-size: 100% auto;
+}
+
+body
+{
+    background-color: #fff;
+}
+#region-main-settings-menu.has-blocks mb-3, #region-main.has-blocks
+{
+    
+}
+#region-main-box
+{
+    margin: 0;
+    padding: 0;
+}
+[data-region="blocks-column"]
+{
+   float: right;
+}
+
+.course-content ul li.section.main:last-child {
+    margin: 0;
+}
+
+.col-12 {
+    padding-right: 0!important;
+}
+
+@media screen and (min-width: 768px)
+{
+header .card-body
+{
+        margin-top: 0px;
+        padding: 0 0 0 0px;
+	margin-left: -15px;
+}
+}
+#page-navbar
+{
+ margin-bottom: 0px;   
+}
+
+.course-content ul li.section.main {
+    padding: 0!important;
+}
+
+.page-context-header  {
+    width: 100%;
+    background-color: #fff;
+    background-image: url(https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/ONU/banner-gestion.png)!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+    
+.page-context-header:before {
+    content: "";
+    float: left;
+    padding-bottom: 8.2%;
+  }
+
+.page-context-header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.titulo_curso h2, .titulo_curso h1
+{
+        text-align: right!important;
+    font-family: 'Roboto Condensed' !important;
+    color: #fff !important;
+    font-size: 1.6rem !important;
+    font-weight: 400 !important;
+    padding-right: 1%!important;
+    margin: 0px !important;
+    border-radius: 0px !important;
+    background: none;
+    padding-top: 1.3%;
+    padding-bottom: 1.1%;
+    line-height: 115%!important;
+    position: relative;
+    display: inline-block;
+    max-width: 55%;
+    float: right;
+    min-width: 470px;
+}
+
+#region-main
+{
+    border:none;
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+
+/* Navegación */
+
+@media screen and (min-width: 768px) {
+    .nav.nav-tabs.mb-3
+    {
+    margin: 0!important;
+    padding: 0 !important;
+    }
+}
+
+.nav.nav-tabs.mb-3 {
+    text-align: center!important;
+    display: block!important;
+    font-family: 'Roboto condensed'!important;
+    font-size: 16px!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item {
+    margin: 0 0 4px 0!important;
+    padding: 0!important;
+    display: inline-block!important;
+    cursor: pointer!important;
+    color: #000 !important;
+    background-color: #C3E6ED !important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a {
+    padding: 10px!important;
+    display: block!important;
+    color: #000!important;
+    background-color: #C3E6ED;
+        border: 2px solid #2D778F!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a:hover { 
+    background-color: #337691!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a.active {
+    background-color: #337691!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+    border: 2px solid #337691!important;
+
+}
+
+
+body #region-main .nav-tabs li a {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    -moz-transition: none !important;
+    opacity: 1;
+}
+#region-main .nav-tabs>li>a {
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    }
+
+
+@media screen and (max-width: 600px){ 
+.nav.nav-tabs.mb-3 {
+    margin: 0!important;
+    padding: 0 !important;
+    border: none!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item {
+    width: 50%!important;
+    float: left!important;
+    }
+}
+
+body #region-main .nav-tabs li a {
+    -webkit-border-radius:  0 !important;
+    -moz-border-radius:  0 !important;
+    border-radius:  0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    -webkit-transition: none !important;
+    -o-transition:  none !important;
+    transition:  none !important;
+    -moz-transition:  none !important;
+    opacity:1;
+}
+
+body #region-main .nav-tabs li a.disabled {
+    opacity: .5;
+}
+
+a.nav-link.active {
+    margin: 0!important;
+}
+
+.course-content .single-section
+{
+    margin: 0 !important;
+}
+
+.course-content ul li.section.main
+{
+    border-top: none !important;
+}
+
+body #section-0 .franja
+{
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+body .summary .no-overflow
+{
+    overflow: inherit !important;
+}
+body .summary h2
+{
+   color: #1c9da2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: 900 !important;
+    line-height: 100% !important;
+    margin-bottom : 40px !important;
+}
+@media screen and (min-width: 769px)
+{
+.course-content ul.topics
+{
+       padding: 5px 5px 5px 5px;
+}
+}
+@media screen and (max-width: 768px)
+{
+.course-content ul.topics
+{
+       padding: 5px 5px 5px 5px;
+}
+}
+@media screen and (min-width: 769px)
+{
+body .summary h2,body #section-0 .label h2
+{
+    font-size: 64px !important;
+      margin-top : 30px !important;    
+}
+}
+
+@media screen and (max-width: 769px)
+{
+body .summary h2,body #section-0 .label h2
+{
+    font-size: 48px !important;
+      margin-top : 0 !important;    
+}
+}
+
+.course-content ul.section
+{
+    margin:0 !important;
+    padding: 0 !important;
+    position: relative;
+}
+
+.section .activity .contentwithoutlink a, .section .activity .activityinstance a
+{
+    font-weight: 300;
+    color: #dc522a;
+	text-decoration: none !important; 
+}
+
+.section .activity .contentwithoutlink a:hover, .section .activity .activityinstance a:hover
+{
+    font-weight: 300;
+	color: #dc522a !important; 
+}
+
+body .section .activity.label .contentwithoutlink a:hover, body .section .activity.label .activityinstance a:hover
+{
+      font-weight: 500;
+   	  text-decoration: underline !important;  
+	  color: #000;
+}
+
+.instancename,.section .activity .contentwithoutlink a:hover .instancename, .section .activity .activityinstance a:hover .instancename
+{ 
+ font-weight: 500;
+	text-decoration: underline !important;
+    color: #000;
+}
+
+.course-content ul.section p,#section-0 p
+{
+    font-weight: 600;
+    line-height: 140%;
+    max-width: 700px;
+}
+
+.course-content ul.section p strong,#section-0 p strong
+{
+    font-weight: 500;
+}
+
+.iconlarge
+{
+    width: 30px !important;
+	height: 30px !important;
+	margin-left: 40px !important;
+}
+
+.course-content ul.section h4
+{
+font-size: 18px;
+font-weight: 900 !important;
+
+    line-height: 150%;
+    max-width: 700px;
+    color: #1c9da2;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.course-content ul.section h3
+{
+font-size: 24px;
+font-weight: 900 !important;
+
+    line-height: 150%;
+    max-width: 700px;
+    color: #3f3f3f;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.course-content ul.section .activity
+{
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;    
+}
+
+.course-content ul.section .activity.label
+{
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    padding-left: 0;
+    background-image: none ;
+}
+
+.course-content ul.section .activity a
+{ 
+    padding-left: 0;
+}
+
+.course-content ul.section .activity a .instancename
+{ 
+	padding-left: 10px;
+    background-size: 24px auto;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-top: 5px;
+    padding-bottom: 5px;
+	text-decoration: none !important;
+}
+    
+.course-content ul.section .activity.label a .instancename
+{
+    padding-top: 0;
+    padding-bottom: 0;    
+    padding-left: 0;
+    background-image: none ;
+	text-decoration: none !important;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1410px) {
+    .course-content #section-1  ul.section p
+{
+    max-width: calc(100% - 500px);
+}
+}
+
+@media screen and (max-width: 991px)
+{
+   .course-content ul.section p
+{
+    max-width: 700px;
+}
+    
+    
+.block .header .block-action #instance-8252641-action{
+   background-color: darkblue !important;
+}
+
+h2.start{
+font-family: 'Roboto condensed' !important;  
+}
+    
+    
+@media only screen and (max-width: 768px) {
+     .page-context-header {
+        background-color: #2D778F;
+        background-image: none!important;
+}
+    
+    .titulo_curso h2, .titulo_curso h1 {
+       font-weight: 400 !important;
+    padding-left: 0!important;
+    padding-right: 2%!important;
+    text-align: center!important;
+    max-width: 100%;
+    float: none;
+       }
+}

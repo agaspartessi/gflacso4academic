@@ -1,0 +1,275 @@
+*, html {
+    margin:0;
+    padding:0;  
+}
+
+
+section#region-main {
+    overflow: hidden;
+}
+
+
+/**
+ * 01. ESTILOS CLASES
+ *
+ * -------------------------------------------------------------------
+ */
+
+/* CONTENEDORES. */
+
+.clase {
+	max-width: 780px;
+    margin: auto;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 21px;
+    font-weight: 400;
+	line-height: 160%;
+	padding: 22px;
+    color: #1a1a1a;
+    text-align: left;
+}
+
+.clase .biblio {
+    text-indent: -2.9em;
+    padding-left: 3.8em;
+}
+
+.clase .alert {
+    background-color: #ffe97c;
+}
+
+.clase .note {
+    background-color: #d1f4ee;
+}
+
+.clase .box {
+    background-color: #f2c5ea;
+}
+
+.clase .grt pre {
+    background-color: #eeeeee;
+    border-left: 7px solid rgba(0, 0, 0, 0.1);
+}
+
+/* TÍTULOS. */
+
+.clase h1 {
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-size: 43px!important;
+	line-height: 68px!important;
+	margin-bottom: 36px!important;
+    color: #14304C!important;
+    font-weight: 300!important;
+}
+
+.clase .title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 55px;
+	line-height: 85px;
+	margin-bottom: 36px;
+    color: #14304C;
+    font-weight: 300;
+}
+
+.clase h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 34px;
+	line-height: 120%;
+	margin-top: 58px;
+	margin-bottom: 22px;
+    color: #14304C;
+    font-weight: 400;
+}
+.clase h3, .clase .subtitulo {
+        font-family: 'Roboto Condensed', sans-serif;
+    font-size: 28px!important;
+    line-height: 160%!important;
+    margin-top: 36px;
+    margin-bottom: 14px;
+    color: #14304C;
+    font-weight: 600;
+}
+.clase h4 {
+    font-family: 'Roboto Condensed', sans-serif;
+	font-size: 21px;
+	line-height: 120%;
+	font-weight: bold;
+	margin-bottom: 9px;
+    color: #14304C;
+    font-weight: 400;
+}
+
+/* Titulo capitulo clase. */
+
+.path-mod-book .book_chapter_title, .path-mod-book .book_content>h3:first-child, .path-mod-book .book_content>h3:first-child  + h4 {
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-size: 34px!important;
+	line-height: 120%!important;
+	margin-top: 58px!important;
+	margin-bottom: 22px!important;
+    color: #14304C!important;
+    font-weight: 400!important;
+    text-align: left!important;
+	max-width: 780px!important;
+    margin: auto!important;
+    padding: 0 34px;
+
+}
+
+/* Subtitulo capitulo clase. */
+
+.path-mod-book h3.book_chapter_title, .path-mod-book .book_content>h3:first-child + h4  {
+    font-weight: 100!important;
+    font-size: 28px!important;
+    line-height: 160%!important;
+    margin-top: 36px!important;
+    margin-bottom: 14px!important;
+
+}
+
+/* PARRAFO. */
+
+.clase a.autolink.glossary,a.autolink.glossary:visited,a.autolink.glossary:hover,a.autolink.glossary:active, a.linkpop, a.linkpop:visited {
+    margin-top: 1.715em;
+    font-size: 21px!important;
+    line-height: 1.72em!important;
+    cursor: help;
+}
+
+.clase p, .clase ul, .clase ol, .clase blockquote, .clase pre, .clase .alert, .clase .note, .clase .box, .clase .footnotes {
+	margin-bottom: 36px;
+}
+.clase ul, .clase ol {
+	margin-left: 36px;
+}
+.clase li {
+	margin-bottom: 14px;
+}
+
+.clase sub, .clase sup {
+	padding: 0 1px;
+}
+.clase code, .clase pre, .clase kbd {
+	font-size: 19px;
+}
+.clase code {
+	background-color: rgba(0,0,0,0.08);
+	padding: 5px 6px;
+	border-radius: 9px;
+	margin: 0 1px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+
+.clase pre {
+	padding: 14px;
+	border-style: solid;
+	border-color: rgba(0,0,0,0.15);
+	border-width: 0 0 0 9px;
+    font-family: 'Roboto Slab', serif; 
+    font-weight: 300;
+}
+.clase kbd {
+	background-color: #fff;
+	padding: 5px 6px;
+	border-radius: 6px;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.45);
+	margin: 0 1px;
+}
+.clase .alert, .clase .note, .clase .box {
+	padding: 22px;
+}
+.clase .footnotes {
+	font-size: 17px;
+	line-height: 30px;
+	padding-top: 22px;
+	border-top: 1px dotted rgba(0,0,0,0.15);
+}
+.clase .footnotes p {
+	margin-bottom: 22px;
+}
+.clase ul ul, .clase ul ol, .clase ol ul, .clase ol ol, .clase blockquote.right p, .clase blockquote.left p, .clase .alert :last-child, .clase .note :last-child, .clase .box :last-child, .clase .footnotes :last-child {
+	margin-bottom: 0;
+}
+
+/* CITAS. */
+
+.clase blockquote, .cita {
+	padding-left: 36px;
+    text-align: left!important;
+    color: #152F4E;
+    margin: 3em;
+    position: relative;
+    font-style: italic;
+}
+
+.clase blockquote::before, .cita::before {
+    content: "\201C";
+    color: #aaa;
+    font-size: 8em;
+    position: absolute;
+    top: 0.41em;
+    left: -.45em;
+    font-family: 'merriweather', serif;
+    font-weight: 400;
+  }
+
+.clase blockquote footer, .clase blockquote footer a, .cita footer, .cita footer a {
+    color: #777;
+    text-decoration: none;
+    padding-top: 0.5em;
+    text-align: left;
+    font-style: normal;
+}
+
+.clase blockquote footer::before, .cita footer::before {
+    content: "\2014";
+  }
+
+
+/**
+ * 02. ESTILOS NODIFICADOS
+ *
+ * -------------------------------------------------------------------
+ */
+
+/* NAVEGACIÓN CLASES. */
+
+
+a.booknext:after {
+    padding: 0 0 0 5px!important;
+}
+a.bookprev:before {
+    padding: 0 5px 0 0!important;
+}
+a.bookprev, a.booknext {
+  max-width: 50%!important;
+}
+.navbottom.navtext .chaptername {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.navbottom a {
+    color: #666;
+    display: inline-flex!important;
+}
+.navtop {
+    display: inherit!important;
+    visibility: hidden!important;
+}
+a.bookexit:after{
+    display: none!important;
+}
+
+
+/* DISPOSITIVOS MÓVILES. */
+
+
+@media all and (min-width: 852px) {
+	.clase {
+		padding: 36px;
+	}
+}

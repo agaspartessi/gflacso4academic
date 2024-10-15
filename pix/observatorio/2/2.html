@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Roboto Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100&amp;display=swap" rel="stylesheet">
+    <title>[SUBJECT]</title>
+    
+  <style type="text/css">
+		body{
+			padding-top:0 !important;
+			padding-bottom:0 !important;
+			margin:0 !important;
+			width:100% !important;
+			-webkit-text-size-adjust:100% !important;
+			-ms-text-size-adjust:100% !important;
+			-webkit-font-smoothing:antialiased !important;
+		}
+		.tableContent img{
+			border:0 !important;
+			display:inline-block !important;
+			outline:none !important;
+		}
+		p,h1,h2,h3,ul,ol,li,div{
+			margin:0;
+			padding:0;
+		}
+		h1,h2{
+			font-weight:normal;
+			background:transparent !important;
+			border:none !important;
+		}
+		td,table{
+			vertical-align:top;
+		}
+		td.middle{
+			vertical-align:middle;
+		}
+		a{
+			text-decoration:none;
+		}
+		a.link1{
+			font-size:16px;
+			color:#a5a5a5;
+		}
+		a.link2{
+			font-size:18px;
+			font-weight:bold;
+			color:#000000;
+			text-decoration:underline;
+		}
+		a.link3{
+			font-size:15px;
+			font-weight:bold;
+			color:#ffffff;
+			background-color:#2da4a8;
+			padding:11px 15px;
+			text-decoration:none;
+			border-radius:5px;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;
+			text-align:center;
+			display:inline-block;
+		}
+		h1{
+			font-size:24px;
+			font-weight:bold;
+			color:#000000;
+			line-height:150%;
+		}
+		h2{
+			font-size:18px;
+			font-weight:bold;
+			color:#000000;
+			line-height:150%;
+		}
+		p{
+			font-size:16px;
+			color:#000000;
+			line-height:150%;
+			text-align:left;
+		}
+		.bgItem{
+			background:#ffffff;
+		}
+		.bgBody{
+			background:#fff;
+		}
+		.DescBanner{
+			background:#51545C;
+			width:310px;
+			height:196px;
+			padding:15px;
+			font-family:'Roboto',sans-serif;
+		}
+		.DescBanner h1,h2,h3,h4,p{
+			color:#fff;
+		}
+		.DescBanner h2{
+			font-weight:400;
+			font-size:14px;
+			height:25px;
+			color:#fff;
+		}
+		.DescBanner h1{
+			font-weight:900;
+			font-size:20px;
+			line-height:20px;
+			margin:5px 0;
+		}
+		.DescBanner p{
+			font-weight:500;
+			font-size:12px;
+			line-height:12px;
+			margin:5px 0 18px;
+			color:#fff;
+		}
+		.DescBanner a{
+			background:#EE3D8F;
+			border-radius:10px;
+			padding:5px 10px;
+			color:#fff;
+		}
+		.Azul{
+			background:#51beef;
+		}
+		.Azul .contentEditable{
+			padding:10px 0 10px 10px;
+		}
+		.Azul h3{
+			font-weight:700;
+			font-size:12px;
+			height:25px;
+			color:#fff;
+		}
+		.Azul h3 span{
+			font-weight:200;
+			font-size:12px;
+			height:25px;
+		}
+		.Azul h1{
+			font-weight:200;
+			font-size:25px;
+			color:#fff;
+		}
+		.Azul p{
+			font-size:13px;
+			font-height:20px;
+			color:#fff;
+		}
+		.Azul p span{
+			padding-left:5px;
+		}
+		.Titulos{
+			border-bottom:1px solid #50535C;
+		}
+		.Titulos h1{
+			font-family:'Roboto',sans-serif;
+			color:#50535C;
+			font-size:17px;
+			font-weight:400;
+		}
+		.Noticia h1,h2,h3,h4,p{
+			color:#000;
+			font-family:'Roboto',sans-serif;
+		}
+		.Noticia h2 a{
+			color:black;
+		}
+		.Noticia h3{
+			font-weight:400;
+			font-size:13px;
+			margin-bottom:5px;
+			line-height:13px;
+		}
+		.Noticia h2{
+			font-weight:900;
+			font-size:22px;
+			margin-bottom:5px;
+			line-height:20px;
+		}
+		.Noticia p{
+			font-weight:400;
+			font-size:14px;
+			margin-bottom:15px;
+			line-height:16px;
+		}
+		.Noticia p span{
+			color:#50535C;
+			font-size:12px;
+		}
+		.Noticia tr{
+			border-bottom:1px solid #50535C;
+		}
+		.ElDato h2{
+			font-family:'Roboto',sans-serif;
+			font-weight:900;
+			font-size:23px;
+			line-height:23px;
+		}
+		.Multimedia h1{
+			font-size:20px;
+			line-height:20px;
+			margin:15px 0;
+		}
+		.Multimedia .contentEditable{
+			background:#f2f2f2;
+			width:250px;
+			padding:10px;
+		}
+		.Multimedia .MultimediaFoto .contentEditable{
+			background:#fff !important;
+			margin-left:-10px;
+			margin-bottom:-10px;
+		}
+		.Multimedia h1 a{
+			color:black;
+		}
+		.Multimedia p{
+			line-height:17px;
+			font-size:15px;
+			margin-bottom:10px;
+		}
+		.Adelanto{
+			background:#37BBED;
+			-webkit-border-top-left-radius:10px;
+			-webkit-border-top-right-radius:10px;
+			-moz-border-radius-topleft:10px;
+			-moz-border-radius-topright:10px;
+			border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			padding:30px;
+		}
+		.Adelanto h1{
+			color:#fff;
+			text-align:left;
+			line-height:21px;
+			font-size:21px;
+			font-family:'Roboto',sans-serif;
+		}
+		.Adelanto h2{
+			color:#fff;
+			font-weight:200;
+			font-size:18px;
+			height:25px;
+			text-align:left;
+			font-family:'Roboto',sans-serif;
+		}
+		.Adelanto p{
+			color:#000;
+			margin:15px 0;
+			text-align:left;
+			font-size:17px;
+			line-height:17px;
+			font-family:'Roboto',sans-serif;
+		}
+		.Derechos p{
+			color:#707070;
+			font-size:12px;
+			font-family:'Encode Sans Condensed',sans-serif;
+			letter-spacing:1px;
+		}
+		.Pie{
+			background:#50535C;
+			padding:20px;
+		}
+		.Pie h1{
+			color:#fff;
+			font-family:'Encode Sans',sans-serif;
+			font-size:15px;
+			font-weight:500;
+		}
+</style></head>
+  <body paddingwidth="0" paddingheight="0" class="bgBody" style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;" offset="0" toppadding="0" leftpadding="0">
+    <table width="620" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center" style="font-family:Helvetica, sans-serif;border:1px solid #ddd;">
+      <tr>
+        <td align="center" class="movableContentContainer">
+          
+          <!-- =============== HEADER AZUL =============== -->
+          <div class="movableContent">
+            <table width="620" border="0" cellspacing="0" cellpadding="0" align="center" class="Azul" style="background:#51beef;">
+              <tr>
+                <td width="620" align="left">
+                  <div class="contentEditableContainer contentImageEditable">
+                    <div class="contentEditable" style="padding:0px 0px 10px 10px;margin-top:10px;">
+                      <h3 style="font-weight:700;font-size:12px;height:25px;color:#fff;margin:3px 0px;">NOVEDADES DE LA DIRECCIÓN NACIONAL DE TRANSPARENCIA <span style="font-weight: 200; font-size: 12px; height: 25px;">| FEBRERO 2021</span>
+                    </h3>
+                    <h1 style="font-weight:200;font-size:25px;color:#fff;margin:6px 0px 0px 0px;">
+                      <strong>    Construyendo   y conociendo</strong>
+                    </h1>
+                    <p style="font-size:13px;color:#fff;margin:10px 0px 0px 0px;"><img style="vertical-align: bottom;" src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/3b870002-e3ae-4bcb-9cae-95b4a51dbf2c.png" width="20" alt="reloj.png"><span style="padding-left: 5px; color: #fff;">tiempo estimado de lectura: 3 minutos</span>
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td width="20"></td>
+            <td align="right" valign="top" style="vertical-align:top;padding-top:20px;padding-right:10px;">
+              <div class="contentEditableContainer contentTextEditable">
+                <div class="contentEditable">
+                  <img src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/c78f07fc-d940-4a3c-9525-d7cb6690139e.png" height="60" alt="mop_blanco.png">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- =============== DESTACADO =============== -->
+      <div class="movableContent">
+        <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="DescBanner" style="background:#51545C;width:310px;height:260px;padding:15px;font-family:Roboto, sans-serif;">
+                <h2 style="font-weight:400;font-size:14px;height:23px;color:#fff;margin:0px 0px 5px 0px;">GABRIEL KATOPODIS</h2>
+                <h1 style="font-weight:900;font-size:19px;line-height:25px;margin:0px 0px 5px 0px;color:#fff;">“Mapainversiones en la agenda pública: la ratificación de un rumbo”</h1>
+                <p style="font-weight:500;font-size:12px;line-height:16px;margin:5px 0px 5px 0px;color:#fff;">Desde el momento inicial de nuestra gestión, asumimos la transparencia como prioridad: no como algo meramente discursivo o declamativo, sino como algo que se construye día a día, en cada decisión y en cada gesto.  En este camino avanzamos con hechos concretos al disponibilizar la información de las obras ante la ciudadanía, al rendir cuentas de lo que hacemos, al desarrollar procesos de monitoreo y evaluación para mejorar el impacto de nuestras políticas.</p>
+                <p style="font-weight:500;font-size:12px;line-height:12px;margin:15px 0px 5px 0px;color:#fff;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/nota_principal_mapainversiones_en_la_agenda_publica_1.pdf" target="_blank">LEER MÁS</a>
+              </p>
+            </div>
+          </td>
+          <td>
+            <div class="contentEditableContainer contentImageEditable">
+              <div class="contentEditable">
+                <img src="images/img_prin.jpg" alt="Header Image" width="280" height="290">
+              </div>
+            </div>
+          </td>
+          
+        </tr>
+      </table>
+    </div>
+    <!-- =============== TÍTULO NOTICIAS =============== -->
+    <div class="movableContent">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td height="20"></td>
+        </tr>
+        <tr>
+          <td>
+            <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td colspan="3" height="11"></td>
+              </tr>
+              <tr>
+                <td width="20"></td>
+                <td>
+                  <div class="contentEditableContainer contentTextEditable Titulos" style="border-bottom:1px solid #50535C;">
+                    <div class="contentEditable">
+                      <h1 style="font-family:Roboto, sans-serif;color:#50535C;font-size:17px;font-weight:400;">NOTICIAS</h1>
+                    </div>
+                  </div>
+                </td>
+                <td width="20"></td>
+              </tr>
+              <tr>
+                <td colspan="3" height="11"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- =============== NOTICIAS =============== -->
+    <div class="movableContent">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <!-- =============== NOTICIA 1 =============== -->
+        <tr>
+          <td>
+            <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem Noticia" style="border-radius:5px;-webkit-border-radius:5px;">
+              <tr>
+                <td width="20"></td>
+                <td width="225">
+                  <div class="contentEditableContainer contentImageEditable">
+                    <div class="contentEditable">
+                      <img src="images/not1.jpg" alt="image" width="225" height="225">
+                    </div>
+                  </div>
+                </td>
+                <td width="30"></td>
+                <td width="305">
+                  <div class="contentEditableContainer contentTextEditable">
+                    <div class="contentEditable">
+                      <h3 style="font-weight:400;font-size:13px;margin-bottom:5px;line-height:13px;color:#000000;">Objetivos de Desarrollo Sustentable 2030</h3>
+                      <br>
+                      <h2 style="font-weight:900;font-size:22px;margin-bottom:15px;line-height:23px;">
+                        <a href="https://www.argentina.gob.ar/sites/default/files/la_red_de_areas_de_monitoreo_1.pdf" style="color:#000000;text-decoration:none;" target="_blank">La Red de Áreas de Monitoreo y Evaluación trabaja en una agenda de agua y saneamiento</a>
+                      </h2>
+                      <p style="color:#000;font-family:Roboto, sans-serif;">La Red de Áreas de Monitoreo y Evaluación del Ministe- rio de Obras Públicas realizó una nueva reunión para abordar una agenda que garantice la disponibilidad de agua, su gestión sostenible y el saneamiento para todos.</p>
+                      <p><span style="color:#50535C; font-size: 12px;">1 de marzo 2021</span>
+                    </p>
+                    <p style="font-weight:500;font-size:12px;line-height:12px;margin:15px 0px 5px 0px;color:#fff;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/la_red_de_areas_de_monitoreo_1.pdf" target="_blank">LEER MÁS</a>
+                  </p>
+                  
+                  <br>
+                </div>
+              </div>
+            </td>
+            <td width="20"></td>
+          </tr>
+          <!-- =============== NOTICIA 2 =============== -->
+          <tr>
+            <td colspan="5" height="30"></td>
+          </tr>
+          <tr>
+            <td width="20"></td>
+            <td width="225">
+              <div class="contentEditableContainer contentImageEditable">
+                <div class="contentEditable">
+                  <img src="images/not2.jpg" alt="image" width="225" height="225">
+                </div>
+              </div>
+            </td>
+            <td width="30"></td>
+            <td width="305">
+              <div class="contentEditableContainer contentTextEditable">
+                <div class="contentEditable">
+                  <h3 style="font-weight:400;font-size:13px;margin-bottom:5px;line-height:13px;color:#000000;">Mesa de discusión sobre “democracia innovadora”</h3>
+                  <br>
+                  <h2 style="font-weight:900;font-size:22px;margin-bottom:15px;line-height:23px;">
+                    <a href="https://www.argentina.gob.ar/sites/default/files/el_ministro_participo_del_consejo_2.pdf" style="color:#000000;text-decoration:none;" target="_blank">El Ministro Katopodis participó del Consejo Económico y Social</a>
+                  </h2>
+                  <p style="color:#000;font-family:Roboto, sans-serif;">Se expuso la experiencia del Observatorio de la Obra Pública que, impulsado desde el Ministerio de Obras Públicas, constituye un ejemplo positivo de participación de las organizaciones del sector y la sociedad civil.</p>
+                  <p><span style="color:#50535C; font-size: 12px;">5 de marzo 2021</span>
+                </p>
+                <p style="font-weight:500;font-size:12px;line-height:12px;margin:15px 0px 5px 0px;color:#fff;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/el_ministro_participo_del_consejo_2.pdf" target="_blank">LEER MÁS</a>
+              </p>
+              
+              
+              <br>
+            </div>
+          </div>
+        </td>
+        <td width="20"></td>
+      </tr>
+       <!-- =============== NOTICIA 3 =============== -->
+          <tr>
+            <td colspan="5" height="30"></td>
+          </tr>
+          <tr>
+            <td width="20"></td>
+            <td width="225">
+              <div class="contentEditableContainer contentImageEditable">
+                <div class="contentEditable">
+                  <img src="images/not3.jpg" alt="image" width="225" height="225">
+                </div>
+              </div>
+            </td>
+            <td width="30"></td>
+            <td width="305">
+              <div class="contentEditableContainer contentTextEditable">
+                <div class="contentEditable">
+                  <h3 style="font-weight:400;font-size:13px;margin-bottom:5px;line-height:13px;color:#000000;">Brecha de género y edad en materia de obra pública</h3>
+                  <br>
+                  <h2 style="font-weight:900;font-size:22px;margin-bottom:15px;line-height:23px;">
+                    <a href="https://www.argentina.gob.ar/sites/default/files/katopodis_el_cuidado_es_un_bien_publico_1.pdf" style="color:#000000;text-decoration:none;" target="_blank">Gabriel Katopodis: “El cuidado es un bien público”</a>
+                  </h2>
+                  <p style="color:#000;font-family:Roboto, sans-serif;">Se presentó el primer informe sobre Infraestructura del Cuidado, en el marco del ciclo Diálogos de Obra Pública, con la presencia del Ministro Gabriel Katopodis, y Malena Gamarini, presidenta de AySA.</p>
+                  <p><span style="color:#50535C; font-size: 12px;">9 de marzo 2021</span>
+                </p>
+                <p style="font-weight:500;font-size:12px;line-height:12px;margin:15px 0px 5px 0px;color:#fff;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/katopodis_el_cuidado_es_un_bien_publico_1.pdf" target="_blank">LEER MÁS</a>
+              </p>
+              <br>
+            </div>
+          </div>
+        </td>
+        <td width="20"></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid #333;" colspan="5" height="15"></td>
+      </tr>
+      <tr>
+        <td colspan="5" height="20"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</div>
+<!-- =============== EL DATO =============== -->
+<div class="movableContent">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+  <td>
+    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem ElDato" style="border-radius:5px;-webkit-border-radius:5px;">
+      <tr>
+        <td width="20"></td>
+        <td valign="middle" width="80" height="100" style="vertical-align:middle;">
+          <div class="contentEditableContainer contentTextEditable">
+            <div class="contentEditable">
+              <img src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/1b01176f-9cc5-4830-8e0e-b3d7b2db24f1.jpg" alt="eldato.jpg">
+            </div>
+          </div>
+        </td>
+        <td width="15"></td>
+        <td width="485" style="vertical-align:middle;">
+          <div class="contentEditableContainer contentTextEditable">
+            <div class="contentEditable">
+              <h2 style="font-family:Roboto, sans-serif;font-weight:900;font-size:25px;line-height:23px;color:#000000;"><spam style="color: #EE3D8F;">Cuatro</spam> de cada <spam style="color: #EE3D8F;">diez hogares</spam> <br />en Argentina tienen una <spam style="color: #EE3D8F;">jefatura femenina.</spam></h2>
+            </div>
+          </div>
+        </td>
+        <td width="20"></td>
+      </tr>
+      <tr>
+        <td colspan="5" height="30"></td>
+      </tr>
+    </table>
+    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+      <tr>
+        <td width="100%">
+          <h3 style="color:#37BBED; font-size: 28px;">Brecha de género e infancia</h3>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</div>
+<!-- =============== GRAFICO =============== -->
+<div class="movableContent">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+  <td>
+    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem ElDato" style="border-radius:5px;-webkit-border-radius:5px;">
+      <tr>
+        <td style="padding-left:25px;">
+        	<br>
+          <img src="images/grafico.jpg" width="100%" alt="cuadro.png">
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" height="15"></td>
+      </tr>
+      <tr>
+        <td width="580">
+          <p><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;margin-left:30px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/el_dato_3.pdf">LEER MÁS</a>
+        </p>
+      </td>
+      <td colspan="5" height="60"> </td>
+    </tr>
+  </table>
+  <!-- =============== 2 Columnas =============== -->
+  <div class="movableContent">
+    <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem Multimedia">
+      <tr>
+        <td width="20"></td>
+        <td width="270">
+          <div>
+            <div>
+              <a href="https://www.argentina.gob.ar/sites/default/files/nota_principal_mapainversiones_en_la_agenda_publica_1.pdf"><img src="images/video1.jpg" alt="image" width="270"></a>
+            </div>
+          </div>
+          <div>
+            <div class="contentEditable" style="height:240px;margin-top:-5px;">
+              <h1 style="font-size:20px;line-height:20px;margin:15px 0px;color:#000000;">
+                <a href="https://www.argentina.gob.ar/sites/default/files/nota_principal_mapainversiones_en_la_agenda_publica_1.pdf" style="font-size:20px;line-height:20px;margin:15px 0px;color:#000000;text-decoration:none;" target="_blank">MapaInversiones: 1.000 obras y más de 800 proyectos para el conocimiento y control ciudadano.</a>
+              </h1>
+              <p style="line-height:17px;font-size:15px;margin-bottom:10px;">Nuestra política de transparencia en el Ministerio de Obras Públicas es hacer obras y rendir cuentas.</p>
+              
+              <br>
+              <p style="line-height:17px;font-size:15px;margin-bottom:10px;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/nota_principal_mapainversiones_en_la_agenda_publica_1.pdf" target="_blank">LEER MÁS</a>
+            </p>
+          </div>
+        </div>
+      </td>
+      <td width="270">
+        <div>
+          <div>
+            <a href="https://www.argentina.gob.ar/sites/default/files/voces_el_observatorio_gustavo_gandara_uocra_0.pdf"><img src="images/video2.jpg" alt="image" width="270"></a>
+          </div>
+        </div>
+        <div>
+          <div class="contentEditable" style="margin-bottom:-10px;height:240px;margin-top:-5px;">
+            <h1 style="font-size:20px;line-height:20px;margin:15px 0px;color:#000000;">
+              <a href="https://www.argentina.gob.ar/sites/default/files/voces_el_observatorio_gustavo_gandara_uocra_0.pdf" style="font-size:20px;line-height:20px;margin:15px 0px;color:#000000;text-decoration:none;" target="_blank">“El Observatorio plasma una demanda de muy larga data: la institucionalización del diálogo”</a>
+            </h1>
+            <p style="line-height:17px;font-size:15px;margin-bottom:10px;">Entrevistamos a Gustavo Gándara, Director Ejecutivo de la Fundación UOCRA.</p>
+            <br>
+            <p style="line-height:17px;font-size:15px;margin-bottom:10px;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/sites/default/files/voces_el_observatorio_gustavo_gandara_uocra_0.pdf" target="_blank">LEER MÁS</a>
+          </p>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- =============== ADELANTO =============== -->
+<div class="movableContent">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="20"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
+  <tr>
+    <td>
+      <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td height="5"></td>
+        </tr>
+        <tr>
+          <td align="center">
+            <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td width="68" align="center">
+                  <div class="contentEditableContainer contentFacebookEditable Adelanto" style="background:#37BBED;-webkit-border-top-left-radius:10px;-webkit-border-top-right-radius:10px;border-top-left-radius:10px;border-top-right-radius:10px;padding:10px 20px;">
+                    <div class="contentEditable">
+                      <h2 style="color:#fff;font-weight:200;font-size:18px;height:25px;text-align:left;font-family:Roboto, sans-serif;margin:5px 0px;">ADELANTO</h2>
+                      <h1 style="color:#fff;text-align:left;line-height:21px;font-size:21px;font-family:Roboto, sans-serif;margin:5px 0px;">Reunión federal de ministros de Obras Públicas</h1>
+                      <p style="color:#000;margin:15px 0px;text-align:left;font-size:15px;line-height:17px;font-family:Roboto, sans-serif;">Los ministros de Obras Públicas de las 24 jurisdicciones del país compartirán próximamente una reunión plenaria con el Ministro de Obras Públicas de la Nación, Gabriel Katopodis.</p>
+					  <p style="color:#000;margin:15px 0px;text-align:left;font-size:15px;line-height:17px;font-family:Roboto, sans-serif;">La agenda de trabajo contempla aspectos tales como el Plan Nacional de Obras Públicas al 2030 y 2023, el Observatorio de la Obra Pública y MapaInversiones, entre otros, con la expectativa de poder amplificar el impacto de estas políticas con los actores locales y retroalimentarlas con las buenas prácticas de cada territorio. Se prevé también una serie de reuniones para trabajar sobre estos ejes estratégicos del Ministerio de Obras Públicas.</p>
+                      <!-- <p style="color:#000;margin:15px 0px;text-align:left;font-size:15px;line-height:17px;font-family:Roboto, sans-serif;"><a style="background:#EE3D8F;border-radius:10px;padding:5px 10px;margin-top:10px;font-size:12px;color:#fff;text-decoration:none;" href="https://www.argentina.gob.ar/obras-publicas/ciclos-de-debate" target="_blank">LEER MÁS</a> -->
+                    </p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</div>
+<!-- =============== Ministerio de obras públicas =============== -->
+<div class="movableContent">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td height="20"></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
+<tr>
+  <td>
+    <table width="540" border="0" cellspacing="0" cellpadding="0" align="center">
+      <tr>
+        <td align="left">
+          <table width="540" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr>
+              <td width="68" align="left">
+                <div class="contentEditableContainer contentFacebookEditable Derechos">
+                  <div class="contentEditable">
+                    <p style="color:#707070;font-size:12px;font-family:'Encode Sans Condensed', sans-serif;letter-spacing:1px;">© Ministerio de Obras Públicas | Todos los derechos reservados.</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</div>
+<!-- =============== Pie =============== -->
+<div class="movableContent">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem">
+<tr>
+  <td></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="bgItem Pie" style="background:#50535C;padding:20px;">
+<tr>
+  <td>
+    <table width="540" border="0" cellspacing="0" cellpadding="0" align="center">
+      <tr>
+        <td align="left">
+          <table width="440" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr>
+              <td width="440" align="left">
+                <div class="contentEditableContainer contentFacebookEditable">
+                  <div class="contentEditable">
+                    <h1 style="color:#fff;font-family:'Encode Sans', sans-serif;font-size:15px;font-weight:500;">Ministerio de Obras Públicas</h1>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td align="left">
+          <table width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr>
+              <td width="100" align="left">
+                <div class="contentEditableContainer contentFacebookEditable">
+                  <div class="contentEditable">
+                    <a href="https://www.instagram.com/obraspublicasar/"><img src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/01327428-960e-43cb-a914-71a39074c3d0.jpg" alt="ico_instagram.jpg"></a>
+                    <a href="https://twitter.com/ObrasPublicasAR"><img src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/a76f4f88-8804-41ae-a843-c09dc1e0a01d.jpg" alt="ico_twitter.jpg"></a>
+                    <a href="https://www.facebook.com/MinObrasPublicas"><img src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/7294808f-67ea-41a2-8b32-649c74a6080a.jpg" alt="ico_facebook.jpg"></a>
+                    <a href="https://www.argentina.gob.ar/obras-publicas"><img src="https://mcusercontent.com/8376ab8db3ab3bed4875e54cc/images/48fffedf-e013-478c-b0e3-c58efa46536e.jpg" alt="ico_web.jpg"></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,251 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+@media screen and (min-width: 601px)
+{
+header .card-body
+{
+    margin-top: 0px;
+    padding: 0 0 0 0px;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+}
+
+
+.nav.nav-tabs.mb-3 {
+    text-align: center!important;
+    display: block!important;
+	margin: 0px!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item {
+    padding: 0!important;
+    display: inline-block!important;
+    }
+
+
+
+
+
+
+
+
+
+#page-navbar
+{
+ margin-bottom: 0px;   
+}
+.titulo_curso h2, .titulo_curso h1
+{
+    
+	text-align: left !important;
+    color: #000 !important;
+    text-transform: none !important;
+    font-size: 35px !important;
+    font-weight: 600 !important;
+    line-height: 100% !important;
+	height: 100px!important;
+	padding-top: 30px !important;
+	padding-left: 370px !important;
+	margin: 0px !important;
+	background-image:  url("https://virtual.flacso.org.ar/theme/gflacso/vale/ministerio/cabeceraL.svg") !important;
+	background-repeat: no-repeat;
+	background-size: 1920px;
+	background-color: #fff!important;
+	margin: 0px !important;
+	border-radius: 0px !important;
+
+
+	
+	
+	
+	
+}
+
+
+
+
+
+#region-main
+{
+    border:none;
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+
+.path-course-view .course-content ul.topics li.section .content
+
+{
+    	margin: 0px !important;
+}
+
+.course-content ul li.section.main
+{
+    border-top: none !important;
+	
+}
+
+
+
+@media (max-width: 600px) {
+    .titulo_curso h2, .titulo_curso h1 {
+	text-align: left !important;
+    color: #000 !important;
+    text-transform: none !important;
+    font-size: 35px !important;
+    font-weight: 600 !important;
+    line-height: 100% !important;
+	padding-top: 95px !important;
+	padding-left: 40px !important;
+	height: auto !important;
+	margin: 0px !important;
+	background-image:  url("https://virtual.flacso.org.ar/theme/gflacso/vale/ministerio/cabeceraS.svg") !important;
+	background-repeat: no-repeat;
+	background-size: 600px;
+	background-color: #fff!important;
+	margin: 0px !important;
+	border-radius: 0px !important;
+    }
+	
+.header .card-body
+{
+   margin-top: 0px;
+   padding: 0 0 0 0px;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+	
+}
+
+.course-content ul.section
+{
+   margin: 0px!important;
+}
+
+
+
+
+
+.course-content ul.section .recursos-floatante{
+    margin-left:30px;
+}
+
+
+
+
+.course-content ul.section .recursos-floatante div:before{
+    content:" ";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width:70px;
+    height: 70px;
+    top:28px;
+    left:-30px;
+    display:block;
+    position:absolute;
+	
+}
+
+
+.block .card-body, .block .userprofile .profile_tree section, .userprofile .profile_tree .block section {
+   max-width: 350px;
+	min-width: 260px;
+	text-align: left;
+	margin: auto;
+	
+
+}
+
+.header{
+background-color: #ea45a8 !important;
+border-radius: 15px 15px 0px 0px !important;
+	padding: 5px !important;
+	height: 0px !important;
+	padding: 0px !important;
+	
+	
+}
+
+
+
+
+
+.block .header  {
+
+
+	
+}
+
+
+.mt-3{
+	
+	
+}
+
+
+
+
+
+
+.block .header h5
+{
+color: #fff !important;
+	
+	font-size: 15px !important;
+
+}
+
+
+.card-body
+{
+border-radius: 15px 15px 15px 15px !important;
+
+}
+
+ .block_jmail  .card-body {
+	 
+	
+	
+   
+    }
+
+
+
+.mdl-right {
+border-radius:  5px !important;
+	background-color: #dddddd;
+	/*padding: 10!important;*/
+	margin: 10!important;
+
+}
+
+
+ .mdl-left{
+border-radius:  5px !important;
+	background-color: #dddddd;
+	/*padding: 10!important;*/
+	margin: 10!important;
+
+}
+
+
+ .block_html  .header {
+	display:none !important;
+	
+   
+    }

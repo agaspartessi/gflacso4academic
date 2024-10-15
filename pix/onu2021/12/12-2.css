@@ -1,0 +1,1209 @@
+*, html, ul {
+    margin:0;
+    padding:0;  
+}
+
+body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+}
+
+
+section#region-main {
+    overflow: hidden;
+}
+
+/* Mostrar la pÃ¡gina cuando termine todo el CSS */
+
+#page{
+    font-family: 'Roboto';
+    opacity:1 !important;
+    display:block;
+    transition:  all 1s ease !important;
+    background-image: url(https://moodle-dev.flacso.org.ar/theme/gflacso/estilosv/ivan/fondo.svg);
+     background-repeat: no-repeat;
+     background-size: 100% auto;
+}
+
+body
+{
+    background-color: #fff;
+}
+
+#region-main-box
+{
+    margin: 0;
+    padding: 0;
+}
+[data-region="blocks-column"]
+{
+   float: right;
+}
+
+#region-main .content {
+    clear: both;
+}
+
+
+
+.course-content ul li.section.main:last-child {
+    margin: 0;
+}
+
+.col-12 {
+    padding-right: 0!important;
+}
+
+@media screen and (min-width: 768px)
+{
+header .card-body
+{
+  margin-top: 0px;
+  padding: 0 0 0 0px;
+    margin-left: -15px;
+}
+}
+#page-navbar
+{
+ margin-bottom: 0px;   
+}
+
+.course-content ul li.section.main {
+    padding: 0!important;
+}
+
+@media (min-width: 768px){
+.col-md-3 {
+    flex: auto;
+    max-width: 100%;
+}
+}
+
+
+/**
+ * 01. ESTILOS CLASES
+ *
+ * -------------------------------------------------------------------
+ */
+
+/* CONTENEDORES. */
+
+.clase {
+	max-width: 720px;
+    margin: auto;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 21px;
+    font-weight: 400;
+	line-height: 160%;
+    color: #333;
+    text-align: left;
+      word-wrap: break-word!important;
+}
+
+.clase .bibliografia {
+    text-indent: -2.9em;
+    padding-left: 3.8em;
+}
+
+.clase .alert, .alert {
+    background-color: #ffe97c;
+    color: #000;
+
+}
+
+.clase .note {
+    background-color: #C3E6ED!important; 
+    border: 2px solid #337680!important;
+    color: #000!important;
+}
+
+.que {
+    display: inline-flex;
+}
+
+
+
+.que .formulation {
+    background-color: #C3E6ED!important;
+    border: 2px solid #337680!important;
+    color: #000!important;}
+    
+.que .outcome, .que .comment {
+    color: #fff!important;
+    background-color: #337680!important;
+    border: none!important;
+}
+
+.path-mod-quiz #mod_quiz_navblock .qnbutton {
+    font-size: 24px;
+    line-height: 6px;
+}
+
+.path-mod-quiz #mod_quiz_navblock .qnbutton .trafficlight {
+    margin-top: 0!important;
+}
+
+.clase .box {
+    background-color: #f2c5ea;
+        border: 2px solid #337680;
+    color: #000;
+
+}
+.clase .nota2 {
+    background-color: #b3ffb3;
+    color: #000;
+
+}
+.qa {
+    background-color: #915bd6;
+        border: 3px solid #337680;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 140%;
+}
+
+.clase pre {
+    background-color: #eeeeee;
+    border-left: 0.333333em solid rgba(0, 0, 0, 0.1);
+}
+
+.clase div.imagen_clase {
+  box-shadow: 0 0.1904762em 0.3809524em 0 rgba(0, 0, 0, 0.2), 0 0.285714em 0.952381em 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+    margin: 2em 1em;
+    }
+
+.clase div.imagen_clase img {
+	width: 100%;
+    height: auto;
+    padding: 1.5em 1.5em 0 1.5em;
+}
+
+.clase div.descripcion_imagen_clase {
+  padding: 0.7em;
+}
+
+.clase div.descripcion_imagen_clase p {
+	font-size: 0.7em;
+	padding: 0;
+	color: #555;
+	line-height: 1.7em;
+    margin: 0;
+}
+
+.presentacion {
+    font-size: 1.1rem;; 
+    line-height: 140%; 
+    padding: 1.44444em; 
+    border-style: solid; 
+    border-width: 0.111111em; 
+    border-color: #2D778F; 
+    font-family: 'Roboto condensed', sans-serif; 
+}
+
+/* TÃTULOS. */
+
+.titulo {
+    font-family: 'Roboto Condensed';
+    }
+
+.course-content ul.section .activity a .instancename {
+    font-family: 'Roboto Condensed';
+    }
+
+.clase h1 {
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-size: 2.04762em!important;
+	line-height: 120%!important;
+	margin-bottom: 1.714286em!important;
+    color: #2D778F!important;
+    font-weight: 300!important;
+}
+
+.clase .title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2.61905em;
+	line-height: 120%;
+	margin-bottom: 1.714286em;
+    color: #2D778F!important;
+    font-weight: 300;
+}
+.clase h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.619048em;
+	line-height: 120%;
+	margin-top: 2.761905em;
+	margin-bottom: 1.04762em;
+    color: #2D778F!important;
+    font-weight: 400;
+}
+.clase h3, .clase .subtitulo {
+        font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5em!important;
+    line-height: 120%!important;
+    margin-top: 1.714286em;
+    margin-bottom: 0.666667em;
+    color: #2D778F!important;
+    font-weight: 400!important;
+    text-align: left;
+}
+.clase h4 {
+    font-family: 'Roboto Condensed', sans-serif;
+	font-size: 1.35em;
+	line-height: 120%;
+	margin-bottom: 0.4285714em;
+    color: #2D778F!important;
+    font-weight: 400!important;
+}
+
+.clase h5 {
+    font-family: 'Roboto Condensed', sans-serif;
+	font-size: 1.2em;
+	line-height: 120%;
+	margin-bottom: 0.4285714em;
+    color: #2D778F!important;
+    font-weight: 400!important;
+}
+
+
+
+/* PARRAFO. */
+
+.clase a.autolink.glossary,a.autolink.glossary:visited,a.autolink.glossary:hover,a.autolink.glossary:active, a.linkpop, a.linkpop:visited {
+    margin-top: 1.715em;
+    font-size: 1em!important;
+    line-height: 1.72em!important;
+    cursor: help;
+}
+
+.clase p, .clase ul, .clase ol, .clase blockquote, .clase pre, .clase .footnotes {
+	margin-bottom: 1.714286em;
+}
+.clase ul, .clase ol {
+	margin-left: 1.714286em;
+}
+.clase li {
+	margin-bottom: 0.666667em;
+}
+
+.clase sub, .clase sup {
+	padding: 0 1px;
+}
+.clase code, .clase pre, .clase kbd {
+	font-size: 0.904762em;
+}
+.clase code {
+	background-color: rgba(0,0,0,0.08);
+	padding: 0.2380952em 0.285714em;
+	border-radius: 9px;
+	margin: 0 1px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+.clase pre {
+	padding: 0.666667em;
+	border-style: solid;
+	border-color: rgba(0,0,0,0.15);
+	border-width: 0 0 0 0.4285714em;
+    font-family: 'Roboto Slab', serif; 
+    font-weight: 300;
+}
+.clase kbd {
+	background-color: #fff;
+	padding: 0.2380952em 0.285714em;
+	border-radius: 0.285714em;
+	box-shadow: 0 0 0.285714em 0 rgba(0,0,0,0.45);
+	margin: 0 1px;
+}
+.clase .alert, .clase .note, .clase .box, .clase .nota2 {
+	padding: 1.04762em;
+}
+.clase .footnotes {
+	font-size: 0.809524em;
+	line-height: 1.428571em;
+	padding-top: 1.04762em;
+	border-top: 1px dotted rgba(0,0,0,0.15);
+}
+.clase .footnotes p {
+	margin-bottom: 1.04762em;
+}
+.clase ul ul, .clase ul ol, .clase ol ul, .clase ol ol, .clase blockquote.right p, .clase blockquote.left p, .clase .alert :last-child, .clase .note :last-child, .clase .nota2 :last-child, .clase .box :last-child, .clase .footnotes :last-child {
+	margin-bottom: 0;
+}
+
+/* CITAS. */
+
+.clase blockquote, .cita {
+	padding-left: 1.714286em;
+    text-align: left!important;
+    color: #2D778F;
+    margin: 3em;
+    position: relative;
+    font-style: italic;
+}
+
+.clase blockquote::before, .cita::before {
+    content: "\201C";
+    color: #2D778F;
+    font-size: 8em;
+    position: absolute;
+    top: 0.41em;
+    left: -.45em;
+    font-family: 'merriweather', serif;
+    font-weight: 400;
+  }
+
+.clase blockquote footer, .clase blockquote footer a, .cita footer, .cita footer a {
+    color: #2D778F;
+    text-decoration: none;
+    padding-top: 0.5em;
+    text-align: left;
+    font-style: normal;
+}
+
+.clase blockquote footer::before, .cita footer::before {
+    content: "\2014";
+  }
+
+
+/**
+ * 02. ESTILOS NODIFICADOS
+ *
+ * -------------------------------------------------------------------
+ */
+
+/* NAVEGACIÃ“N CLASES. */
+
+
+a.booknext:after {
+    padding: 0 0 0 5px!important;
+}
+a.bookprev:before {
+    padding: 0 5px 0 0!important;
+}
+a.bookprev, a.booknext {
+  max-width: 45%!important;
+}
+.navbottom.navtext .chaptername {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.navbottom a {
+    color: #2D778F;
+    display: inline-flex!important;
+}
+.navtop {
+    display: inherit!important;
+    visibility: hidden!important;
+}
+a.bookexit:after{
+    display: none!important;
+}
+
+/* Titulo capitulo clase. */
+
+.path-mod-book .book_chapter_title, .path-mod-book .book_content>h3:first-child, .path-mod-book .book_content>h3:first-child  + h4 {
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-size: 34px!important;
+	line-height: 120%!important;
+    color: #2D778F!important;
+    font-weight: 300!important;
+    text-align: left!important;
+	max-width: 720px!important;
+    margin: 0 auto 48px auto!important;
+    text-align: left;
+
+}
+
+/* Subtitulo capitulo clase. */
+
+.path-mod-book h3.book_chapter_title, .path-mod-book .book_content>h3:first-child + h4  {
+    font-weight: 100!important;
+    font-size: 28px!important;
+    line-height: 160%!important;
+    margin-top: 36px!important;
+    margin-bottom: 14px!important;
+    text-align: left;
+
+}
+
+/* Glosarios. */
+
+.content, .glossarydisplay {
+    max-width: 720px;
+    margin: 0 auto!important;
+}
+
+.glosario {
+    font-size: 18px;
+	line-height: 160%;
+	padding: 1.1em;
+    margin-bottom: 1.5em;
+    color:  #333;
+}
+.glosario img {
+    float: left;
+    margin-bottom: 1em;
+    margin-right: 2em;
+    width: 16em;
+    height: 16em;
+    object-fit: cover;
+
+    -webkit-filter: grayscale(100%); filter: grayscale(100%);
+}
+
+/* linkpop. */
+
+[data-title] {
+  position: relative;
+  cursor: help;
+  text-decoration: none;
+}
+
+[data-title]:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -52px;
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: #000;
+  color: #fff;
+  font-size: 0.7em;
+  white-space: nowrap;
+}
+
+[data-title]:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 8px;
+  display: inline-block;
+  color: #fff;
+  border: 8px solid transparent;
+  border-bottom: 8px solid #000;
+}
+
+/* iconos actividades. */
+
+.course-content .section img.iconlarge, .overview-icon .icon {
+    display: none; /* ocultar iconos. */
+}
+
+.course-content ul.section .activity a .instancename {
+    padding-left: 0;
+}
+
+.course-content ul.section .activity a {
+    padding-left: 0;
+    text-indent: 0;
+}
+
+/* descripcion clases. */
+
+
+.section .activity .availabilityinfo, .section .activity .contentafterlink {
+    margin-top: 1em;
+}
+
+.section .activity .availabilityinfo, .section .activity .contentafterlink {
+    margin-left: 0;
+}
+
+@media (min-width: 992px){
+.container {
+    max-width: 100%!important;
+}}
+@media (min-width: 768px){
+.container {
+    max-width: 100%!important;
+}}
+@media (min-width: 576px){
+.container {
+    max-width: 100%!important;
+}}
+.container {
+    
+    padding-left: 0!important;
+    
+}
+
+/* otros. */
+
+
+.mb-2 {
+    max-width:720px;
+    margin: auto;
+}
+
+span.arrow {
+    display: none;
+}
+
+.w-100 {
+    
+        font-size: 18px;
+        line-height: 160%;
+     margin-right: 0;
+        flex-wrap: nowrap;
+        padding: 0 20px;
+        overflow: hidden;
+        text-overflow: clip;
+        font-family: 'Open Sans';
+    }
+
+.w-100 img {
+    max-height: 90vh;
+    object-fit: contain;
+    padding: 0;
+}
+
+#region-main .nav-tabs>li>a {
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    }
+
+
+@media screen and (max-width: 600px){ 
+.nav.nav-tabs.mb-3 {
+    margin: 0!important;
+    padding: 0 !important;
+    border: none!important;
+    }
+
+.nav.nav-tabs.mb-3 .nav-item {
+    width: 50%!important;
+    float: left!important;
+    }
+}
+
+body #region-main .nav-tabs li a {
+    -webkit-border-radius:  0 !important;
+    -moz-border-radius:  0 !important;
+    border-radius:  0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    -webkit-transition: none !important;
+    -o-transition:  none !important;
+    transition:  none !important;
+    -moz-transition:  none !important;
+    opacity:1;
+}
+
+body #region-main .nav-tabs li a.disabled {
+    opacity: .5;
+}
+
+a.nav-link.active {
+    margin: 0!important;
+}
+
+.course-content .single-section
+{
+    margin: 0 !important;
+}
+
+.course-content ul li.section.main
+{
+    border-top: none !important;
+}
+
+body #section-0 .franja
+{
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+body .summary .no-overflow
+{
+    overflow: inherit !important;
+}
+body .summary h2
+{
+   color: #1c9da2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: 900 !important;
+    line-height: 100% !important;
+    margin-bottom : 40px !important;
+}
+@media screen and (min-width: 769px){
+.course-content ul.topics
+{
+       padding: 5px 5px 5px 5px;
+}
+}
+@media screen and (max-width: 768px)
+{
+.course-content ul.topics
+{
+       padding: 5px 5px 5px 5px;
+}
+}
+@media screen and (min-width: 769px)
+{
+body .summary h2,body #section-0 .label h2
+{
+    font-size: 64px !important;
+      margin-top : 30px !important;    
+}
+}
+
+@media screen and (max-width: 769px)
+{
+body .summary h2,body #section-0 .label h2
+{
+    font-size: 48px !important;
+      margin-top : 0 !important;    
+}
+}
+
+.course-content ul.section
+{
+    margin:0 !important;
+    padding: 0 !important;
+    position: relative;
+}
+
+
+
+body .section .activity.label .contentwithoutlink a:hover, body .section .activity.label .activityinstance a:hover
+{
+      font-weight: 500;
+   	  text-decoration: none !important;  
+	  color: #000;
+}
+
+.instancename,.section .activity .contentwithoutlink a:hover .instancename, .section .activity .activityinstance a:hover .instancename
+{ 
+ font-weight: 500;
+	text-decoration: underline !important;
+    color: #000;
+}
+
+
+.iconlarge
+{
+    width: 30px !important;
+	height: 30px !important;
+	margin-left: 40px !important;
+}
+
+.course-content ul.section h4
+{
+font-size: 18px;
+font-weight: 900 !important;
+
+    line-height: 150%;
+    max-width: 700px;
+    color: #1c9da2;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.course-content ul.section .activity
+{
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;    
+}
+
+.course-content ul.section .activity.label
+{
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    padding-left: 0;
+    background-image: none ;
+}
+
+.course-content ul.section .activity a
+{ 
+    padding-left: 0;
+}
+
+.course-content ul.section .activity a .instancename
+{ 
+    background-size: 24px auto;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-top: 5px;
+    padding-bottom: 5px;
+	text-decoration: none !important;
+}
+    
+.course-content ul.section .activity.label a .instancename
+{
+    padding-top: 0;
+    padding-bottom: 0;    
+    padding-left: 0;
+    background-image: none ;
+	text-decoration: none !important;
+}
+
+    
+.block .header .block-action #instance-8252641-action{
+   background-color: darkblue !important;
+}
+
+h2.start{
+font-family: 'Roboto condensed' !important;  
+}
+    
+
+
+/**
+ * RECURSOS
+ *
+ * -------------------------------------------------------------------
+ */
+
+.recursos {
+    max-width: 720px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 400!important;
+    padding: 1em;
+    color: #333;
+    font-family: 'Roboto condensed';
+}
+
+.recursos h3 {
+font-weight: 300;
+    font-size: 1.5em;
+    margin-top: 1.5em;
+    line-height: 140%;
+    color: #111;
+    text-align: left;
+}
+
+.recursos p {
+    font-weight: 400!important;
+    margin-bottom: 0.5em;
+}
+
+
+.recursos a {
+    color: #2D778F!important;
+    font-weight: 400!important;
+    padding-left: 2em!important;
+    text-indent: -2em!important;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+.recursos a:hover, .recursos a:link,.recursos a:visited,.recursos a:active {
+    font-size: 1em;
+    text-decoration: none !important;
+    border:none!important;
+    text-decoration-line: none; 
+}
+
+.recursos a::before {
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f138";
+    padding-right: 1em;
+  }
+
+.recursos a::before:hover {
+    color: #2D778F!important;
+}
+
+.recursos .note {
+    background-color: #bcdbf6;
+    border: 2px solid #337680;
+    color: #000;
+    padding: 0 1em 1em 1em;
+}
+
+/**
+ * BIOS
+ *
+ * -------------------------------------------------------------------
+ */
+
+.bio {
+    text-align: left;
+    padding: 30px;
+    font-size: 18px!important;
+    line-height: 160%;
+    text-align: left;
+    background-color: #C3E6ED;
+    border: 2px solid #337680;
+    margin-bottom: 2em;
+    }
+
+.bio h4 {
+    font-family: 'Roboto condensed';
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #337680;
+}
+
+.bio p {
+    font-family: 'Open Sans';
+    color: #000;
+}
+
+.bio img {
+    float: left;
+    margin-bottom: 1em;
+    margin-right: 1.8em;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    -webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter: grayscale(100%); 
+}
+
+/**
+ * ACTIVIDADES
+ *
+ * -------------------------------------------------------------------
+ */
+
+ #region-main h2 {
+    display: block;
+    max-width: 720px;
+    margin: auto;
+    padding-top: 20px;
+    font-size: 2em;
+    line-height: 120%;
+    font-family: 'Roboto Condensed';
+    margin-bottom: 30px;
+    color: #337680;
+}
+
+
+#intro {
+    max-width: 720px;
+    display: block;
+    margin: auto;
+    font-size: 18px;
+    font-family: 'Open Sans';
+}
+
+.complete {
+display: table;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #337680;
+    font-size: 18px;
+font-weight: 600;
+    background-color: #C3E6ED;
+}
+
+.mod_questionnaire_completepage.generalbox {
+    max-width: 720px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 120%;
+}
+
+.mod_questionnaire_completepage.generalbox textarea {
+    
+    width: 100%;
+}
+
+.mod_questionnaire_completepage.generalbox input {
+    padding: 20px;
+    font-weight: 600;
+}
+
+
+
+.singlebutton {
+    text-align: center;
+}
+
+.p-b-1, .p-y-1 {
+    padding-bottom: 1rem!important;
+    text-align: center;
+}
+
+/**
+ * DISPOSITIVOS MOVILES
+ *
+ * -------------------------------------------------------------------
+ */
+
+
+@media all and (max-width: 600px) {
+	.clase {
+		font-size: 15px!important;
+		padding:0!important;
+	}
+    .clase a.autolink.glossary,a.autolink.glossary:visited,a.autolink.glossary:hover,a.autolink.glossary:active, a.linkpop, a.linkpop:visited {
+        font-size: 15px!important;
+    }
+    
+    .glosario, .presentacion {
+        font-size: 1.1rem!important;
+    }
+    
+    .container-fluid {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    
+    #region-main {
+        padding-left: 0; 
+        padding-right: 0; 
+    }
+
+    #region-main {
+        padding: 0;
+    }
+
+    .w-100 {
+        margin:0;
+        font-size: 15px;
+        padding: 0 5px;
+    } 
+    .path-course-view #region-main {
+        padding-left: 0px; 
+        padding-right: 0px;
+}
+
+    .course-content ul.section  {
+        padding-left: 0!important;
+        margin: 0!important;
+}
+
+    #region-main ul {
+        margin: 1rem 0!important;
+        padding-left: 0!important;
+}
+
+    .course-content ul.section {
+        margin: 0!important;
+        padding-left: 0!important;
+}
+
+    .col12, .col-xs-12 {
+        padding: 5px!important;
+}
+
+    .content-alignment-container {
+        margin-left: 0px;
+}
+
+
+
+    h1, .h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+}
+    
+    .row {
+        width: 95%;
+        margin: auto;
+}
+    
+.col-1, .col-xs-1, .col-2, .col-xs-2, .col-3, .col-xs-3, .col-4, .col-xs-4, .col-5, .col-xs-5, .col-6, .col-xs-6, .col-7, .col-xs-7, .col-8, .col-xs-8, .col-9, .col-xs-9, .col-10, .col-xs-10, .col-11, .col-xs-11, .col-12, .col-xs-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    padding-left: 0;
+}
+
+    
+.col-12 {
+    padding-left: 0!important;
+}    
+    
+    .card-body, .userprofile .profile_tree section {
+        padding: 0;
+}
+
+    .page-context-header {
+        background-color: #337680;
+        background-image: none!important;
+}
+    
+ .titulo_curso h2, .titulo_curso h1 {
+    font-size: 18px!important;
+    font-weight: 400 !important;
+    padding-left: 10px!important;
+    padding-right: 10px!important;
+    text-align: center!important;
+    max-width: 100%;
+    float: none;
+}
+    
+}
+
+
+.block_gflacso_comunicacion .additional_links a.mayor, .block_gflacso_comunicacion .additional_links a.punto {
+    background-position: 22px 16px;
+    -webkit-background-size: 0.5em;
+    background-size: 0.5em;
+}
+.block_gflacso_comunicacion .additional_links a {
+    
+    font-size: 1.1em;
+    
+    font-family: 'Roboto Condensed';
+}
+
+.groupselector {
+    width: 100%;
+    max-width: 720px;
+    margin: 3px auto;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 160%;
+    font-weight: 400;
+    color: #337680;
+        max-width: 720px;
+    margin: auto;
+    text-align: center;
+}
+
+
+h3.surveyTitle {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.floatprinticon {
+float: none;
+font-size: 14px;
+}
+
+.mod-data-default-template {
+    table-layout: fixed!important;
+    max-width: 720px;
+    margin: 10px auto;
+    padding: 50px;
+    border: 2px solid #337680;
+        background-color: #C3E6ED!important; 
+
+}
+
+td.template-field.cell.c0 {
+    font-weight: 400;
+    color: #152f4e;
+    padding-left: 0;
+    width: 12%;
+    vertical-align: top!important;
+}
+
+form#feedback_complete_form {
+    max-width: 720px;
+    margin: auto;
+    font-size: 14px;
+}
+
+.section .activity .mod-indent {
+    padding-top: 0!important; 
+}
+
+.feedback_info {
+    max-width: 720px;
+    margin: auto;
+}
+
+.box.py-3.generalbox.boxaligncenter {
+    max-width: 720px;
+    margin: auto;
+    text-align: center;
+}
+
+a.btn.btn-secondary {
+    padding: 30px!important;
+    font-size: 1.5em;
+    border: 2px solid #337680;
+    color: #337680;
+    font-family: 'Roboto Condensed';
+}
+
+.entrada {
+    max-width: 800px;
+    margin: auto;
+    border: 2px solid #337680;
+    padding: 50px;
+    background-color: #C3E6ED;
+    font-family: 'Roboto Condensed';
+    color: #333;
+    text-align: left;
+    font-size: 19px;
+    line-height: 160%;
+}
+
+.col-1, .col-xs-1, .col-2, .col-xs-2, .col-3, .col-xs-3, .col-4, .col-xs-4, .col-5, .col-xs-5, .col-6, .col-xs-6, .col-7, .col-xs-7, .col-8, .col-xs-8, .col-9, .col-xs-9, .col-10, .col-xs-10, .col-11, .col-xs-11, .col-12, .col-xs-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    
+    padding-right: 0!important;
+}
+
+/**
+ * 5 COLUMNAS
+ *
+ * -------------------------------------------------------------------
+ */
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 100%;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+@media (min-width: 768px) {
+.col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+
+table caption {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.75em;
+    line-height: 120%;
+    margin-bottom: 0.4285714em;
+    color: #2D778F!important;
+    font-weight: 400!important;
+    text-align: left;
+    caption-side: top;
+}
+
+.resumen img {
+float: left;
+margin-bottom: 1em;
+margin-right: 1.8em;
+width: 200px;
+height: 200px;
+object-fit: cover;
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="125.37823"
+   height="23.258873"
+   viewBox="0 0 125.37823 23.258873"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="descargar.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="19.089855"
+     inkscape:cx="84.20703"
+     inkscape:cy="11.550638"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6">
+    <sodipodi:guide
+       position="115.26797,23.396447"
+       orientation="0,-1"
+       id="guide6559" />
+  </sodipodi:namedview>
+  <g
+     id="g6431"
+     transform="translate(48.370938,1.8840127)"
+     style="fill:#ba0c2f;fill-opacity:1">
+    <path
+       d="m 67.007287,12 4,-5 h -3 V 0 h -2 v 7 h -3 z"
+       id="path2"
+       style="fill:#ba0c2f;fill-opacity:1" />
+    <path
+       d="m 75.007287,14 h -16 V 7 h -2 v 7 c 0,1.103 0.897,2 2,2 h 16 c 1.103,0 2,-0.897 2,-2 V 7 h -2 z"
+       id="path4"
+       style="fill:#ba0c2f;fill-opacity:1" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.3104px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#294770;fill-opacity:1;stroke:none;stroke-width:0.632759"
+     x="-1.9402993"
+     y="17.994112"
+     id="text4799"><tspan
+       sodipodi:role="line"
+       id="tspan4797"
+       x="-1.9402993"
+       y="17.994112"
+       style="stroke-width:0.632759">Descargar</tspan></text>
+</svg>

@@ -1,0 +1,200 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.page-context-header  {
+    width: 100%;
+    background-color: #fff;
+    background-image: url(https://virtual.flacso.org.ar/theme/gflacso/vale/onu2021/02/banner-02.jpg)!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+    
+.page-context-header:before {
+    content: "";
+    float: left;
+    padding-bottom: 8.2%;
+  }
+
+.page-context-header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.page-header-headings.titulo_curso.medium, .page-header-headings.titulo_curso.big  {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.titulo_curso h2, .titulo_curso h1
+{
+    text-align: right!important;
+    font-family: 'Roboto Condensed' !important;
+    color: #fff !important;
+    font-size: 2.1vw !important;
+    font-weight: 400 !important;
+    padding-right: 2%!important;
+    margin: 0px !important;
+    border-radius: 0px !important;
+    background: none;
+    line-height: 110%!important;
+    max-width: 55%;
+    /*min-width: 470px;*/
+    float: right;
+}
+
+
+
+
+
+#region-main
+{
+    border:none;
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+
+/* Navegación */
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .nav.nav-tabs.mb-3
+    {
+    margin: 0!important;
+    padding: 0 !important;
+    }
+}
+
+.nav.nav-tabs.mb-3 {
+    text-align: center!important;
+    display: block!important;
+    font-family: 'Roboto condensed'!important;
+    font-size: 16px!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item {
+    margin: 0 0 4px 0!important;
+    padding: 0!important;
+    display: inline-block!important;
+    cursor: pointer!important;
+    color: #000 !important;
+    background-color: #C3E6ED !important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a {
+    padding: 10px!important;
+    display: block!important;
+    color: #000!important;
+    background-color: #C3E6ED;
+        border: 2px solid #33768f!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a:hover { 
+    background-color: #33768f!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+}
+
+.nav.nav-tabs.mb-3 .nav-item a.active {
+    background-color: #33768f!important;
+    color: #fff!important;
+    text-decoration: none!important;
+    font-weight: 600!important;
+        border: 2px solid #33768f!important;
+}
+    
+    
+@media only screen and (max-width: 768px) {
+     .page-context-header {
+        background-color: #33768f;
+        background-image: none!important;
+}
+    
+    .titulo_curso h2, .titulo_curso h1 {
+       font-weight: 400 !important;
+    padding-left: 0!important;
+    padding-right: 2%!important;
+    text-align: center!important;
+    max-width: 100%;
+    float: none;
+       }
+}
+
+
+.course-content ul.section .activity a .instancename {
+    color: #8838e5;
+        font-weight: bold;
+    font-size:18px;
+
+}
+
+
+.circulo1 {
+    width: 100%;
+    font-size: .75em;
+    text-align: center;
+    line-height: 120%;
+    border: 3px solid #33768f;
+    position: relative;
+    margin-bottom: 20px!important;
+    font-family: 'Roboto Condensed';
+    vertical-align: middle;
+    background-color: #C3E6ED;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: bold;
+    color: #33768f;
+}
+
+
+.circulo1:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.circulo2 {
+    width: 100%;
+    font-size: .75em;
+    text-align: center;
+    line-height: 120%;
+    border: 3px solid #8838e5;
+    position: relative;
+    margin-bottom: 20px!important;
+    font-family: 'Roboto Condensed';
+    vertical-align: middle;
+    background-color: #C3E6ED;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: bold;
+    color:  #8838e5;
+}
+
+
+.circulo2:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .circulo1, .circulo2 {
+        font-size: 21px;
+        text-align: center;
+    }
+}

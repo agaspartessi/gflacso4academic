@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 2115 391"
+   style="enable-background:new 0 0 2115 391;"
+   xml:space="preserve"
+   sodipodi:docname="banner-normal.svg"
+   inkscape:version="1.0.1 (c497b03c, 2020-09-10)"><metadata
+   id="metadata3686"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs3684" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1280"
+   inkscape:window-height="755"
+   id="namedview3682"
+   showgrid="false"
+   inkscape:zoom="0.51820331"
+   inkscape:cx="1057.5"
+   inkscape:cy="195.5"
+   inkscape:window-x="0"
+   inkscape:window-y="23"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="Capa_1" />
+<style
+   type="text/css"
+   id="style3671">
+	.st0{fill:#FFA954;}
+	.st1{fill:#33508D;}
+</style>
+<polygon
+   class="st0"
+   points="729,0 620,391 2296,391 2405,0 "
+   id="polygon3673"
+   style="fill:#99d6ff;fill-opacity:1" />
+
+<polygon
+   class="st0"
+   points="662,391 771,0 375,0 266,391 "
+   id="polygon3677"
+   style="fill:#eca054;fill-opacity:1"
+   transform="translate(28)" />
+<polygon
+   class="st1"
+   points="637,391 0,391 0,0 746,0 "
+   id="polygon3679"
+   style="fill:#01548c;fill-opacity:1" />
+</svg>

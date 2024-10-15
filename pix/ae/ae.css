@@ -1,0 +1,393 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.page-context-header  {
+    width: 100%;
+    background-color: #fff;
+    background-image: url(https://virtual.flacso.org.ar/theme/gflacso/vale/ae/banner-fundacion-gran-chaco.jpg)!important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+    
+.page-context-header:before {
+    content: "";
+    float: left;
+    padding-bottom: 8.2%;
+  }
+
+.page-context-header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.page-header-headings.titulo_curso.medium, .page-header-headings.titulo_curso.big  {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.titulo_curso h2, .titulo_curso h1
+{
+    text-align: right!important;
+    font-family: 'Roboto Condensed' !important;
+    color: #fff !important;
+    font-size: 2.1vw !important;
+    font-weight: 400 !important;
+    padding-right: 2%!important;
+    margin: 0px !important;
+    border-radius: 0px !important;
+    background: none;
+    line-height: 110%!important;
+    max-width: 100%;
+    min-width: 470px;
+    padding-left: 35%;}
+
+#region-main
+{
+    border:none;
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+
+/* Navegación */
+
+body #region-main .nav-tabs li a {
+    border-radius: 8px 8px 0 0!important;
+    transition:  all 0.5s ease !important;
+
+}
+
+@media screen and (min-width: 768px) {
+    .nav.nav-tabs.mb-3
+    {
+    margin: 0!important;
+    padding: 0 !important;
+    }
+}
+
+.nav.nav-tabs.mb-3 {
+    text-align: center!important;
+    font-family: 'Roboto condensed'!important;
+    font-size: 16px!important;
+    max-width: 800px;
+    margin: auto!important;
+    justify-content: center;
+}
+
+.nav.nav-tabs.mb-3 .nav-item {
+    margin: 0!important;
+    padding: 0!important;
+    cursor: pointer!important;
+    color: #fff !important;
+    background-color: #a3a3a3!important;
+    margin-bottom: 3px!important;
+    border-radius: 8px 8px 0 0!important;
+    font-weight: bold!important;
+    margin-right: 2px!important
+}
+
+.nav.nav-tabs.mb-3 .nav-item a {
+    padding: 10px!important;
+/*  color: #fff!important;*/
+    /*border-top: 6px solid #196EB5!important;*/
+    border-radius: 8px 8px 0 0!important;
+
+}
+
+.nav.nav-tabs.mb-3 .nav-item a:hover { 
+ /*color: white!important;*/
+    font-weight: bold!important;
+    padding-bottom: 20px!important;
+    /*border-top: 9px solid #196EB5!important;*/
+    margin-top: -13px!important;
+
+}
+
+.nav.nav-tabs.mb-3 .nav-item a.active {
+    text-decoration: none!important;
+    font-weight: bold!important;
+/*  color: #fff!important;*/
+    border-radius: 8px 8px 0 0!important;
+    padding-bottom: 20px!important;
+    /*border-top: 9px solid #196EB5!important;*/
+    margin-top: -13px!important;
+
+}
+
+    
+@media only screen and (max-width: 768px) {
+     .page-context-header {
+    background-color: #a41c22;
+        background-image: none!important;
+}
+    
+    .titulo_curso h2, .titulo_curso h1 {
+    font-weight: 600!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    text-align: center!important;
+    max-width: 100%;
+    float: none;
+    margin: auto!important;
+    font-size: 18px!important;
+    min-width: 100%;
+       }
+}
+
+
+.titulo {
+    color: #196EB5;
+}
+
+
+.presentacion {
+    border-color: #555; 
+}
+
+
+.course-content ul.section .activity a .instancename {
+    color: #555;
+        font-weight: bold;
+
+}
+
+
+/**
+ * RECURSOS
+ *
+ * -------------------------------------------------------------------
+ */
+
+.recursos {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 400!important;
+    padding: 1em;
+    color: #333;
+    font-family: 'Roboto condensed';
+}
+
+.recursos h3 {
+font-weight: 300;
+    font-size: 1.5em;
+    margin-top: 1.5em;
+    line-height: 140%;
+    color: #111;
+}
+
+.recursos p {
+    font-weight: 400!important;
+    margin-bottom: 0.5em;
+}
+
+
+.recursos a {
+    color: #196EB5!important;
+    font-weight: 400!important;
+    padding-left: 2em!important;
+    text-indent: -2em!important;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+.recursos a:hover, .recursos a:link,.recursos a:visited,.recursos a:active {
+    font-size: 1em;
+    text-decoration: none !important;
+    border:none!important;
+    text-decoration-line: none; 
+}
+
+.recursos a::before {
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f138";
+    padding-right: 1em;
+  }
+
+.recursos a::before:hover {
+    color: #196EB5!important;
+}
+
+.recursos .note {
+    background-color: #fff;
+    border: 2px solid #196EB5;
+    color: #000;
+    padding: 0 1em 1em 1em;
+    margin: auto;
+}
+
+
+/**
+ * OTROS
+ *
+ * -------------------------------------------------------------------
+ */
+
+.section .activity .contentwithoutlink a, .section .activity .activityinstance a
+{
+    font-weight: 600;
+    color: #196EB5;
+}
+
+.section .activity .contentwithoutlink a:hover, .section .activity .activityinstance a:hover
+{
+    font-weight: bold;
+	color: #196EB5 !important; 
+}
+
+
+.path-mod-book .book_chapter_title, .path-mod-book .book_content>h3:first-child, .path-mod-book .book_content>h3:first-child  + h4 {
+    color: #196EB5!important;
+}
+
+.clase h1 {
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-size: 2.04762em!important;
+	line-height: 3.238095em!important;
+	margin-bottom: 1.714286em!important;
+    color: #196EB5!important;
+    font-weight: 300!important;
+}
+
+.clase .title, .clase h2, .clase h3, .clase .subtitulo, .clase h4, .clase h5 {
+    color: #196EB5!important;
+}
+
+
+.bio {
+    background-color: white;
+    border: 2px solid #196EB5;
+    }
+
+
+#region-main h2 {
+    color: #196EB5;
+}
+
+.clase .note {
+    border: 2px solid #196EB5!important;
+    color: #000!important;
+    border-radius: 15px;
+    width: 90%;
+    margin: 0 auto 1.714286em auto ;
+}
+
+
+/**
+ * CRONOGRAMA
+ *
+ * -------------------------------------------------------------------
+ */
+
+
+
+.vtl {
+  position: relative;
+  padding: 10px 0px 10px 10px;
+  max-width: 250px;
+}
+
+.vtl::before {
+  content: '';
+  width: 5px;
+  background-color: #196EB5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+    z-index: 1;
+}
+div.ewrap {
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+}
+
+div.event {
+  padding: 10px 15px;
+  background-color: #63adea;
+  position: relative;
+  border-radius: 0 8px 8px 0;
+}
+
+#uno {
+  background-color: #fbcf32!important;
+}
+
+#dos {
+  background-color: #cfcfcf;
+}
+
+#tres {
+  background-color: #cfcfcf;
+}
+
+#cuatro {
+  background-color: #cfcfcf;
+}
+
+#cinco {
+  background-color: #cfcfcf;
+}
+
+#seis {
+  background-color: #cfcfcf;
+}
+
+#siete {
+  background-color: #cfcfcf;
+}
+
+#cierre {
+  background-color: #a41c22;
+	color: #fff ;
+}
+
+/*strong.date {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #555;
+}*/
+p.text {
+  margin: 0;
+      /*color: #555;*/
+        font-size: 1em!important;
+        line-height: 120%;
+
+}
+
+div.ewrap::after {
+  content: '';
+  background: #fff;
+  border: 4px solid #196EB5;
+  width: 16px;
+  height: 16px;
+  border-radius: 20px;
+  position: absolute;
+  top: 25%;
+  left: -5px;
+    z-index: 2;
+}
+
+
+.clase blockquote, .cita {
+    color:#333;
+}
+
+.clase blockquote::before, .cita::before {
+    color: #196EB5;
+}
+
+.clase blockquote footer, .clase blockquote footer a, .cita footer, .cita footer a {
+    color: #196EB5;
+}
+
