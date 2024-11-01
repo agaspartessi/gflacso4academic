@@ -27,16 +27,16 @@ $grays: map-merge(("100": $gray-100,
         $grays
 );
 
-$blue: #3678c9 !default;
-$indigo: #7136c9 !default;
-$purple: #c936a2 !default;
-$pink: #efc5c3 !default;
-$red: #c94736 !default;
-$orange: #c98036 !default;
-$yellow: #C9C636 !default;
-$green: #4EC936 !default;
-$teal: #258d6e !default;
-$cyan: #36c99d !default;
+$blue: #3636c9 !default;
+$indigo: #461b65 !default;
+$purple: #651b65 !default;
+$pink: #f2cfd5 !default;
+$red: #c93636 !default;
+$orange: #c98736 !default;
+$yellow: #c9c936 !default;
+$green: #36c936 !default;
+$teal: #1b6565 !default;
+$cyan: #36c9c9 !default;
 
 $colors: (
     ) !default;
@@ -57,7 +57,7 @@ $colors: map-merge(("blue": $blue,
         $colors
 );
 
-$primary: hsl(213, 58%, 50%) !default;
+$primary: #3678c9 !default;
 
 // Derivados del color primario
 $primary-1: lighten($primary, 10%) !default; // Color primario más claro
@@ -71,9 +71,9 @@ $border-1: $primary-3 !default;
 
 $background-1: $primary-3 !default;
 $background-2: rgba($primary-3, 0.4) !default; // Color de fondo secundario con opacidad
-$background-3: hsla(45, 100%, 38%, 0.3) !default;
+$background-3: #c291004d !default;
 
-$secondary: hsl(333, 58%, 50%) !default;
+$secondary: #c93678 !default;
 
 // Derivados del color secundario
 $secondary-a: rgba($secondary, 0.8) !default; // Color secundario con opacidad
@@ -85,7 +85,7 @@ $secondary-3: lighten($secondary, 40%) !default; // Color secundario muy claro
 $color-links: $secondary !default;
 $notas: $secondary !default;
 
-$flacso: hsl(213, 58%, 19%) !default;
+$flacso: #142e4d !default;
 
 // Derivados del color flacso
 $flacso-1: lighten($flacso, 10%) !default; // Color flacso más claro
