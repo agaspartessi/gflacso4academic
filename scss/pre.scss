@@ -27,16 +27,16 @@ $grays: map-merge(("100": $gray-100,
         $grays
 );
 
-$blue: #3636c9 !default;
-$indigo: #461b65 !default;
-$purple: #651b65 !default;
-$pink: #f2cfd5 !default;
-$red: #c93636 !default;
-$orange: #c98736 !default;
-$yellow: #c9c936 !default;
-$green: #36c936 !default;
-$teal: #1b6565 !default;
-$cyan: #36c9c9 !default;
+$blue: #365BC9 !default;
+$indigo: #672895 !default;
+$purple: #952895 !default;
+$pink: #EAAEB8 !default;
+$red: #C9365B !default;
+$orange: #C96536 !default;
+$yellow: #C9A336 !default;
+$green: #289528 !default;
+$teal: #289595 !default;
+$cyan: #35C9B9 !default;
 
 $colors: (
     ) !default;
@@ -64,10 +64,6 @@ $primary-1: lighten($primary, 10%) !default; // Color primario más claro
 $primary-2: lighten($primary, 25%) !default; // Color primario aún más claro
 $primary-3: lighten($primary, 40%) !default; // Color primario muy claro
 $primary-a: saturate($primary, 20%) !default; // Color primario más saturado
-$primary-b: rgba($primary, 0.8) !default; // Color primario con opacidad
-$focus: lighten($primary, 20%) !default; // Color de enfoque
-
-$border-1: $primary-3 !default;
 
 $background-1: $primary-3 !default;
 $background-2: rgba($primary-3, 0.4) !default; // Color de fondo secundario con opacidad
@@ -77,13 +73,9 @@ $secondary: #c93678 !default;
 
 // Derivados del color secundario
 $secondary-a: rgba($secondary, 0.8) !default; // Color secundario con opacidad
-$secondary-b: rgba($secondary, 0.65) !default; // Color secundario con opacidad reducida
 $secondary-1: lighten($secondary, 10%) !default; // Color secundario más claro
 $secondary-2: lighten($secondary, 25%) !default; // Color secundario aún más claro
 $secondary-3: lighten($secondary, 40%) !default; // Color secundario muy claro
-
-$color-links: $secondary !default;
-$notas: $secondary !default;
 
 $flacso: #142e4d !default;
 
@@ -91,10 +83,8 @@ $flacso: #142e4d !default;
 $flacso-1: lighten($flacso, 10%) !default; // Color flacso más claro
 $flacso-2: lighten($flacso, 30%) !default; // Color flacso más claro
 $flacso-3: lighten($flacso, 60%) !default; // Color flacso muy claro
-$flacso-4: rgba($flacso, 0.82) !default; // Color flacso con opacidad
 
 $base: $flacso !default;
-$base-a: rgba($flacso, 0.5) !default; // Color flacso con opacidad
 
 $success: $green !default;
 $info: $cyan !default;

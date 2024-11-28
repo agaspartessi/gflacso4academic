@@ -1,294 +1,227 @@
-/*#region*/
-//RESET
+/*#region*///RESET
+
+// Variables globales de color
 :root {
-    --color-area-hue: 213; // Matiz
-    --color-area-saturation: 58%; // Saturación
-    --color-area-lightness: 50%; // Luminosidad
+    --default-hue: 213;
+    --default-saturation: 58%;
+    --default-lightness: 50%;
 
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-
+    // Esquema de color
     color-scheme: light dark;
 }
 
-/* Categorías de Temas */
+// Función para generar colores HSL
+@function create-color-scheme($hue, $saturation, $lightness, $variant-saturation: null) {
+    $variant-saturation: if($variant-saturation, $variant-saturation, $saturation);
 
-/** Antropología **/
-.category-2811,
-.category-2971,
-.category-97 {
-    --color-area-hue: 6; // Matiz
-    --color-area-saturation: 80%; // Saturación
-    --color-area-lightness: 23%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
+    @return (base: (hue: $hue,
+            saturation: $saturation,
+            lightness: $lightness ),
+        variants: (1: (saturation: $variant-saturation, lightness: 60%),
+            2: (saturation: $variant-saturation, lightness: 75%),
+            3: (saturation: $variant-saturation, lightness: 90%)));
 }
 
-/** Bioética y Derecho **/
-.category-2631,
-.category-3221,
-.category-2791,
-.category-3331,
-.category-3031,
-.category-2571,
-.category-3,
-.category-17 {
-    --color-area-hue: 95; // Matiz
-    --color-area-saturation: 59%; // Saturación
-    --color-area-lightness: 44%; // Luminosidad
+// Mixin para aplicar esquema de colores
+@mixin apply-color-scheme($scheme) {
+    $base: map-get($scheme, base);
+    $variants: map-get($scheme, variants);
 
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
+    --color-area-hue: #{map-get($base, hue)};
+    --color-area-saturation: #{map-get($base, saturation)};
+    --color-area-lightness: #{map-get($base, lightness)};
+
+    --color-area: hsl(var(--color-area-hue),
+            var(--color-area-saturation),
+            var(--color-area-lightness));
+
+    @each $variant, $values in $variants {
+        --color-area-#{$variant}: hsl(var(--color-area-hue),
+            #{map-get($values, saturation)},
+            #{map-get($values, lightness)});
+    }
 }
 
-/** Ciencias Sociales y Salud **/
-.category-2691,
-.category-3241,
-.category-2931,
-.category-3291,
-.category-2681,
-.category-3051,
-.category-3401,
-.category-2,
-.category-25,
-.category-701,
-.category-3041,
-.category-3721,
-.category-29 {
-    --color-area-hue: 202; // Matiz
-    --color-area-saturation: 64%; // Saturación
-    --color-area-lightness: 67%; // Luminosidad
+// Definición temas de color áreas
+$area-colors: (
+    antropologia: create-color-scheme(6, 80%, 30%, 44%),
+    bioetica: create-color-scheme(95, 59%, 44%, 46%),
+    ciencias-sociales: create-color-scheme(202, 36%, 54%, 64%),
+    comunicacion: create-color-scheme(0, 77%, 41%, 53%),
+    doctorado: create-color-scheme(43, 29%, 51%, 48%),
+    educacion: create-color-scheme(167, 24%, 50%, 40%),
+    estado: create-color-scheme(201, 67%, 30%, 37%),
+    estudios-latinoamericanos: create-color-scheme(351, 80%, 52%),
+    estudios-politicos: create-color-scheme(206, 58%, 51%),
+    estudios-agrarios: create-color-scheme(35, 91%, 52%),
+    juventud: create-color-scheme(182, 70%, 40%, 46%),
+    relaciones-internacionales: create-color-scheme(272, 27%, 42%, 20%),
+    psicologia: create-color-scheme(330, 36%, 41%, 25%),
+    genero: create-color-scheme(48, 98%, 55%),
+    ped: create-color-scheme(8, 71%, 51%),
+    cambio-climatico: create-color-scheme(35, 91%, 52%),
+    ministerio-trabajo: create-color-scheme(196, 83%, 57%)
+);
 
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
+// Aplicación de estilos por categoría
+.category {
+
+    // Antropología
+    &-2811,
+    &-2971,
+    &-97 {
+        @include apply-color-scheme(map-get($area-colors, antropologia));
+    }
+
+    // Bioética y Derecho
+    &-2631,
+    &-3221,
+    &-2791,
+    &-3331,
+    &-3031,
+    &-2571,
+    &-3,
+    &-17 {
+        @include apply-color-scheme(map-get($area-colors, bioetica));
+    }
+
+    // Ciencias Sociales y Salud
+    &-2691,
+    &-3241,
+    &-2931,
+    &-3291,
+    &-2681,
+    &-3051,
+    &-3401,
+    &-2,
+    &-25,
+    &-701,
+    &-3041,
+    &-3721,
+    &-29 {
+        @include apply-color-scheme(map-get($area-colors, ciencias-sociales));
+    }
+
+    // Comunicación y Cultura
+    &-2651,
+    &-3141,
+    &-5 {
+        @include apply-color-scheme(map-get($area-colors, comunicacion));
+    }
+
+    // Doctorado
+
+    &-2761,
+    &-3371,
+    &-15 {
+        @include apply-color-scheme(map-get($area-colors, doctorado));
+    }
+
+
+    // Educación
+    &-2621,
+    &-3111,
+    &-7 {
+        @include apply-color-scheme(map-get($area-colors, educacion));
+    }
+
+    // Estado y Políticas Públicas
+    &-2751,
+    &-3101,
+    &-2781,
+    &-3151,
+    &-19 {
+        @include apply-color-scheme(map-get($area-colors, estado));
+    }
+
+    // Estudios Latinoamericanos
+    &-2851,
+    &-3161,
+    &-3021,
+    &-2831,
+    &-3431,
+    &-2841,
+    &-3441,
+    &-611,
+    &-1651 {
+        @include apply-color-scheme(map-get($area-colors, estudios-latinoamericanos));
+    }
+
+    // Estudios Políticos y Lenguas Extranjeras
+    &-2721,
+    &-3231,
+    &-2741,
+    &-3181,
+    &-27,
+    &-47 {
+        @include apply-color-scheme(map-get($area-colors, estudios-politicos));
+    }
+
+    // Estudios Sociales Agrarios y Desarrollo
+    &-2701,
+    &-3391,
+    &-2731,
+    &-3321,
+    &-3131,
+    &-3281,
+    &-8,
+    &-6,
+    &-3121,
+    &-3341 {
+        @include apply-color-scheme(map-get($area-colors, estudios-agrarios));
+    }
+
+    // Juventud y Relaciones del Trabajo
+    &-2661,
+    &-3191,
+    &-2671,
+    &-3361,
+    &-74,
+    &-13 {
+        @include apply-color-scheme(map-get($area-colors, juventud));
+    }
+
+    // Relaciones Internacionales
+    &-2861,
+    &-3351,
+    &-3261,
+    &-3251,
+    &-191 {
+        @include apply-color-scheme(map-get($area-colors, relaciones-internacionales));
+    }
+
+    // Psicología del Conocimiento y Aprendizaje
+    &-2711,
+    &-3171,
+    &-1621 {
+        @include apply-color-scheme(map-get($area-colors, psicologia));
+    }
+
+    // Género,Sociedad y Políticas
+    &-3211,
+    &-2451 {
+        @include apply-color-scheme(map-get($area-colors, genero));
+    }
+
+    // Programa Educación a Distancia
+    &-3011,
+    &-3311,
+    &-3001 {
+        @include apply-color-scheme(map-get($area-colors, ped));
+    }
+
+    // Cambio Climático
+    &-3271 {
+        @include apply-color-scheme(map-get($area-colors, cambio-climatico));
+    }
+
+    // Ministerio de Trabajo
+    &-3491,
+    &-3481 {
+        @include apply-color-scheme(map-get($area-colors, ministerio-trabajo));
+    }
 }
 
-/** Comunicación y Cultura **/
-.category-2651,
-.category-3141,
-.category-5 {
-    --color-area-hue: 0; // Matiz
-    --color-area-saturation: 77%; // Saturación
-    --color-area-lightness: 41%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Doctorado **/
-.category-2761,
-.category-3371,
-.category-15 {
-    --color-area-hue: 43; // Matiz
-    --color-area-saturation: 48%; // Saturación
-    --color-area-lightness: 63%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Educación **/
-.category-2621,
-.category-3111,
-.category-7 {
-    --color-area-hue: 167; // Matiz
-    --color-area-saturation: 40%; // Saturación
-    --color-area-lightness: 63%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Estado y políticas públicas **/
-
-.category-2751,
-.category-3101,
-.category-2781,
-.category-3151,
-.category-19 {
-    --color-area-hue: 201; // Matiz
-    --color-area-saturation: 67%; // Saturación
-    --color-area-lightness: 30%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-
-/** Estudios Latinoamericanos - ADELA **/
-.category-2851,
-.category-3161,
-.category-3021,
-.category-2831,
-.category-3431,
-.category-2841,
-.category-3441,
-.category-611,
-.category-1651 {
-    --color-area-hue: 351; // Matiz
-    --color-area-saturation: 80%; // Saturación
-    --color-area-lightness: 52%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Estudios Políticos y Lenguas Extranjeras **/
-.category-2721,
-.category-3231,
-.category-2741,
-.category-3181,
-.category-27,
-.category-47 {
-    --color-area-hue: 206; // Matiz
-    --color-area-saturation: 58%; // Saturación
-    --color-area-lightness: 51%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Estudios Sociales Agrarios y Desarrollo **/
-.category-2701,
-.category-3391,
-.category-2731,
-.category-3321,
-.category-3131,
-.category-3281,
-.category-8,
-.category-6,
-.category-3121,
-.category-3341 {
-    --color-area-hue: 35; // Matiz
-    --color-area-saturation: 91%; // Saturación
-    --color-area-lightness: 52%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Juventud y Relaciones del Trabajo **/
-.category-2661,
-.category-3191,
-.category-2671,
-.category-3361,
-.category-74,
-.category-13 {
-    --color-area-hue: 182; // Matiz
-    --color-area-saturation: 70%; // Saturación
-    --color-area-lightness: 40%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Relaciones Internacionales **/
-.category-2861,
-.category-3351,
-.category-3261,
-.category-3251,
-.category-191 {
-    --color-area-hue: 272; // Matiz
-    --color-area-saturation: 27%; // Saturación
-    --color-area-lightness: 42%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Psicología del Conocimiento y Aprendizaje **/
-.category-2711,
-.category-3171,
-.category-1621 {
-    --color-area-hue: 330; // Matiz
-    --color-area-saturation: 36%; // Saturación
-    --color-area-lightness: 41%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Género, Sociedad y Políticas **/
-.category-3211,
-.category-2451 {
-    --color-area-hue: 48; // Matiz
-    --color-area-saturation: 98%; // Saturación
-    --color-area-lightness: 55%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** PED **/
-.category-3011,
-.category-3311,
-.category-3001 {
-    --color-area-hue: 8; // Matiz
-    --color-area-saturation: 71%; // Saturación
-    --color-area-lightness: 51%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-/** Cambio climático **/
-.category-3271 {
-    --color-area-hue: 35; // Matiz
-    --color-area-saturation: 91%; // Saturación
-    --color-area-lightness: 52%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
-
-
-/** Ministerio de Trabajo, Empleo y Seguridad Social **/
-.category-3491,
-.category-3481 {
-    --color-area-hue: 196; // Matiz
-    --color-area-saturation: 83%; // Saturación
-    --color-area-lightness: 57%; // Luminosidad
-
-    --color-area: hsl(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness));
-    --color-area-1: hsl(var(--color-area-hue), var(--color-area-saturation), 60%); // Luminosidad aumentada
-    --color-area-2: hsl(var(--color-area-hue), var(--color-area-saturation), 75%); // Luminosidad aumentada
-    --color-area-3: hsl(var(--color-area-hue), var(--color-area-saturation), 90%); // Luminosidad aumentada
-}
 
 * {
     box-sizing: border-box;
@@ -531,12 +464,13 @@ code,
     line-height: 120%;
     text-align: left;
     width: fit-content !important;
+    border-bottom: none;
 }
 
 #page-header h1.h2 {
     font-size: 2.5em;
     line-height: 110%;
-    border-bottom: 16px solid var(--color-area);
+    border-bottom: 8px solid var(--color-area);
     padding: 0.2em 0;
     font-weight: 400;
     color: $black;
@@ -1531,7 +1465,7 @@ body.limitedwidth #page.drawers .main-inner,
     line-height: 1.2;
     font-size: 0.85em;
     width: 100%;
-    padding: 0 4em;
+    padding: 2rem;
     margin: 0;
     height: 100%;
     text-align: center;
@@ -2077,11 +2011,11 @@ li[data-key="home"] {
     overflow: hidden;
     text-overflow: ellipsis;
     border: none !important;
-    background: $gray-200;
-    color: $black;
+    background: $gray-200 !important;
+    color: $black !important;
     border-radius: 8px 8px 0 0;
     transition: 0.15s ease-in-out;
-    border-top: 14px solid var(--color-area) !important;
+    border-top: 7px solid var(--color-area) !important;
     border-right: 1px solid $white !important;
     margin-top: 1rem;
     margin-bottom: 0;
@@ -2093,7 +2027,7 @@ li[data-key="home"] {
         background-color: $gray-200 !important;
         font-weight: 400;
         padding-bottom: 20px !important;
-        border-top: 14px solid $secondary !important;
+        border-top: 7px solid $secondary !important;
         margin-top: 4px;
         box-shadow: none !important;
     }
@@ -2128,15 +2062,9 @@ li[data-key="home"] {
     color: $black !important;
     border-radius: 8px 0 0 8px;
     border-top: none !important;
-    border-left: 14px solid var(--color-area) !important;
+    border-left: 7px solid var(--color-area) !important;
     border-bottom: 1px solid $white !important;
-}
-
-.format-onetopic .verticaltabs>.tabs-wrapper .nav-item .nav-link {
     margin-bottom: 0;
-    color: inherit !important;
-    box-sizing: border-box;
-    border: none;
 }
 
 .format-onetopic {
@@ -2155,7 +2083,7 @@ li[data-key="home"] {
                         font-weight: 400;
                         border-bottom: none !important;
                         margin-bottom: 0;
-                        border-left: 14px solid $secondary !important;
+                        border-left: 7px solid $secondary !important;
                         border-bottom: 1px solid $white !important;
                         margin-left: -16px;
                         width: calc(100% + 16px) !important;
@@ -2182,8 +2110,7 @@ li[data-key="home"] {
 }
 
 .format-onetopic .onetopic-tab-body:has(.nav-item) {
-    border-top: 2px solid var(--color-area) !important;
-    margin-top: 1.2em;
+   margin-top: 1.2em;
 }
 
 .format-onetopic .onetopic-tab-body {
@@ -2194,7 +2121,7 @@ li[data-key="home"] {
     .nav-tabs .nav-link {
         border: none !important;
         border-radius: 0 0 10px 10px;
-        border-bottom: 14px solid var(--color-area) !important;
+        border-bottom: 7px solid var(--color-area) !important;
         border-right: 1px solid $white !important;
         padding: 0.5rem 1rem;
         color: $black !important;
@@ -2210,7 +2137,7 @@ li[data-key="home"] {
             border: none !important;
             margin: 0 !important;
             border-radius: 0 0 10px 10px;
-            border-bottom: 14px solid $secondary !important;
+            border-bottom: 7px solid $secondary !important;
             border-right: 1px solid $white !important;
             background-color: var(--color-area-3) !important;
             font-weight: 400;
@@ -2265,7 +2192,7 @@ li[data-key="home"] {
         color: $black;
         border-radius: 8px 8px 0 0;
         transition: 0.15s ease-in-out;
-        border-top: 14px solid var(--color-area) !important;
+        border-top: 7px solid var(--color-area) !important;
         border-right: 1px solid $white !important;
         margin-top: 1rem;
         margin-bottom: 0;
@@ -2278,10 +2205,10 @@ li[data-key="home"] {
             font-weight: 400;
             padding-top: .5rem;
             padding-bottom: 20px !important;
-            border-top: 14px solid $secondary !important;
+            border-top: 7px solid $secondary !important;
             margin-top: 4px !important;
+            border-bottom: none !important;
         }
-
     }
 }
 
@@ -2315,7 +2242,8 @@ ul.onetopic {
 }
 
 .activity-item.hiddenactivity {
-    margin-left: 1em;
+    filter: opacity(.5);
+    margin: 0;
 }
 
 .activity-item.activityinline {
@@ -2327,6 +2255,39 @@ ul.onetopic {
     .activity-item:not(.activityinline) {
         padding-inline: 0;
         padding-block: 1rem;
+    }
+
+    .format-onetopic:not(:has(.verticaltabs)) .onetopic-tab-body .format_onetopic-tabs {
+        justify-content: center;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            border-bottom: 3px solid var(--color-area);
+            padding-bottom: 1rem;
+            width: 100%;
+            height: 0;
+            margin-bottom: 2rem;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid var(--color-area);
+            position: absolute;
+            top: 0;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            transform: rotate(45deg);
+            background-color: $white;
+        }
+    }
+
+    .format-onetopic .onetopic-tab-body .nav-tabs .nav-link {
+        margin-bottom: 20px;
     }
 }
 
@@ -2435,9 +2396,26 @@ ul.onetopic {
     }
 }
 
+.course-content .single-section .section-navigation>* {
+    margin-bottom: 2rem;
+    max-width: 30% !important;
+}
+
+@media (max-width: 600px) {
+    .format-onetopic .course-content .section-navigation {
+        align-items: center;
+
+        >* {
+            width: 100%;
+            max-width: 100% !important;
+        }
+    }
+
+}
+
 .course-content .single-section .section-navigation {
     border-top: 1px solid var(--color-area);
-    padding: 2em .5em;
+    padding: 2em 0;
     margin-bottom: 0;
 }
 
@@ -2494,15 +2472,16 @@ ul.onetopic {
 }
 
 @media (max-width: 767.98px) {
-    .format-onetopic .verticaltabs>.tabs-wrapper .nav-item {
-        margin: 0;
-        box-sizing: border-box;
+
+    .format-onetopic .verticaltabs .onetopic-tab-body {
+        padding-left: 0;
     }
 
     .format-onetopic .verticaltabs>.tabs-wrapper .nav-tabs {
         box-sizing: border-box;
         background: transparent !important;
         padding: 0;
+        display: inline-flex;
     }
 
     .format-onetopic .verticaltabs>.tabs-wrapper .nav-item {
@@ -2510,6 +2489,12 @@ ul.onetopic {
         width: 32.6%;
         display: inline-block;
         margin: 0 !important;
+
+        .nav-link {
+            border: none !important;
+            margin-bottom: 0.25rem !important;
+            border-right: 3px solid $white !important;
+        }
     }
 
     .format-onetopic .format_onetopic-tabs .nav-link {
@@ -2519,6 +2504,16 @@ ul.onetopic {
         margin: 0 !important;
         border-radius: 3px !important;
         padding: 0.5em 0.2em;
+    }
+
+    .format-onetopic .verticaltabs .onetopic-tab-body .nav-tabs .nav-link,
+    .nav-pills .nav-item,
+    .format-onetopic .onetopic-tab-body .nav-tabs .nav-link,
+    .format-onetopic .format_onetopic-tabs .nav-link {
+        border: none !important;
+        margin-bottom: 0.25rem !important;
+        border-right: 3px solid $white !important;
+        padding-block: 10px;
     }
 
     .format-onetopic .verticaltabs>.tabs-wrapper {
@@ -2542,21 +2537,42 @@ ul.onetopic {
         margin-bottom: 0.15em !important;
     }
 
-    .format-onetopic .verticaltabs>.tabs-wrapper .nav-tabs .nav-link:hover,
-    .format-onetopic .verticaltabs>.tabs-wrapper .nav-tabs .nav-link:focus,
-    .format-onetopic .verticaltabs>.tabs-wrapper .nav-tabs .nav-link.active,
-    .format-onetopic .verticaltabs>.tabs-wrapper .nav-tabs .nav-item.show .nav-link,
-    .tabs-wrapper .nav-link.active,
-    .tabs-wrapper .nav-link:hover {
-        border: 1px solid var(--color-area) !important;
+    .format-onetopic .verticaltabs>.tabs-wrapper .nav-tabs {
+        & .nav-link {
+
+            &:hover,
+            &:focus,
+            &.active {
+                border: 1px solid var(--color-area);
+            }
+        }
+
+        & .nav-item.show .nav-link {
+            border: 1px solid var(--color-area);
+        }
+    }
+
+    .tabs-wrapper {
+        & .nav-link {
+
+            &.active,
+            &:hover {
+                border: 1px solid var(--color-area);
+            }
+        }
     }
 
     .format-onetopic .verticaltabs>.tabs-wrapper ul li:first-child .nav-link {
-	border-top: 1px solid var(--color-area);
-}
+        border-top: 1px solid var(--color-area);
+    }
 
     .format-onetopic .onetopic-tab-body .format_onetopic-tabs {
         padding: 1em;
+        margin-top: 1rem;
+        box-shadow: 0 0 10px 3px rgba(193, 193, 193, 1);
+
+        -webkit-box-shadow: 0 0 10px 3px rgba(193, 193, 193, 1);
+        -moz-box-shadow: 0 0 10px 3px rgba(193, 193, 193, 1);
     }
 
     .format-onetopic .onetopic-tab-body .nav-item {
@@ -2571,6 +2587,33 @@ ul.onetopic {
         border-bottom: 1px solid var(--color-area) !important;
         padding: 0.5em;
     }
+
+        .format-onetopic .verticaltabs .onetopic-tab-body .nav-tabs .nav-link:hover,
+        .format-onetopic .verticaltabs .onetopic-tab-body .nav-tabs .nav-link:focus,
+        .format-onetopic .verticaltabs .onetopic-tab-body .nav-tabs .nav-link.active,
+        .nav-tabs:not(.more-nav) .nav-link.active:not(:disabled):not(.disabled):active,
+        .nav-tabs:not(.more-nav) .nav-link.active:not(:disabled):not(.disabled).active,
+        .show>.nav-tabs:not(.more-nav) .nav-link.active.dropdown-toggle,
+        .nav-pills .nav-link.active:not(:disabled):not(.disabled):active,
+        .nav-pills .nav-link.active:not(:disabled):not(.disabled).active,
+        .show>.nav-pills .nav-link.active.dropdown-toggle {
+            border: none !important;
+            padding-bottom: 8px !important;
+            margin-top: 0 !important;
+        }
+    
+        .nav-tabs:not(.more-nav) .nav-link.active:not(:disabled):not(.disabled):active,
+        .nav-tabs:not(.more-nav) .nav-link.active:not(:disabled):not(.disabled).active,
+        .show>.nav-tabs:not(.more-nav) .nav-link.active.dropdown-toggle,
+        .nav-pills .nav-link.active:not(:disabled):not(.disabled):active,
+        .nav-pills .nav-link.active:not(:disabled):not(.disabled).active,
+        .show>.nav-pills .nav-link.active.dropdown-toggle {
+            background-color: $primary !important;
+            color: $white !important;
+            width: 100% !important;
+            border-right: 3px solid $white !important;
+            padding-block: 10px !important;
+        }
 
     .my-3[data-for="sectioninfo"] {
         background: transparent;
@@ -2623,6 +2666,10 @@ ul.onetopic {
     display: inherit;
 }
 
+.jumpmenu .form-inline {
+    text-align: center;
+}
+
 /* navegación inferior pestañas */
 
 .section-navigation {
@@ -2633,13 +2680,14 @@ ul.onetopic {
     .larrow,
     .rarrow {
         color: transparent;
+        max-width: 22px;
     }
 
     .larrow:after {
         font-family: "FontAwesome";
         content: '';
         position: relative;
-        right: 0;
+        left: -14px;
         top: 0;
         color: $primary;
         margin-right: 5px;
@@ -2839,13 +2887,22 @@ ul.onetopic {
     border-bottom: none !important;
 }
 
+[role="main"] .box.book_content .no-overflow .card-body,
+[role="main"] .box #page-mod-page-view .card-body {
+    padding: .5rem;
+}
+
 /*#endregion*/
 
 /*#region*///FORO
 
+.table.discussion-list {
+    width: 100%;
+}
+
 [data-gradable-itemtype="forum"] {
     .post-content-container {
-        font-family: $font-family-sans-serif;
+        font-family: $font-family-serif;
         font-size: clamp(15px, 2.1vw, 21px);
         margin-bottom: 0.5em;
         padding-bottom: 1.5em;
@@ -2857,14 +2914,16 @@ ul.onetopic {
     }
 }
 
+.post-content-container>* {
+    font-family: $font-family-serif !important;
+}
+
 .forumpost {
-    border: none !important;
-    border-radius: 0;
-    border-left: 4px solid var(--color-area) !important;
+    border: 1px solid var(--color-area) !important;
+    border-radius: 10px;
     padding: 1.5em 1em 1em !important;
     margin: 4em 0;
-    background: $gray-200;
-    border-radius: 0 10px 10px 0;
+    background: none;
 
     header .mr-2 {
         margin-right: 1em !important;
@@ -2873,7 +2932,6 @@ ul.onetopic {
     .btn-link {
         margin: 0 !important;
         border: none !important;
-        border-top: 1px solid var(--color-area-1) !important;
         border-radius: 0;
 
         &:hover {
@@ -2895,6 +2953,12 @@ ul.onetopic {
     }
 }
 
+.forumpost div.d-flex.flex-wrap:has(.ratingform) {
+    margin-top: 2em;
+    border-top: 1px solid var(--color-area) !important;
+    padding-top: 2em;
+}
+
 .post-content-container {
     font-size: clamp(15px, 2.1vw, 21px);
     font-family: $font-family-serif;
@@ -2908,7 +2972,10 @@ ul.onetopic {
 }
 
 .post-actions {
-    background: $gray-200;
+    margin-top: 2em;
+    border-top: 1px solid var(--color-area) !important;
+    width: 100%;
+    background: none;
     border-radius: 0 0 5px 5px;
 }
 
@@ -2959,6 +3026,15 @@ ul.onetopic {
     }
 }
 
+@media (min-width: 576px) {
+
+    .form-inline .input-group,
+    .form-inline .custom-select {
+        width: auto;
+        max-width: 300px;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///Formato de temas
@@ -2975,11 +3051,17 @@ ul.onetopic {
     color: var(--color-area);
 }
 
-#page-course-view-topics:is(.format-topics) .my-3[data-for="sectioninfo"] {
-    padding: 2em;
-    border-left: 0;
-}
+#page-course-view-topics:is(.format-topics) {
+    .my-3[data-for="sectioninfo"] {
+        padding: 2em;
+        border-left: 2px solid var(--color-area);
+    }
 
+    #section-0 [data-for="sectioninfo"] {
+        border-left: none !important;
+        padding: 0;
+    }
+}
 /*#endregion*/
 
 /*#region*///Formato Semanal
@@ -3008,6 +3090,17 @@ ul.onetopic {
 .format-weeks .my-3[data-for="sectioninfo"] {
     padding: 2em;
     border-left: 0 !important;
+}
+
+#page-course-view-weeks:is(.format-weeks) {
+    .my-3[data-for="sectioninfo"] {
+        border-left: 2px solid var(--color-area) !important;
+    }
+
+    #section-0 [data-for="sectioninfo"] {
+        border-left: none !important;
+        padding: 0;
+    }
 }
 
 /*#endregion*/
@@ -3195,7 +3288,7 @@ li.activity.subtile:not(.unclickable):hover {
 
 .format-tiles .course-content ul.tiles .tile-clickable.phototile {
     .photo-tile-text h3 {
-        background: var(--color-area-3) !important;
+        background-color: hsla(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness), .8) !important;
     }
 
     &:hover .photo-tile-text h3 {
@@ -3307,9 +3400,8 @@ li.activity.subtile:not(.unclickable):hover {
 .format-tiles .editor_atto_content_wrap h3,
 .format-tiles .editor_atto_content_wrap h4 {
     font-weight: 400 !important;
-    border: 1px solid var(--color-area-1);
-    border-left: 6px solid var(--color-area-1);
-    padding: 0.3em 0.9em 0.3em 0.7em;
+    border: none;
+    border-right: 16px solid var(--color-area);    padding: 0.3em 0.9em 0.3em 0.7em;
     color: $black;
     background: $gray-200;
     border-radius: 0 5px 5px 0;
@@ -3585,6 +3677,10 @@ a.btn.btn-secondary.btn-sm {
     option {
         padding-left: 0;
     }
+}
+
+.data-field-html {
+    font-family: $font-family-serif;
 }
 
 .data-field-html * {
@@ -3906,6 +4002,13 @@ table.mod-data-default-template {
     }
 }
 
+[role="main"] table,
+[role="main"] .table {
+    &.results {
+        width: 100%;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///ENCUESTA
@@ -3924,6 +4027,13 @@ table.mod-data-default-template {
         border: none;
         border-radius: 15px;
         margin-top: 2em;
+    }
+}
+
+[role="main"] table,
+[role="main"] .table {
+    &#showentryanontable {
+        width: 100%;
     }
 }
 
@@ -4007,6 +4117,11 @@ table.mod-data-default-template {
 .mail_list {
     border: 1px solid $primary-3 !important;
 }
+
+.local-mail-message-content {
+    font-family: $font-family-serif;
+}
+
 
 /*#endregion*/
 
@@ -4092,6 +4207,10 @@ table.glossarycategoryheader {
 #page-mod-glossary-edit #page-content h2:first-child {
     border: none;
     border-radius: 0 0 15px 15px;
+}
+
+th.entryheader {
+    background: none !important;
 }
 
 /*#endregion*/
@@ -4312,6 +4431,12 @@ textarea {
     }
 }
 
+#page-mod-diary-index .cell.c2 {
+    font-size: clamp(14px, 2.5vw, 1em);
+    line-height: 1.6;
+    font-family: $font-family-serif;
+}
+
 /*#endregion*/
 
 /*#region*///comentarios
@@ -4370,6 +4495,15 @@ textarea {
 }
 
 #page-course-view-participants {
+
+    .cell.c1 {
+            background: none;
+    
+        a {
+            color: $black;
+        }
+    }
+
     [data-filterregion="filters"] .form-control {
         margin-top: 0;
     }
@@ -4387,6 +4521,34 @@ textarea {
 
         .c1 {
             vertical-align: middle;
+        }
+    }
+}
+
+a {
+
+    &.unenrollink,
+    &.editenrollink {
+        color: black;
+    }
+}
+
+/*#endregion*/
+
+/*#region*///perfil participantes
+
+.path-user {
+    #page-content h2 {
+        border: none;
+        background: none;
+        padding: 1rem;
+    }
+
+    .page-header-image {
+        display: block;
+
+        img {
+            max-width: 70px;
         }
     }
 }
@@ -4833,6 +4995,13 @@ h-grade .box h4 {
     }
 }
 
+[role="main"] table,
+[role="main"] .table {
+    &.hotpotattemptssummary {
+        width: 100%;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///lección
@@ -4840,7 +5009,7 @@ h-grade .box h4 {
 #page-mod-lesson-view [role="main"] .box {
     width: inherit;
     font-family: inherit;
-    font-size: 1.2em;
+    font-size: 1em;
     border: 1px solid var(--color-area);
     padding: 2em !important;
     border-radius: 3px;
@@ -5155,6 +5324,13 @@ div.hsuforum-recent div.snap-media-object a span.userinitials {
     background-color: $white;
 }
 
+#page-mod-hsuforum-discuss .posting {
+    font-family: $font-family-serif;
+    font-size: clamp(14px, 2vw, 21px) !important;
+    line-height: 1.6;
+    text-align: left;
+}
+
 /*#endregion*/
 
 /*#region*///POSTER 
@@ -5459,7 +5635,7 @@ div.no-overflow:has(table) {
 
             li {
                 a {
-                    padding-left: 6.5ch;
+                    padding-left: 3.5ch !important;
                     text-indent: -3.5ch;
 
                     &:hover {
@@ -6068,6 +6244,23 @@ img.userpicture {
 
 /*#region*///recuadros
 
+[role="main"] .box.book_content .no-overflow,
+[role="main"] .box #page-mod-page-view {
+    .card-body {
+        padding: 0;
+    }
+
+    .recuadro {
+
+        h3,
+        h4,
+        h5 {
+            margin-top: 0 !important;
+            padding: 0;
+        }
+    }
+}
+
 .recuadro {
     position: relative;
     display: -ms-flexbox;
@@ -6090,8 +6283,7 @@ img.userpicture {
     h3,
     h4,
     h5 {
-        color: $gray-600 !important;
-        border-color: $gray-500 !important;
+        color: $black !important;
     }
 
     &:last-child {
@@ -6103,28 +6295,25 @@ img.userpicture {
     }
 
     &.borde_azul {
-        border-color: $primary-2;
-
-        h3,
-        h4,
-        h5 {
-            color: $black !important;
-            border-color: $primary-2 !important;
-        }
+        border-color: $primary !important;
     }
 
     &.fondo_azul {
-        border-color: $primary-2 !important;
+        border-color: $primary !important;
         background-color: $primary-3;
+    }
 
-        h3,
-        h4,
-        h5 {
-            color: $black !important;
-            border-color: $primary-2 !important;
-        }
+
+    &.borde_area {
+        border-color: var(--color-area) !important;
+    }
+
+    &.fondo_area {
+        border-color: var(--color-area) !important;
+        background-color: var(--color-area-3) !important;
     }
 }
+
 
 /*#endregion*/
 
@@ -6138,14 +6327,18 @@ img.userpicture {
     font-family: $font-family-condensed;
     text-align: center;
     padding-top: 0.5em;
-    padding-bottom: 0.2em;
+    padding-bottom: 1em;
     border-bottom: 1px solid $gray-500;
     text-wrap: balance;
-    font-size: 0.95em !important;
+    font-size: 0.9em !important;
 
     &:lastchild {
         margin-bottom: 0;
     }
+}
+
+p+p .epigrafe {
+    margin-top: -1em !important;
 }
 
 /*#endregion*/
@@ -6171,39 +6364,35 @@ img.userpicture {
     h4,
     h5,
     h6 {
-        color: $gray-600 !important;
+        color: $black !important;
         font-size: 2em !important;
         font-weight: 600 !important;
         line-height: 1.2 !important;
         margin-top: 0 !important;
-        border-color: $gray-500 !important;
+        border: none !important;
         padding-top: 0;
     }
 
     &.azul {
         background-color: $primary-3;
         box-shadow: 0 0 0 200px $primary-3 !important;
-
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: $black !important;
-            border-color: $primary-3 !important;
-        }
     }
 
     &.acento-area {
-        background-color: var(--color-area);
+        background-color: var(--color-area-3) !important;
         box-shadow: 0 0 0 200px var(--color-area-3) !important;
+    }
+}
 
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: $black !important;
-            border-color: var(--color-area) !important;
-        }
+.activity-header .destacado {
+    box-shadow: 0 0 0 140px $gray-200 !important;
+
+    &.azul {
+        box-shadow: 0 0 0 140px $primary-3 !important;
+    }
+
+    &.acento-area {
+        box-shadow: 0 0 0 140px var(--color-area-3) !important;
     }
 }
 
@@ -6237,6 +6426,12 @@ blockquote,
     text-wrap: pretty;
     padding: 1em 0 1em 2em;
     margin: 4em 2em;
+    color: $black !important;
+
+    p:last-child,
+    p:nth-last-of-type(1) {
+        margin-bottom: 1em;
+    }
 
     &:after,
     &:before {
@@ -6263,11 +6458,17 @@ blockquote footer,
 .cita footer {
     font-style: normal;
     font-weight: 700;
-    color: $gray-600;
+    color: $gray-700;
 
     &:before {
         content: "— ";
     }
+}
+
+.blockquote-footer {
+    color: $gray-700;
+    font-weight: normal;
+
 }
 
 /*#endregion*/
@@ -6724,9 +6925,12 @@ footer.notas,
 .franja.gris_oscuro,
 .recuadro_gris_centrado,
 .recuadro-borde-gris {
-  @extend %gray-box;
-}
+    @extend %gray-box;
 
+    +.epigrafe {
+        margin-top: -1em !important;
+    }
+}
 .recuadro_azul_todo_redondeado,
 .actividad.fucsia,
 .actividad.verde,
@@ -6744,6 +6948,11 @@ footer.notas,
 .recuadro-bordeyfondo-area,
 .recuadro-borde-celeste {
   @extend %blue-box;
+    display: block;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .recuadro-borde-azul-fondo-gris {
@@ -6986,6 +7195,21 @@ ul.li-upper-alpha li {
     }
 }
 
+.accordion .card-header:after {
+    font-family: 'FontAwesome';
+    content: "\f068";
+    float: right;
+}
+
+.accordion .card-header.collapsed:after {
+    /* icono para paneles "colapsdos" */
+    content: "\f067";
+}
+
+.accordion .card-header {
+    cursor: pointer;
+}
+
 /*#endregion*/
 
 /*#region*///bloque comunicación
@@ -7057,6 +7281,46 @@ ul.li-upper-alpha li {
 
 .carousel-inner {
     border-radius: 5px;
+}
+
+.carousel.slide {
+    p {
+        margin-bottom: 1em;
+    }
+
+    .btn a {
+        color: white;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 767px) {
+    .carousel-caption.d-none {
+        display: block !important;
+        bottom: 0;
+        line-height: 1;
+
+        h5 {
+            font-size: 1em;
+        }
+
+        p {
+            font-size: 0.8em;
+        }
+
+        .btn {
+            font-size: 0.7em;
+        }
+    }
 }
 
 /*#endregion*/
@@ -7164,6 +7428,10 @@ h5.card-title {
     font-family: 'Roboto';
 }
 
+.card-deck+.card-deck {
+    margin-top: 2em;
+}
+
 /*#endregion*/
 
 /*#region*///TABLA LINEA DE TIEMPO
@@ -7249,7 +7517,7 @@ table.linea_de_tiempo {
 
 /*#endregion*/
 
-/** HOJA DE RUTA **/
+/*#region*///HOJA DE RUTA 
 
 .hoja-de-ruta {
     font-family: "Roboto Condensed";
@@ -7363,10 +7631,16 @@ table.linea_de_tiempo {
     }
 }
 
-/** zona docente **/
+.no-overflow:has(.hoja-de-ruta) {
+    overflow: visible;
+}
+
+/*#endregion*/
+
+/*#region*///zona docente
 
 .format-tiles.course-23651 {
-    background: url("https://virtual.flacso.org.ar/theme/gflacso/vale/ivan/mapa.google.jpg");
+    background: url("https: //virtual.flacso.dev.eneabe.com.ar/pluginfile.php/23165458/mod_resource/content/2/mapa.google.jpg");
 
     .course-content .phototile {
         background-size: 80% !important;
@@ -7500,7 +7774,164 @@ table.linea_de_tiempo {
     }
 }
 
+/*#endregion*/
+
+/*#region*///html blocks 
+
+.tiny_htmlblock {
+    margin-inline: max(15px, 5vw);
+}
+
+.tiny_htmlblock li {
+    border: 2px solid #e9ecef;
+    margin-bottom: 1rem;
+    padding-block: 10px;
+    padding-inline: max(10px, 3vw);
+    border-radius: 3px;
+
+    font-size: 0.9em;
+
+    &:hover {
+        border: 2px solid #090a0b;
+        background-color: #e9ecef;
+    }
+
+    &>* {
+        margin-bottom: 0 !important;
+    }
+
+    li,
+    ul,
+    ol {
+        border: none;
+        padding: 0;
+        margin: 0;
+
+        &:hover {
+            border: none;
+        }
+    }
+
+    blockquote,
+    .blockquote,
+    .cita {
+        margin-block: 0;
+    }
+
+    footer.notas {
+        margin-top: 10px;
+
+        &:before {
+            top: 0;
+            margin-bottom: 10px;
+        }
+
+        li::before {
+            left: -2em;
+        }
+    }
+}
+
+/*#endregion*/
+
+/*#region*///Tablero
+
+.mod_board {
+    flex-flow: row wrap;
+}
+
+.mod_board .board_column {
+    min-width: 30%;
+}
+
+/*#endregion*/
+
+/*#region*///Linkpop 
+
+.book_content a,
+#page-mod-page-view .box a {
+    font-family: "Roboto Serif";
+}
+
+a.linkpop {
+    position: relative;
+    display: inline-block;
+}
+
+a.linkpop[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 45px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75em;
+    min-width: 350px;
+    line-height: 1.2;
+    font-family: "Roboto Condensed";
+}
+
+a.linkpop[title]:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: 15px;
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 13.9px 8px 0 8px;
+    border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+    transform: rotate(0deg);
+}
+
+/*#endregion*/
+
+/*#region*///videos
+
+.video_16-9 {
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+}
+
+.video_4-3 {
+    width: 100%;
+    aspect-ratio: 4/3;
+    height: auto;
+}
+
+.video_3-2 {
+    width: 100%;
+    aspect-ratio: 3/2;
+    height: auto;
+}
+
+/* DRIVE RESPONSIVE*/
+.video-container-drive {
+    iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        height: auto;
+    }
+}
+
+.videoresponsive {
+    overflow: hidden !important;
+    margin-bottom: 2em !important;
+}
+
+.card .videoresponsive {
+    margin-bottom: 0 !important;
+}
+
+/*#endregion*/
 
 
-
-
+//Código desarrollado por:
+//Iván Castiblanco Ramírez
+//ivan.castiblanco@gmail.com
+//Buenos Aires - Argentina
+//2024
