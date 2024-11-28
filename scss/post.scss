@@ -6,6 +6,8 @@
     --default-saturation: 58%;
     --default-lightness: 50%;
 
+    --color-area: hsl(var(--default-hue), var(--default-saturation), var(--default-lightness));
+
     // Esquema de color
     color-scheme: light dark;
 }
@@ -7218,6 +7220,9 @@ ul.li-upper-alpha li {
 
     p {
         margin-bottom: 0.5em !important;
+        text-indent: -1rem;
+        padding-left: 1rem;
+        text-wrap: auto;
     }
 
     a {
@@ -7925,6 +7930,47 @@ a.linkpop[title]:hover::before {
 
 .card .videoresponsive {
     margin-bottom: 0 !important;
+}
+
+/*#endregion*/
+
+/*#region*/// tarjetas en bloque lateral
+
+.drawer .card-text {
+    padding-block: 0 1.25rem !important;
+    padding-inline: .5rem !important;
+}
+
+.drawer .card-text {
+    .card {
+        border: none;
+        background-color: white !important;
+        margin-bottom: 1rem;
+
+        img {
+            border-radius: 0;
+        }
+
+        .card-body,
+        .card-footer {
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-top: 0;
+            background-color: white !important;
+            padding: .75rem !important;
+            font-family: "Roboto Condensed";
+        }
+
+        .card-text {
+            padding: 0 !important;
+            margin-top: 1rem;
+        }
+
+        .card-title {
+            color: inherit;
+            background-color: white !important;
+            padding: 0;
+        }
+    }
 }
 
 /*#endregion*/
