@@ -2,68 +2,16 @@
 
 // Variables globales de color
 :root {
-    --default-hue: 213;
-    --default-saturation: 58%;
-    --default-lightness: 50%;
+    --color-area: hsl(213, 58%, 50%);
+    --color-area-1: hsl(213, 58%, 60%);
+    --color-area-2: hsl(213, 58%, 70%);
+    --color-area-3: hsl(213, 58%, 90%);
+    --color-area-4: hsl(213, 58%, 30%);
+    --color-area-5: hsla(213, 58%, 50%, 0.8);
+    --color-area-6: hsla(213, 58%, 30%, .8);
 
-    --color-area: hsl(var(--default-hue), var(--default-saturation), var(--default-lightness));
-
-    // Esquema de color
     color-scheme: light dark;
 }
-
-// Función para generar colores HSL
-@function create-color-scheme($hue, $saturation, $lightness, $variant-saturation: null) {
-    $variant-saturation: if($variant-saturation, $variant-saturation, $saturation);
-
-    @return (base: (hue: $hue,
-            saturation: $saturation,
-            lightness: $lightness ),
-        variants: (1: (saturation: $variant-saturation, lightness: 60%),
-            2: (saturation: $variant-saturation, lightness: 75%),
-            3: (saturation: $variant-saturation, lightness: 90%)));
-}
-
-// Mixin para aplicar esquema de colores
-@mixin apply-color-scheme($scheme) {
-    $base: map-get($scheme, base);
-    $variants: map-get($scheme, variants);
-
-    --color-area-hue: #{map-get($base, hue)};
-    --color-area-saturation: #{map-get($base, saturation)};
-    --color-area-lightness: #{map-get($base, lightness)};
-
-    --color-area: hsl(var(--color-area-hue),
-            var(--color-area-saturation),
-            var(--color-area-lightness));
-
-    @each $variant, $values in $variants {
-        --color-area-#{$variant}: hsl(var(--color-area-hue),
-            #{map-get($values, saturation)},
-            #{map-get($values, lightness)});
-    }
-}
-
-// Definición temas de color áreas
-$area-colors: (
-    antropologia: create-color-scheme(6, 80%, 30%, 44%),
-    bioetica: create-color-scheme(95, 59%, 44%, 46%),
-    ciencias-sociales: create-color-scheme(202, 36%, 54%, 64%),
-    comunicacion: create-color-scheme(0, 77%, 41%, 53%),
-    doctorado: create-color-scheme(43, 29%, 51%, 48%),
-    educacion: create-color-scheme(167, 24%, 50%, 40%),
-    estado: create-color-scheme(201, 67%, 30%, 37%),
-    estudios-latinoamericanos: create-color-scheme(351, 80%, 52%),
-    estudios-politicos: create-color-scheme(206, 58%, 51%),
-    estudios-agrarios: create-color-scheme(35, 91%, 52%),
-    juventud: create-color-scheme(182, 70%, 40%, 46%),
-    relaciones-internacionales: create-color-scheme(272, 27%, 42%, 20%),
-    psicologia: create-color-scheme(330, 36%, 41%, 25%),
-    genero: create-color-scheme(48, 98%, 55%),
-    ped: create-color-scheme(8, 71%, 51%),
-    cambio-climatico: create-color-scheme(35, 91%, 52%),
-    ministerio-trabajo: create-color-scheme(196, 83%, 57%)
-);
 
 // Aplicación de estilos por categoría
 .category {
@@ -72,7 +20,13 @@ $area-colors: (
     &-2811,
     &-2971,
     &-97 {
-        @include apply-color-scheme(map-get($area-colors, antropologia));
+        --color-area: hsl(6, 80%, 30%);
+        --color-area-1: hsl(6, 44%, 44%);
+        --color-area-2: hsl(6, 34%, 72%);
+        --color-area-3: hsl(7, 35%, 86%);
+        --color-area-4: hsl(6, 80%, 20%);
+        --color-area-5: hsla(6, 80%, 30%, 0.8);
+        --color-area-6: hsla(6, 80%, 20%, 0.8);
     }
 
     // Bioética y Derecho
@@ -84,7 +38,13 @@ $area-colors: (
     &-2571,
     &-3,
     &-17 {
-        @include apply-color-scheme(map-get($area-colors, bioetica));
+        --color-area: hsl(95, 59%, 44%);
+        --color-area-1: #84c158;
+        --color-area-2: #c1e0ab;
+        --color-area-3: #e0f0d5;
+        --color-area-4: hsl(95, 59%, 34%);
+        --color-area-5: hsla(95, 59%, 44%, 0.8);
+        --color-area-6: hsla(95, 59%, 34%, 0.8);
     }
 
     // Ciencias Sociales y Salud
@@ -101,14 +61,26 @@ $area-colors: (
     &-3041,
     &-3721,
     &-29 {
-        @include apply-color-scheme(map-get($area-colors, ciencias-sociales));
+        --color-area: hsl(202, 36%, 54%);
+        --color-area-1: #7faac3;
+        --color-area-2: #bfd5e1;
+        --color-area-3: #dfeaf0;
+        --color-area-4: hsl(202, 31%, 43%);
+        --color-area-5: hsla(202, 36%, 54%, 0.8);
+        --color-area-6: hsla(202, 31%, 43%, 0.8);
     }
 
     // Comunicación y Cultura
     &-2651,
     &-3141,
     &-5 {
-        @include apply-color-scheme(map-get($area-colors, comunicacion));
+        --color-area: hsl(0, 77%, 41%);
+        --color-area-1: #c74646;
+        --color-area-2: #e3a3a3;
+        --color-area-3: #f1d1d1;
+        --color-area-4: hsl(0, 77%, 31%);
+        --color-area-5: hsla(0, 77%, 41%, 0.8);
+        --color-area-6: hsla(0, 77%, 31%, 0.8);
     }
 
     // Doctorado
@@ -116,7 +88,13 @@ $area-colors: (
     &-2761,
     &-3371,
     &-15 {
-        @include apply-color-scheme(map-get($area-colors, doctorado));
+        --color-area: hsl(43, 29%, 51%);
+        --color-area-1: #b8a87e;
+        --color-area-2: #dbd3bf;
+        --color-area-3: #ede9df;
+        --color-area-4: hsl(43, 29%, 41%);
+        --color-area-5: hsla(43, 29%, 51%, 0.8);
+        --color-area-6: hsla(43, 29%, 41%, 0.8);
     }
 
 
@@ -124,7 +102,13 @@ $area-colors: (
     &-2621,
     &-3111,
     &-7 {
-        @include apply-color-scheme(map-get($area-colors, educacion));
+        --color-area: hsl(167, 24%, 50%);
+        --color-area-1: #81b1a7;
+        --color-area-2: #c0d8d3;
+        --color-area-3: #dfece9;
+        --color-area-4: hsl(167, 24%, 40%);
+        --color-area-5: hsla(167, 24%, 50%, 0.8);
+        --color-area-6: hsla(167, 24%, 40%, 0.8);
     }
 
     // Estado y Políticas Públicas
@@ -133,7 +117,13 @@ $area-colors: (
     &-2781,
     &-3151,
     &-19 {
-        @include apply-color-scheme(map-get($area-colors, estado));
+        --color-area: hsl(201, 67%, 30%);
+        --color-area-1: #477d99;
+        --color-area-2: #a3becc;
+        --color-area-3: #d1dee6;
+        --color-area-4: hsl(201, 67%, 20%);
+        --color-area-5: hsla(201, 67%, 30%, 0.8);
+        --color-area-6: hsla(201, 67%, 20%, 0.8);
     }
 
     // Estudios Latinoamericanos
@@ -146,7 +136,13 @@ $area-colors: (
     &-3441,
     &-611,
     &-1651 {
-        @include apply-color-scheme(map-get($area-colors, estudios-latinoamericanos));
+        --color-area: hsl(351, 80%, 52%);
+        --color-area-1: #ec4f66;
+        --color-area-2: #f5a7b3;
+        --color-area-3: #fad3d9;
+        --color-area-4: hsl(351, 74%, 42%);
+        --color-area-5: hsla(351, 80%, 52%, 0.8);
+        --color-area-6: hsla(351, 74%, 42%, 0.8);
     }
 
     // Estudios Políticos y Lenguas Extranjeras
@@ -156,10 +152,16 @@ $area-colors: (
     &-3181,
     &-27,
     &-47 {
-        @include apply-color-scheme(map-get($area-colors, estudios-politicos));
+        --color-area: hsl(206, 58%, 51%);
+        --color-area-1: #61a3d5;
+        --color-area-2: #b0d1ea;
+        --color-area-3: #d8e8f5;
+        --color-area-4: hsl(206, 58%, 41%);
+        --color-area-5: hsla(206, 58%, 51%, 0.8);
+        --color-area-6: hsla(206, 58%, 41%, 0.8);
     }
 
-    // Estudios Sociales Agrarios y Desarrollo
+    // Estudios Sociales Agrarios y Desarrollo - Cambio climatico
     &-2701,
     &-3391,
     &-2731,
@@ -169,8 +171,15 @@ $area-colors: (
     &-8,
     &-6,
     &-3121,
-    &-3341 {
-        @include apply-color-scheme(map-get($area-colors, estudios-agrarios));
+    &-3341,
+    &-3271 {
+        --color-area: hsl(35, 91%, 52%);
+        --color-area-1: #f6ac44;
+        --color-area-2: #fbd5a1;
+        --color-area-3: #fdead0;
+        --color-area-4: hsl(35, 84%, 42%);
+        --color-area-5: hsla(35, 91%, 52%, 0.8);
+        --color-area-6: hsla(35, 84%, 42%, 0.8);
     }
 
     // Juventud y Relaciones del Trabajo
@@ -180,7 +189,13 @@ $area-colors: (
     &-3361,
     &-74,
     &-13 {
-        @include apply-color-scheme(map-get($area-colors, juventud));
+        --color-area: hsl(182, 70%, 40%);
+        --color-area-1: #4cbabd;
+        --color-area-2: #a5ddde;
+        --color-area-3: #d2eeef;
+        --color-area-4: hsl(182, 70%, 30%);
+        --color-area-5: hsla(182, 70%, 40%, 0.8);
+        --color-area-6: hsla(182, 70%, 30%, 0.8);
     }
 
     // Relaciones Internacionales
@@ -189,38 +204,65 @@ $area-colors: (
     &-3261,
     &-3251,
     &-191 {
-        @include apply-color-scheme(map-get($area-colors, relaciones-internacionales));
+        --color-area: hsl(272, 27%, 42%);
+        --color-area-1: #8a71a0;
+        --color-area-2: #c5b8cf;
+        --color-area-3: #e2dce7;
+        --color-area-4: hsl(272, 27%, 32%);
+        --color-area-5: hsla(272, 27%, 42%, 0.8);
+        --color-area-6: hsla(272, 27%, 32%, 0.8);
     }
 
     // Psicología del Conocimiento y Aprendizaje
     &-2711,
     &-3171,
     &-1621 {
-        @include apply-color-scheme(map-get($area-colors, psicologia));
+        --color-area: hsl(330, 36%, 41%);
+        --color-area-1: #a56987;
+        --color-area-2: #d2b4c3;
+        --color-area-3: #e8d9e1;
+        --color-area-4: hsl(331, 36%, 31%);
+        --color-area-5: hsla(330, 36%, 41%, 0.8);
+        --color-area-6: hsla(331, 36%, 31%, 0.8);
     }
 
     // Género,Sociedad y Políticas
     &-3211,
     &-2451 {
-        @include apply-color-scheme(map-get($area-colors, genero));
+        --color-area: hsl(48, 98%, 55%);
+        --color-area-1: #fdd949;
+        --color-area-2: #feeca4;
+        --color-area-3: #fff6d2;
+        --color-area-4: hsl(48, 80%, 44%);
+        --color-area-5: hsla(48, 98%, 55%, 0.8);
+        --color-area-6: hsla(48, 80%, 44%, 0.8);
     }
+
 
     // Programa Educación a Distancia
     &-3011,
     &-3311,
     &-3001 {
-        @include apply-color-scheme(map-get($area-colors, ped));
+        --color-area: hsl(8, 71%, 51%);
+        --color-area-1: #e26754;
+        --color-area-2: #f1b3a9;
+        --color-area-3: #f8d9d4;
+        --color-area-4: hsl(8, 68%, 41%);
+        --color-area-5: hsla(8, 71%, 51%, 0.8);
+        --color-area-6: hsla(8, 68%, 41%, 0.8);
     }
 
-    // Cambio Climático
-    &-3271 {
-        @include apply-color-scheme(map-get($area-colors, cambio-climatico));
-    }
 
     // Ministerio de Trabajo
     &-3491,
     &-3481 {
-        @include apply-color-scheme(map-get($area-colors, ministerio-trabajo));
+        --color-area: hsl(196, 83%, 57%);
+        --color-area-1: #5ec9f0;
+        --color-area-2: #afe4f7;
+        --color-area-3: #d7f2fb;
+        --color-area-4: hsl(196, 63%, 45%);
+        --color-area-5: hsla(196, 83%, 57%, 0.8);
+        --color-area-6: hsla(196, 63%, 45%, 0.8);
     }
 }
 
@@ -231,10 +273,6 @@ $area-colors: (
 
 html {
     hanging-punctuation: first last;
-}
-
-body {
-    min-height: 100svh;
 }
 
 picture,
@@ -356,12 +394,7 @@ fieldset {
 body {
     font-size: 18px;
     background-color: $white;
-    background-size: 10px 10px;
-    background-image: repeating-linear-gradient(135deg,
-            $gray-200 0,
-            $gray-200 1px,
-            $white 0,
-            $white 50%);
+    min-height: 100svh;
 }
 
 h1,
@@ -382,6 +415,7 @@ h6,
     color: $black;
     text-wrap: pretty;
     font-family: $headings-font-family;
+    font-weight: 600 !important;
 }
 
 h1,
@@ -456,7 +490,7 @@ code,
 
 #page-content .settingsform h2 {
     font-size: 2em !important;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
     border-left: 8px solid var(--color-area);
     padding: 0.5em 0.9em 0.5em 0.7em;
     color: $black;
@@ -600,12 +634,6 @@ code,
     padding-left: 0rem !important;
     padding-right: 0rem !important;
 
-    .main-inner {
-        box-shadow: 1px 1px 15px 1px hsla(0, 0%, 0%, 0.05);
-        -webkit-box-shadow: 1px 1px 15px 1px hsla(0, 0%, 0%, 0.05);
-        -moz-box-shadow: 1px 1px 15px 1px hsla(0, 0%, 0%, 0.05);
-    }
-
     .drawer-right-toggle .btn {
         border: none;
         padding-left: 0.8rem;
@@ -654,6 +682,7 @@ code,
     position: fixed;
     bottom: 15dvh;
     top: unset;
+    z-index: 10;
 
     .btn {
         background-color: $secondary;
@@ -1051,7 +1080,12 @@ code,
 // Ancho páginas configuración
 
 #page.drawers .main-inner {
-    width: min(1280px, 100%) !important;
+    width: min(1000px, 100%) !important;
+    margin-top: 2rem;
+}
+
+#page.drawers .main-inner:has(.breadcrumb:empty) {
+    margin-top: 0;
 }
 
 // Ancho columna central
@@ -1060,8 +1094,11 @@ code,
 body.limitedwidth #page.drawers .main-inner,
 .header-maxwidth,
 .secondary-navigation .navigation .nav-tabs {
-    width: min(1280px, 100%) !important;
-    max-width: initial;
+    width: min(1000px, 100%) !important;
+
+    &:has(.verticaltabs) {
+        width: min(1280px, 100%) !important;
+    }
 }
 
 @media (min-width: 768px) {
@@ -1260,15 +1297,23 @@ body.limitedwidth #page.drawers .main-inner,
     background-repeat: no-repeat;
     color: $white;
     border: none;
-}
 
-.btn-secondary:hover {
-    background: $gray-200;
-    background-image: linear-gradient($secondary-2, $secondary-1, $secondary);
-    color: $white;
-    border: none;
-    outline: 0.2rem solid $secondary-1;
-    box-shadow: inset 0 0 0 2px $white;
+    a {
+        color: white;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &:hover {
+        background: $gray-200;
+        background-image: linear-gradient($secondary-2, $secondary-1, $secondary);
+        color: $white;
+        border: none;
+        outline: 0.2rem solid $secondary-1;
+        box-shadow: inset 0 0 0 2px $white;
+    }
 }
 
 .btn-secondary:focus,
@@ -1407,9 +1452,10 @@ body.limitedwidth #page.drawers .main-inner,
 
 .pagelayout-login {
     #page {
-        background: $flacso url(https://campuscoop.flacso.org.ar/theme/gflacso4cooperacion/img/fondo-login.svg) no-repeat;
-        background-size: 115vh;
-        background-position: 60% 45%;
+        background: $flacso url(https://virtual.flacso.org.ar/theme/gflacso4academic/pix/mapa.svg) no-repeat;
+        background-size: 100dvh;
+        background-position-x: 70%;
+        background-position-y: 110%;
     }
 
     #page div[role="main"] {
@@ -1588,7 +1634,7 @@ form#login {
     color: $white !important;
     text-align: left;
     background-color: $base !important;
-    background-image: url(https://campuscoop.flacso.org.ar/theme/gflacso4cooperacion/img/fondo-login.svg);
+    background-image: url(https://virtual.flacso.org.ar/theme/gflacso4academic/pix/mapa.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: left;
@@ -1954,10 +2000,11 @@ li[data-key="home"] {
     border-radius: 15px 15px 0 0;
     border-bottom: 8px solid var(--color-area);
     line-height: 120% !important;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
     margin-bottom: 0;
     width: 100%;
-    padding: 1.2em;
+    font-size: 2em !important;
+    padding: .5em .7em;
 }
 
 .badge-warning {
@@ -1998,8 +2045,10 @@ li[data-key="home"] {
     margin-top: 0;
 }
 
-#coursecontentcollapse0 .my-3[data-for="sectioninfo"] {
-    border: none;
+.single-section.general-section {
+    #coursecontentcollapse0 .my-3[data-for="sectioninfo"] {
+        border: none;
+    }
 }
 
 #tabs-tree-start {
@@ -2013,11 +2062,11 @@ li[data-key="home"] {
     overflow: hidden;
     text-overflow: ellipsis;
     border: none !important;
-    background: $gray-200 !important;
     color: $black !important;
     border-radius: 8px 8px 0 0;
     transition: 0.15s ease-in-out;
-    border-top: 7px solid var(--color-area) !important;
+    border-top: 8px solid var(--color-area-4) !important;
+    background: var(--color-area-3) !important;
     border-right: 1px solid $white !important;
     margin-top: 1rem;
     margin-bottom: 0;
@@ -2026,12 +2075,18 @@ li[data-key="home"] {
     &:focus,
     &.active {
         color: $black !important;
-        background-color: $gray-200 !important;
         font-weight: 400;
         padding-bottom: 20px !important;
-        border-top: 7px solid $secondary !important;
+        border-top: 8px solid var(--color-area) !important;
+        background: var(--color-area-2) !important;
         margin-top: 4px;
         box-shadow: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .format-onetopic .onetopic-tab-body .nav-tabs .nav-link {
+        margin-bottom: 20px;
     }
 }
 
@@ -2060,11 +2115,11 @@ li[data-key="home"] {
 
 .format-onetopic .verticaltabs>.tabs-wrapper .nav-item .nav-link {
     margin-block: 0 !important;
-    background: $gray-200 !important;
     color: $black !important;
     border-radius: 8px 0 0 8px;
     border-top: none !important;
-    border-left: 7px solid var(--color-area) !important;
+    border-left: 8px solid var(--color-area-4) !important;
+    background: var(--color-area-3) !important;
     border-bottom: 1px solid $white !important;
     margin-bottom: 0;
 }
@@ -2080,12 +2135,12 @@ li[data-key="home"] {
                     &.active,
                     .nav-item.show & {
                         border-right: none;
-                        background: $gray-200 !important;
                         color: $black !important;
                         font-weight: 400;
                         border-bottom: none !important;
                         margin-bottom: 0;
-                        border-left: 7px solid $secondary !important;
+                        border-left: 8px solid var(--color-area) !important;
+                        background: var(--color-area-2) !important;                
                         border-bottom: 1px solid $white !important;
                         margin-left: -16px;
                         width: calc(100% + 16px) !important;
@@ -2123,12 +2178,12 @@ li[data-key="home"] {
     .nav-tabs .nav-link {
         border: none !important;
         border-radius: 0 0 10px 10px;
-        border-bottom: 7px solid var(--color-area) !important;
+        border-bottom: 8px solid var(--color-area-4) !important;
+        background: var(--color-area-3) !important;
         border-right: 1px solid $white !important;
         padding: 0.5rem 1rem;
         color: $black !important;
         transition: 0.15s ease-in-out;
-        background-color: var(--color-area-3) !important;
         margin-top: 0;
         margin-bottom: 5px;
 
@@ -2139,9 +2194,10 @@ li[data-key="home"] {
             border: none !important;
             margin: 0 !important;
             border-radius: 0 0 10px 10px;
-            border-bottom: 7px solid $secondary !important;
+            border-bottom: 8px solid var(--color-area) !important;
+            background: var(--color-area-2) !important;
+            margin-bottom: 8px !important;            
             border-right: 1px solid $white !important;
-            background-color: var(--color-area-3) !important;
             font-weight: 400;
             padding-top: 20px;
             padding-bottom: 0.5rem !important;
@@ -2190,11 +2246,11 @@ li[data-key="home"] {
 
     .nav-tabs .nav-link {
         border: none !important;
-        background: $gray-200;
         color: $black;
         border-radius: 8px 8px 0 0;
         transition: 0.15s ease-in-out;
-        border-top: 7px solid var(--color-area) !important;
+        border-top: 8px solid var(--color-area-4) !important;
+        background: var(--color-area-3) !important;
         border-right: 1px solid $white !important;
         margin-top: 1rem;
         margin-bottom: 0;
@@ -2203,11 +2259,12 @@ li[data-key="home"] {
         &:focus,
         &.active {
             color: $black !important;
-            background-color: var(--color-area-3) !important;
             font-weight: 400;
             padding-top: .5rem;
             padding-bottom: 20px !important;
-            border-top: 7px solid $secondary !important;
+            border-top: 8px solid var(--color-area) !important;
+            background: var(--color-area-2) !important;
+            margin-bottom: 0 !important;            
             margin-top: 4px !important;
             border-bottom: none !important;
         }
@@ -2244,8 +2301,15 @@ ul.onetopic {
 }
 
 .activity-item.hiddenactivity {
-    filter: opacity(.5);
     margin: 0;
+
+    .activity-basis {
+
+        > :not(.activity-actions),
+        +* {
+            filter: opacity(0.5);
+        }
+    }
 }
 
 .activity-item.activityinline {
@@ -2447,6 +2511,7 @@ ul.onetopic {
             h5,
             h6 {
                 border-bottom: 2px solid var(--color-area-2);
+                font-weight: 600 !important;
             }
         }
     }
@@ -2500,8 +2565,6 @@ ul.onetopic {
     }
 
     .format-onetopic .format_onetopic-tabs .nav-link {
-        border-radius: 0.5rem !important;
-        border: 1px solid var(--color-area) !important;
         box-sizing: border-box;
         margin: 0 !important;
         border-radius: 3px !important;
@@ -2621,7 +2684,7 @@ ul.onetopic {
         background: transparent;
         margin: 0 !important;
         margin-top: 1rem !important;
-        padding: 3rem;
+        padding: 1rem;
         border-radius: 0.3rem;
         border: 2px solid var(--color-area);
     }
@@ -2639,6 +2702,7 @@ ul.onetopic {
         font-size: 1.2em !important;
         margin-left: inherit;
         width: 100%;
+        font-weight: 600 !important;
     }
 
     .activityiconcontainer {
@@ -2792,7 +2856,7 @@ ul.onetopic {
                 margin-bottom: 1em !important;
                 padding-bottom: 0 !important;
                 position: relative;
-                font-weight: 400 !important;
+                font-weight: 600 !important;
                 border-top: none;
                 border-bottom: none;
                 color: $black !important;
@@ -3037,6 +3101,15 @@ ul.onetopic {
     }
 }
 
+.discussion-list .userpicture,
+.discussion-list .grouppicture {
+    display: none;
+}
+
+#page-mod-forum-view table .limit-width .author-info {
+    max-width: 100%;
+}
+
 /*#endregion*/
 
 /*#region*///Formato de temas
@@ -3096,7 +3169,9 @@ ul.onetopic {
 
 #page-course-view-weeks:is(.format-weeks) {
     .my-3[data-for="sectioninfo"] {
-        border-left: 2px solid var(--color-area) !important;
+        border: none !important;
+        border-left: none !important;
+        padding: 0;
     }
 
     #section-0 [data-for="sectioninfo"] {
@@ -3105,9 +3180,25 @@ ul.onetopic {
     }
 }
 
+#page-course-view-weeks .course-description-item.summarytext {
+    border: 2px solid var(--color-area);
+    border-top: 6px solid var(--color-area);
+    border-radius: 0 0 .3rem .3rem;
+    padding: 1em;
+
+    &:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
+        border: none;
+        padding: 0;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///Formato Mosaicos
+
+.tile-content {
+    width: 100%;
+}
 
 .format-tiles .pagesechead {
     max-width: calc(100% - 115px);
@@ -3162,19 +3253,23 @@ ul.onetopic {
     border-radius: 0 15px 15px 0;
     margin-top: 0.5em !important;
     aspect-ratio: 1.5;
+
+    &:hover {
+        border-left: 10px solid var(--color-area-4);
+    }
 }
 
 .format-tiles ul.tiles {
     .tile-clickable:hover,
     .tile_bar.clickable:hover,
     .tile-clickable.current:hover {
-        border-left: 10px solid $secondary;
+        border-left: 10px solid var(--color-area-4);
         transition: border-left-color 0s;
         aspect-ratio: 3 / 2;
     }
 
     .tile-clickable:hover {
-        border-left: 10px solid $secondary;
+        border-left: 10px solid var(--color-area-4);
         transform: translateY(-6px);
         transition: 0.2s ease-in-out;
     }
@@ -3189,8 +3284,12 @@ li.activity.subtile:not(.unclickable):hover {
     transition: 0.2s ease-in-out;
 }
 
+.format-tiles .tile-bg,
+.format-tiles .tile-link {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 .format-tiles .tile-bg {
-    background-color: var(--color-area-3);
     border-radius: 0;
 
     &:hover {
@@ -3216,10 +3315,12 @@ li.activity.subtile:not(.unclickable):hover {
 .format-tiles ul.tiles .tile .tile-textinner {
     display: inline-block;
     line-height: normal;
-    transform: translate(0, -40%);
+    transform: none;
     position: absolute;
     word-wrap: break-word;
-    max-width: 220px;
+    max-width: 100%;
+    top: 0;
+    font-size: .9em;
 }
 
 .format-tiles .course-content ul li.section.main.moveablesection {
@@ -3232,6 +3333,10 @@ li.activity.subtile:not(.unclickable):hover {
 .format-tiles ul.tiles .tile h3 {
     font-family: $font-family-condensed;
     margin: 0.5em;
+}
+
+.tile h3 {
+    font-weight: 400 !important;
 }
 
 .format-tiles .tiles-top-button,
@@ -3267,7 +3372,7 @@ li.activity.subtile:not(.unclickable):hover {
 
 .format-tiles .course-content ul.tiles .tile.phototile .photo-tile-text h3 {
     margin: 0;
-    background: var(--color-area);
+    background: var(--color-area) !important;
     border-radius: 0 0 5px 0;
 }
 
@@ -3290,11 +3395,11 @@ li.activity.subtile:not(.unclickable):hover {
 
 .format-tiles .course-content ul.tiles .tile-clickable.phototile {
     .photo-tile-text h3 {
-        background-color: hsla(var(--color-area-hue), var(--color-area-saturation), var(--color-area-lightness), .8) !important;
+        background: var(--color-area-5) !important;
     }
 
     &:hover .photo-tile-text h3 {
-        background: $secondary-a !important;
+        background: var(--color-area-6) !important;
     }
 }
 
@@ -3403,7 +3508,8 @@ li.activity.subtile:not(.unclickable):hover {
 .format-tiles .editor_atto_content_wrap h4 {
     font-weight: 400 !important;
     border: none;
-    border-right: 16px solid var(--color-area);    padding: 0.3em 0.9em 0.3em 0.7em;
+    border-right: 16px solid var(--color-area);
+    padding: 0.3em 0.9em 0.3em 0.7em;
     color: $black;
     background: $gray-200;
     border-radius: 0 5px 5px 0;
@@ -3779,10 +3885,7 @@ table.mod-data-default-template {
 }
 
 .img-fluid {
-    width: 100%;
-    max-width: 100% !important;
     margin: 0;
-    border-radius: 5px;
 }
 
 /*#endregion*/
@@ -4499,8 +4602,8 @@ textarea {
 #page-course-view-participants {
 
     .cell.c1 {
-            background: none;
-    
+        background: none;
+
         a {
             color: $black;
         }
@@ -4587,8 +4690,8 @@ a {
     font-family: $font-family-condensed !important;
 
     thead .c0 {
-            color: $black !important;
-        }
+        color: $black !important;
+    }
 
     .c0 {
         max-width: 4.5ch;
@@ -4605,7 +4708,7 @@ a {
     .c4 {
         padding: 0.75rem 0;
         max-width: 24ch;
-            word-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .c5 .btn {
@@ -4759,18 +4862,18 @@ table.ygtvtable {
 
 #page-mod-assign-grader {
     background: $white;
-    
+
     table.ygtvtable {
-            background: transparent;
-            margin: initial !important;
-            max-width: 100% !important;
-    
-            th,
-            td,
-            tr {
-                border: none;
-            }
+        background: transparent;
+        margin: initial !important;
+        max-width: 100% !important;
+
+        th,
+        td,
+        tr {
+            border: none;
         }
+    }
 
     img.icon {
         margin: 0 !important;
@@ -5379,12 +5482,11 @@ div.no-overflow:has(table) {
         margin-bottom: 2em !important;
         font-size: 0.9em;
         line-height: 1.4;
-        width: auto;
         max-width: 100%;
 
         caption {
             color: $black;
-            font-family: 'Roboto Slab';
+            font-family: $headings-font-family;
             font-weight: 400;
             font-size: 1.6em;
         }
@@ -5513,18 +5615,24 @@ div.no-overflow:has(table) {
 
 /*#region*///CALIFICACIONES
 
-#gradereport_grader:before {
-    content: 'Para desplazar columnas lateralmente haga clic en la tabla y luego use las teclas ← →';
-    top: -20px;
+#page-grade-report-grader-index #page-content h2+form {
     position: relative;
-    border: 1px solid rgba(215, 228, 244, 0.75);
-    padding-inline: 0.6em;
-    padding-block: 0.4em;
-    border-radius: 5px;
-    background-color: rgba(215, 228, 244, 0.4);
-    display: block;
-    width: fit-content;
-    margin-inline: auto;
+    margin-block: 1em 3em;
+
+    &:after {
+        content: "Para desplazar columnas lateralmente haga clic en la tabla y luego use las teclas ← →";
+        bottom: -25px;
+        position: absolute;
+        border: 1px solid rgba(215, 228, 244, .75);
+        padding-inline: .6em;
+        padding-block: .4em;
+        border-radius: 5px;
+        background-color: rgba(215, 228, 244, .4);
+        display: block;
+        width: fit-content;
+        left: auto;
+        right: auto;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -6005,7 +6113,7 @@ img.activityicon.nofilter {
 /*#region*///VARIOS
 
 img.userpicture {
-    width: 100%;
+    max-width: 100%;
 }
 
 .avatar.current {
@@ -6056,6 +6164,16 @@ img.userpicture {
     font-size: 1em;
 }
 
+.usertour {
+    text-align: right;
+    margin-right: 2rem;
+
+    a {
+        color: #adb5bd;
+        filter: none !important;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///Bloque accesibilidad
@@ -6064,7 +6182,7 @@ img.userpicture {
     position: fixed;
     bottom: auto;
     right: 2rem;
-    top: 9rem;
+    top: 7rem;
 
     .fa {
         font-size: 2rem;
@@ -6073,8 +6191,8 @@ img.userpicture {
 
 #local-accessibility-buttoncontainer button {
     font-size: 16px;
-    width: 40px;
-    height: 40px;
+    width: 3rem !important;
+    height: 3rem !important;
     line-height: 16px;
     padding: 0;
     text-align: center;
@@ -6087,6 +6205,19 @@ img.userpicture {
 
 .usermenu .btn {
     color: $white;
+}
+
+.local-accessibility-buttoncontainer .fa {
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width: 849px) {
+    .local-accessibility-buttoncontainer {
+        top: auto;
+        bottom: 0.5rem !important;
+        z-index: 10;
+        left: calc(50% - 2rem);
+    }
 }
 
 /*#endregion*/
@@ -6835,6 +6966,7 @@ footer.notas,
     padding-bottom: 0 !important;
     font-weight: 400 !important;
     color: $black !important;
+    font-weight: 600 !important;
 }
 
 .poema {
@@ -7261,7 +7393,7 @@ ul.li-upper-alpha li {
 }
 
 .carousel-caption {
-    text-shadow: 
+    text-shadow:
         2px 2px 2px rgba(0, 0, 0, 0.8),
         0 -1px 12px rgba(0, 0, 0, 0.6);
 }
@@ -7306,6 +7438,32 @@ ul.li-upper-alpha li {
 .carousel-control-next-icon {
     width: 40px;
     height: 40px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    font-size: 6rem;
+    opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        font-size: 4rem;
+    }
+}
+
+.carousel-control-prev:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:hover,
+.carousel-control-next:focus {
+    span {
+        color: #fff !important;
+        text-decoration: none;
+        outline: 0;
+        opacity: 1;
+    }
 }
 
 @media (max-width: 767px) {
@@ -7381,7 +7539,7 @@ ul.li-upper-alpha li {
         margin-bottom: 3em !important;
 
         .card-header {
-            font-family: 'Roboto Slab';
+            font-family: $headings-font-family;
             color: $black;
         }
 
@@ -7394,6 +7552,10 @@ ul.li-upper-alpha li {
             color: $white !important;
             text-decoration: none !important;
         }
+    }
+
+    .filemanager .card {
+        margin-bottom: 0 !important;
     }
 
     .carousel {
@@ -7439,6 +7601,37 @@ h5.card-title {
 
 /*#endregion*/
 
+/*#region*///TARJETAS HORIZONTALES
+
+li.media {
+    border-bottom: solid 1px rgb(215, 215, 215);
+    padding-bottom: 1em;
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    img {
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+    }
+
+    .btn {
+        margin: 0;
+        padding: .3rem;
+    }
+
+    p {
+        margin-bottom: 1em;
+        line-height: 1.2;
+        font-size: .9em;
+    }
+}
+
+/*#endregion*/
+
 /*#region*///TABLA LINEA DE TIEMPO
 
 table.linea_de_tiempo {
@@ -7467,7 +7660,8 @@ table.linea_de_tiempo {
         border-radius: 5px !important;
         border-right: none;
         text-align: center;
-        font-family: 'Roboto Slab';
+        font-family: $headings-font-family;
+        font-weight: 600;
 
         &:after {
             content: "";
@@ -7645,7 +7839,7 @@ table.linea_de_tiempo {
 /*#region*///zona docente
 
 .format-tiles.course-23651 {
-    background: url("https: //virtual.flacso.dev.eneabe.com.ar/pluginfile.php/23165458/mod_resource/content/2/mapa.google.jpg");
+    background: url("https: //virtual.flacso.org.ar/theme/gflacso4academic/pix/mapa.google.jpg");
 
     .course-content .phototile {
         background-size: 80% !important;

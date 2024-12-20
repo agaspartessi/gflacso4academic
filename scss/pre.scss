@@ -57,7 +57,7 @@ $colors: map-merge(("blue": $blue,
         $colors
 );
 
-$primary: #3678c9 !default;
+$primary: hsl(213, 59%, 50%) !default;
 
 // Derivados del color primario
 $primary-1: lighten($primary, 10%) !default; // Color primario más claro
@@ -67,9 +67,9 @@ $primary-a: saturate($primary, 20%) !default; // Color primario más saturado
 
 $background-1: $primary-3 !default;
 $background-2: rgba($primary-3, 0.4) !default; // Color de fondo secundario con opacidad
-$background-3: #c291004d !default;
+$background-3: hsla(45, 100%, 38%, 0.3) !default;
 
-$secondary: #c93678 !default;
+$secondary: hsl(333, 59%, 50%) !default;
 
 // Derivados del color secundario
 $secondary-a: rgba($secondary, 0.8) !default; // Color secundario con opacidad
@@ -77,7 +77,7 @@ $secondary-1: lighten($secondary, 10%) !default; // Color secundario más claro
 $secondary-2: lighten($secondary, 25%) !default; // Color secundario aún más claro
 $secondary-3: lighten($secondary, 40%) !default; // Color secundario muy claro
 
-$flacso: #142e4d !default;
+$flacso: hsl(213, 59%, 19%) !default;
 
 // Derivados del color flacso
 $flacso-1: lighten($flacso, 10%) !default; // Color flacso más claro
@@ -152,13 +152,13 @@ $font-family-condensed: "Roboto Condensed", system-ui, sans-serif !default;
 $font-family-base: $font-family-sans-serif !default;
 
 $headings-font-family: "Roboto Slab", system-ui, sans-serif !default;
-$headings-color: $primary !default;
+$headings-color: $black !default;
 
 $text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) !default;
 
 // Fonts
 $rfs-base-font-size: 0.9em !default;
-$headings-font-weight: 400 !default;
+$headings-font-weight: 600 !default;
 
 /*#endregion*/
 
