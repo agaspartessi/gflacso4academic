@@ -105,29 +105,3 @@
 
 </footer>
 
-{{#js}}
-
-// Imprimir en foros
-if ( $('#page-mod-forum-discuss')){
-    var container = $('#page-mod-forum-discuss .discussionsubscription');
-    var imprimir = '<a onclick="window.print();return false;" class="forum_no_print printicon" href="#">Imprimir</a>';
-    container.append(imprimir);
-}
-
-// Tooltip
-require(['jquery','theme_gflacso_new/jquery.bootstrap-tooltip'], function($) {
-    $('.linkpop').tooltip({placement:'right',delay: { show: 1000000, hide: 1 }});
-});
-
-// Imprimir en BOOK
-if ( $('#page-mod-book-view')){
-    var container = $("#page-mod-book-view .block-region .block.block__fake div[class^='book_toc_']");
-    var links = $('#region-main-settings-menu .action-menu.moodle-actionmenu .dropdown-menu .dropdown-item:nth-last-child(-n+5)');
-    console.log('links',links);
-    container.append('<br><br><div class="print_links"></div>');
-    links.each(function(index,element){
-    console.log(element);
-      container.find('.print_links').append($(element).children().clone());
-    });
-}
-{{/js}}
