@@ -1043,7 +1043,7 @@ code,
     position: fixed;
     top: 60px;
     left: 0;
-    background-color: hsla(0, 0%, 100%, 0.851) !important;
+    background-color: $white !important;
     line-height: 120%;
     font-size: 0.9em;
     z-index: 1;
@@ -2218,8 +2218,8 @@ li[data-key="home"] {
             border-left: 8px solid var(--color-area) !important;
             background: var(--color-area-2) !important;
             border-bottom: 1px solid $white !important;
-            margin-left: -16px;
-            width: calc(100% + 16px) !important;
+            margin-left: -6px;
+            width: calc(100% + 6px) !important;
             padding-bottom: .5rem !important;
           }
         }
@@ -2270,9 +2270,9 @@ li[data-key="home"] {
           border-radius: 8px 8px 0 0;
           transition: 0.15s ease-in-out;
           border-top: 8px solid var(--color-area-4) !important;
-          background: var(--color-area-3) !important;
+          background: $gray-200 !important;
           border-right: 1px solid $white !important;
-          margin-top: 1rem;
+          margin-top: .5rem;
           margin-bottom: 0;
 
           &:hover,
@@ -2280,13 +2280,16 @@ li[data-key="home"] {
           &.active {
             color: $black !important;
             font-weight: 400;
-            padding-top: .5rem;
-            padding-bottom: 20px !important;
+            padding-block: 10px !important;
             border-top: 8px solid var(--color-area) !important;
-            background: var(--color-area-2) !important;
+            background: var(--color-area-3) !important;
             margin-bottom: 0 !important;
-            margin-top: 4px !important;
+            margin-top: .75rem !important;
             border-bottom: none !important;
+          }
+          
+          &:active {
+            background-color: var(--color-area-2) !important;
           }
         }
       }
@@ -2322,7 +2325,7 @@ li[data-key="home"] {
         &.active {
           color: $black !important;
           margin: 0 !important;
-          background: $gray-100 !important;
+          background: var(--color-area-1) !important;
           border-right: 1px solid $white !important;
           font-weight: 400;
           padding-block: 10px;
@@ -2578,8 +2581,7 @@ ul.onetopic {
 
 @media (max-width: 1200px) {
     #page-header h1.h2 {
-        font-size: 1.8em;
-        border-bottom: 16px solid var(--color-area);
+        font-size: 1.6em;
         padding: 0.2em 0;
         margin: 0 0 1em;
         border-radius: 0 0 .6rem .6rem;
@@ -2837,7 +2839,7 @@ ul.onetopic {
         text-decoration: none;
     }
 
-    .prevsection a {
+    .prevsection a, .nextsection a {
         padding-inline: 10px;
 
         &:hover {
@@ -2872,7 +2874,6 @@ ul.onetopic {
         margin-left: 10px;
     }
 }
-
 /*#endregion*/
 
 /*#region*/ //Texto página y libro
@@ -4054,7 +4055,7 @@ table.mod-data-default-template {
             margin-top: 2.5rem;
 
             @media (min-width: 576px) {
-                margin-top: 85px;
+                margin-top: 45px;
             }
         }
     }
@@ -6237,6 +6238,14 @@ div.no-overflow:has(table) {
 
 /*#region*///VARIOS
 
+.text-danger {
+	color: $red;
+	
+	&:hover {
+		background-color: $red; 
+	}
+}
+
 .media img,
 li.media img {
     width: 10rem;
@@ -7193,11 +7202,13 @@ img.userpicture {
     .responsive-img-right {
         width: 50%;
         padding: 0 0 2em 2em;
+        float: right;
     }
 
     .responsive-img-left {
         width: 50%;
         padding: 0 2em 2em 0;
+        float: left;
     }
 }
 
@@ -9085,7 +9096,7 @@ a.linkpop[title]:hover::after {
     font-family: "Roboto Condensed";
 }
 
-a.linkpop[title]:hover::before {
+a.linkpop[title]:hover::befos {
     content: '';
     display: block;
     position: absolute;
