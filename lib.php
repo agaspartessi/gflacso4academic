@@ -1,40 +1,55 @@
 <?php
-
-// Every file should have GPL and copyright in the header - we skip it in tutorials but you should not skip it for real.
-
-// This line protects the file from being accessed by a URL directly.                                                               
 defined('MOODLE_INTERNAL') || die();
 
-// We will add callbacks here as we add features to our theme.
+/**
+ * Return Academic's variables after Boost's brand colour and Raw initial SCSS.
+ *
+ * Boost runs its callback with the child theme's settings. The !default values
+ * in pre.scss therefore respect those settings and derive the matching palette.
+ *
+ * @param theme_config $theme Theme configuration.
+ * @return string
+ */
+function theme_gflacso4academic_get_pre_scss($theme): string {
+    return file_get_contents(__DIR__ . '/scss/pre.scss');
+}
 
-function theme_gflacso4academic_get_main_scss_content($theme) {                                                                                
-    global $CFG;                                                                                                                    
-                                                                                                                                    
-    $scss = '';                                                                                                                     
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;                                                 
-    $fs = get_file_storage();                                                                                                       
-                                                                                                                                    
-    $context = context_system::instance();                                                                                          
-    if ($filename == 'default.scss') {                                                                                              
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.                      
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');                                        
-    } else if ($filename == 'plain.scss') {                                                                                         
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.                      
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');                                          
-                                                                                                                                    
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_gflacso4academic', 'preset', 0, '/', $filename))) {              
-        // This preset file was fetched from the file area for theme_gflacso4academic and not theme_boost (see the line above).                
-        $scss .= $presetfile->get_content();                                                                                        
-    } else {                                                                                                                        
-        // Safety fallback - maybe new installs etc.                                                                                
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');                                        
-    }          
-    
-     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.                                        
-     $pre = file_get_contents($CFG->dirroot . '/theme/gflacso4academic/scss/pre.scss');                                                         
-     // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.                                    
-     $post = file_get_contents($CFG->dirroot . '/theme/gflacso4academic/scss/post.scss');     
-                 
-     // Combine them together.                                                                                                       
-     return $pre . "\n" . $scss . "\n" . $post;                                                                                                                  
+/**
+ * Return the selected Boost preset followed by Academic's own styles.
+ *
+ * Compilation order: Boost pre callback (brandcolour + Raw initial SCSS),
+ * Academic pre.scss, selected preset, Academic post.scss, Boost extra callback
+ * (Raw SCSS + background rules). Raw settings are never appended a second time.
+ *
+ * @param theme_config $theme Theme configuration.
+ * @return string
+ */
+function theme_gflacso4academic_get_main_scss_content($theme): string {
+    global $CFG;
+
+    $preset = $theme->settings->preset ?? 'default.scss';
+    $scss = null;
+
+    if (!in_array($preset, ['default.scss', 'plain.scss'], true) && !empty($preset)) {
+        $fs = get_file_storage();
+        $context = context_system::instance();
+        $presetfile = $fs->get_file($context->id, 'theme_gflacso4academic', 'preset', 0, '/', $preset);
+        if ($presetfile) {
+            $scss = $presetfile->get_content();
+        }
+    }
+
+    if ($scss === null) {
+        // In Moodle 5.1+ dirroot already points to public; do not append public.
+        $filename = $preset === 'plain.scss' ? 'plain.scss' : 'default.scss';
+        $scss = file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/' . $filename);
+    }
+
+    // Boost 5.3's plain preset omits MDS tokens used by Moodle's core SCSS.
+    // Feature detection keeps this working on 5.1, which has no design system.
+    if ($preset === 'plain.scss' && is_readable($CFG->dirroot . '/theme/boost/scss/design-system.scss')) {
+        $scss = "@import \"design-system\";\n" . $scss;
+    }
+
+    return $scss . "\n" . file_get_contents(__DIR__ . '/scss/post.scss');
 }
