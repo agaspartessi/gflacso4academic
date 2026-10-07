@@ -1,23 +1,11 @@
 <?php
-// Every file should have GPL and copyright in the header - we skip it in tutorials but you should not skip it for real.
+defined('MOODLE_INTERNAL') || die();
 
-// This line protects the file from being accessed by a URL directly.                                                               
-defined('MOODLE_INTERNAL') || die();                                                                                                
-                                                                                                                                    
-// This is the version of the plugin.                                                                                               
-$plugin->version = 2024071102;                                                                                                    
-                                                                                                                                    
-// This is the version of Moodle this plugin requires.                                                                              
-$plugin->requires = 2016070700;                                                                                                   
-                                                                                                                                    
-// This is the component name of the plugin - it always starts with 'theme_'                                                        
-// for themes and should be the same as the name of the folder.                                                                     
-$plugin->component = 'theme_gflacso4academic';                                                                                                 
-                                                                                                                                    
-// This is a list of plugins, this plugin depends on (and their versions).                                                          
-$plugin->dependencies = [                                                                                                           
-    'theme_boost' => 2016102100,                                                                                                   
+$plugin->version = 2026100700;
+$plugin->requires = 2025100600; // Moodle 5.1 or later, including 5.3.
+$plugin->component = 'theme_gflacso4academic';
+$plugin->dependencies = [
+    'theme_boost' => 2025100600,
 ];
-
-$plugin->maturity = MATURITY_STABLE;
-
+$plugin->maturity = MATURITY_BETA;
+$plugin->release = '2.0.0-beta1';
