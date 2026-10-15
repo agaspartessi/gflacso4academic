@@ -29,11 +29,18 @@ function renderDrawer(side){
 let template=clean(fs.readFileSync(base+'/templates/drawers.mustache','utf8'));
 let n=0;template=template.replace(/{{<\s*theme_boost\/drawer\s*}}[\s\S]*?{{\/\s*theme_boost\/drawer\s*}}/g,()=>renderDrawer(n++?'right':'left'));
 template=template.replace(/{{#pix}}[\s\S]*?{{\/pix}}/g,svg).replace(/{{#str}}([\s\S]*?){{\/str}}/g,(_,s)=>s);
-const context={bodyattributes:'class="uses-drawers pagelayout-mydashboard limitedwidth"',courseindex:'yes',hasblocks:true,output:{standard_top_of_body_html:'',full_header:'<header id="page-header" class="header-maxwidth"><h1>Tablero</h1></header>',main_content:'<div role="main"><h2>Vista general del curso</h2><button class="btn btn-primary">Crear curso</button><div style="height:1500px">Contenido central</div><div id="target">Fin del contenido</div></div>',standard_after_main_region_html:''}};
+const userMenuTemplate=clean(fs.readFileSync(path.join(moodleroot,'lib/templates/user_menu.mustache'),'utf8'));
+const navbarTemplate=clean(fs.readFileSync(base+'/templates/navbar.mustache','utf8'));
+const footerTemplate=clean(fs.readFileSync(path.join(__dirname,'../templates/theme_boost/footer.mustache'),'utf8')).replace(/<script>[\s\S]*?<\/script>/g,'');
+const statusIcon='<img class="icon" width="20" height="20" alt="" src="data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect width="16" height="16" fill="black"/></svg>')+'">';
+const context={bodyattributes:'class="uses-drawers pagelayout-mydashboard limitedwidth"',sitename:'FLACSO Académico',usermenu:{userfirstname:'Gaspar'},courseindex:'yes',hasblocks:true,output:{edit_switch:'<form class="editmode-switch-form d-flex align-items-center"><label class="mds-switch-control"><span class="mds-switch-label">Modo de edición</span><input type="checkbox" aria-label="Modo de edición"></label></form>',navbar_plugin_output:'<div class="popover-region"><div class="popover-region-toggle" role="button" tabindex="0" aria-label="Notificaciones">'+statusIcon+'</div></div>',standard_top_of_body_html:'',full_header:'<header id="page-header" class="header-maxwidth"><h1>Tablero</h1></header>',main_content:'<div role="main"><h2>Vista general del curso</h2><button class="btn btn-primary">Crear curso</button><div style="height:1500px">Contenido central</div><div id="target">Fin del contenido</div></div>',standard_after_main_region_html:''}};
 let html=Mustache.render(template,context,{
  'theme_boost/head':'<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="./moodle-503-default.css"><title>Académico 5.3 — cajones</title></head>',
- 'theme_boost/navbar':'<nav class="navbar fixed-top bg-body navbar-expand"><a class="navbar-brand" href="#">FLACSO Académico</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="#">Tablero</a></li></ul></nav>',
- 'theme_boost/footer':'<footer id="page-footer" class="nova-foot"><p>FLACSO Argentina</p></footer>',
+ 'theme_boost/navbar':navbarTemplate,
+ 'core/user_menu':userMenuTemplate,
+ 'core/user_menu_metadata':'<span class="avatars"><span class="userinitials size-35">GT</span></span>',
+ 'core/user_action_menu_items':'<a class="dropdown-item" href="#">Perfil</a>',
+ 'theme_boost/footer':footerTemplate,
  'core/local/toast/wrapper':''
 });
 html=html.replace('</body>','<script src="./services.js"></script><script src="./drawers.js"></script></body>');
@@ -64,11 +71,11 @@ const assert=require('node:assert/strict');
 const {chromium}=require('playwright');
 (async()=>{
  const browser=await chromium.launch({...(process.env.CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.CHROMIUM_EXECUTABLE_PATH}:{}),args:['--no-sandbox','--disable-gpu','--disable-software-rasterizer','--no-zygote'],headless:true});
- const page=await browser.newPage();let count=0;const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const page=await browser.newPage();await page.route(/^https?:/,r=>r.abort());let count=0;const errors=[];page.on('pageerror',e=>errors.push(e.message));
  const metrics=async()=>page.evaluate(()=>{
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height,right:r.right,bottom:r.bottom}};
   const d=side=>{let e=document.querySelector('.drawer-'+side),b=e.querySelector('.drawertoggle'),c=e.querySelector('.drawercontent');return {r:rect(e),b:rect(b),header:rect(e.querySelector('.drawerheader')),visibility:getComputedStyle(e).visibility,show:e.classList.contains('show'),aria:e.getAttribute('aria-hidden'),scroll:c.scrollHeight,client:c.clientHeight,z:getComputedStyle(e).zIndex}};
-  return {main:rect(document.querySelector('.main-inner')),left:d('left'),right:d('right'),nav:rect(document.querySelector('.navbar')),width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth+1};
+  return {main:rect(document.querySelector('.main-inner')),left:d('left'),right:d('right'),nav:rect(document.querySelector('.navbar')),page:rect(document.querySelector('#page')),footer:rect(document.querySelector('#page-footer')),width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth+1};
  });
  for(const width of [1920,1440,1200,1024,992,991,768,767,390]){
   await page.setViewportSize({width,height:900});await page.goto('file://'+output+'/fixture.html');await page.waitForFunction(()=>window.Drawers);
@@ -80,6 +87,8 @@ const {chromium}=require('playwright');
     },state);await page.waitForTimeout(350);
     const m=await metrics();const tag=`${width} ${layout} ${state}`;
     assert(!m.overflow,tag+' horizontal overflow');
+    assert(Math.abs(m.footer.x-m.page.x)<1&&Math.abs(m.footer.right-m.page.right)<1,tag+' footer does not fill page width');
+    assert(Math.abs(m.footer.y-m.main.bottom)<1,tag+' gap above footer');
     for(const side of ['left','right']){const d=m[side];if(!d.show){assert.equal(d.visibility,'hidden',tag+' hidden drawer');continue;}
      assert(d.r.x>=-1&&d.r.right<=width+1,tag+' drawer outside viewport '+JSON.stringify(d.r));
      assert(d.r.y>=m.nav.bottom-1,tag+' drawer behind navbar');
@@ -96,6 +105,13 @@ const {chromium}=require('playwright');
  }
  // Exercise real clicks, inner scroll, keyboard focus restoration, resize, sticky footer.
  await page.setViewportSize({width:1440,height:900});await page.goto('file://'+output+'/fixture.html');await page.waitForFunction(()=>window.Drawers);
+ const headerColour=selector=>page.locator(selector).evaluate(e=>getComputedStyle(e).color);
+ for(const selector of ['.navbar-brand','#usernavigation .mds-switch-label','#user-menu-toggle','.popover-region-toggle'])assert.equal(await headerColour(selector),'rgb(255, 255, 255)','header contrast '+selector);
+ assert.notEqual(await headerColour('.userinitials'),'rgb(255, 255, 255)','avatar text stays dark');
+ assert.notEqual(await headerColour('.usermenu .dropdown-item'),'rgb(255, 255, 255)','dropdown text stays dark');
+ assert.equal(await page.locator('.popover-region-toggle img').evaluate(e=>getComputedStyle(e).filter),'brightness(0) invert(1)','image icons stay white');
+ const toggle=await page.locator('.drawer-right-toggle button').boundingBox();assert(toggle.x+toggle.width>=1439,'right open button at viewport edge');
+ await page.evaluate(()=>window.scrollTo(0,600));await page.waitForTimeout(100);const moved=await page.locator('.drawer-right-toggle button').boundingBox();assert(Math.abs(moved.y-toggle.y)<1,'open buttons remain in viewport gutter while scrolling');await page.evaluate(()=>window.scrollTo(0,0));
  await page.locator('.drawer-right-toggle button').click();await page.waitForTimeout(400);
  assert(await page.locator('.drawer-right').evaluate(e=>e.classList.contains('show')),'open click');
  assert(await page.locator('.drawer-right .drawertoggle svg').evaluate(e=>e.getBoundingClientRect().width>=16),'close icon is not squeezed');
@@ -109,6 +125,6 @@ const {chromium}=require('playwright');
  await page.locator('.drawer-right-toggle button').click();await page.waitForTimeout(400);assert((await metrics()).right.show,'mobile open');
  await page.locator('.drawer-right .drawertoggle').click();await page.waitForTimeout(400);assert(!(await metrics()).right.show,'mobile close');
  assert.deepEqual(errors,[],'JavaScript errors');
- console.log(`PASS ${count} viewport/layout/drawer states; open/close clicks, inner scroll, focus restoration, sticky footer and mobile resize`);
+ console.log(`PASS ${count} viewport/layout/drawer states; open/close clicks, inner scroll, focus restoration, sticky footer, mobile resize, full-width footer and header contrast`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

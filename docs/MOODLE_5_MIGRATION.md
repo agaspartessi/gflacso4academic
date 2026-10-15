@@ -1,12 +1,26 @@
 # Académico para Moodle 5.3 — cajones nativos de Boost
 
-Actualizado: 15 de octubre de 2026. Release: `2.0.0-beta2`.
+Actualizado: 15 de octubre de 2026. Release: `2.0.0-beta3`.
 
 Se actualiza la misma rama `moodle-5.1-5.3`, conservando su nombre para mantener
 los enlaces y el PR #5. Desde esta revisión requiere **Moodle 5.3**; 5.1 deja
 de ser un objetivo de compatibilidad. `main` no se modifica ni se fusiona.
 
 ## Qué se corrige
+
+La revisión beta3 incorpora los ajustes solicitados al probar beta2:
+
+- El pie institucional ocupa todo el ancho disponible de la página, compensando
+  sólo en el footer el gutter de Boost. Se quita la franja blanca de 3rem encima.
+  El ancho del contenido y los anclajes de los cajones no se modifican.
+- Los botones de apertura se presentan como pestañas azules en los bordes del
+  viewport, con iconos blancos. En escritorio quedan bajo la navbar y no sobre
+  el título ni las tarjetas; en móvil conservan la altura prevista por Boost.
+- El nombre de usuario, la etiqueta de edición, los controles de notificaciones
+  y los iconos de imagen son blancos sobre el azul. Se conserva el texto oscuro
+  de las iniciales del avatar y de los menús desplegables sobre fondos claros.
+- Se limita el ancho de la dirección del pie al espacio disponible en móvil.
+- Versión de plugin `2026101501` para que Moodle detecte esta actualización.
 
 Las capturas del campus muestran el cierre del cajón derecho fuera de la
 cabecera y el contenido lateral desalineado respecto de la columna central.
@@ -25,11 +39,11 @@ reescribe su apertura/cierre, preferencias, scroll, foco o comportamiento móvil
 | Archivo | Resultado |
 | --- | --- |
 | `scss/post.scss` | Retira las posiciones y alturas antiguas de cajones, cabeceras, contenidos y botones, el z-index forzado y sus transiciones propias. Conserva fondos, colores, tipografía y apariencia de los bloques. |
-| `scss/post.scss` | Los controles mantienen el tamaño y posición de Boost, con colores de Académico. Se excluye el padding general de `.btn` para que no comprima sus iconos, y se retira el margen vertical del cierre. Se conservan los indicadores de foco de Boost. |
+| `scss/post.scss` | Los controles mantienen el tamaño, eventos y foco de Boost. Las aperturas se alinean a los bordes como pestañas azules y los cierres siguen dentro de la cabecera. Se excluye el padding general de `.btn` para que no comprima sus iconos. |
 | `scss/post.scss` | Elimina el ancho forzado de `.main-inner`, el padding lateral cero, los márgenes superiores antiguos y el ancho `93vw` de informes de calificaciones. Boost calcula el espacio disponible y los anclajes de ambos cajones de forma consistente. |
 | `scss/post.scss` | Retira las alturas fijas de navbar y enlaces; usa la variable compartida de Boost. Devuelve al footer fijo su posición y espaciado nativos para respetar la altura disponible de los cajones. |
 | `scss/pre.scss` | Añade `$navbar-height: 62px !default` y `$course-content-maxwidth: 1000px !default`. Todos los cálculos nativos usan esas mismas medidas. La paleta y las tipografías propias se conservan. |
-| `version.php` | Versión `2026101500`, mínimo Moodle/Boost `2026100500` (5.3), release `2.0.0-beta2`, madurez BETA. |
+| `version.php` | Versión `2026101501`, mínimo Moodle/Boost `2026100500` (5.3), release `2.0.0-beta3`, madurez BETA. |
 | `lib.php` | Mantiene preset default/plain/subido/fallback y la prioridad de Raw SCSS. La importación MDS de plain se aplica directamente porque esta rama ya requiere 5.3. |
 | `templates/core/login_layout.mustache` | Conserva el login propio ya preparado para 5.3 y elimina la referencia obsoleta a soporte 5.1. |
 | `tools/check_compatibility.php` | Verifica el mínimo 5.3 y compila con `core_scss`, `theme_config` y callbacks reales. |
@@ -73,6 +87,10 @@ los archivos de producción de Boost y el compilador utilizados no cambian.
 - Comprueba clics reales de apertura/cierre, retorno del foco al botón de
   apertura, espacio para el footer fijo, cierre al reducir pantalla y controles
   operables en móvil. El icono de cierre mantiene su ancho.
+- Con los templates reales de navbar y menú de usuario de Boost, y el footer
+  real de Académico: comprueba texto de cabecera blanco, filtro blanco para
+  iconos de imagen, iniciales y menú desplegable oscuros, pie a todo el ancho,
+  ausencia de franja sobre el pie y apertura alineada al borde al hacer scroll.
 - El fixture con CSS anterior reproduce el cierre fuera del cajón, detectado
   por los mismos límites geométricos que pasa esta revisión.
 
@@ -105,7 +123,7 @@ no se conecta al campus ni requiere credenciales.
 1. Descargar la misma rama `moodle-5.1-5.3`. El directorio del theme debe llamarse
    `gflacso4academic`, sin sufijos, dentro de `<moodle>/public/theme/`.
 2. Actualizar los archivos del theme por el procedimiento habitual. Entrar en
-   **Site administration > Notifications** para registrar `2026101500`.
+   **Site administration > Notifications** para registrar `2026101501`.
 3. Ejecutar **Site administration > Development > Purge caches**. Después hacer
    una recarga completa del navegador (`Ctrl+F5`).
 4. En **Site administration > Appearance > Themes > gflacso4academic**, revisar

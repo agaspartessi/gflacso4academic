@@ -651,7 +651,7 @@ code,
 .drawer[data-region="fixed-drawer"] .drawerheader .draweractions .drawertoggle {
     // Academic's general .btn padding would squeeze the icon in Boost's 40px control.
     padding: 0;
-    background-color: $secondary;
+    background-color: $flacso;
     color: $white;
 
     &:hover {
@@ -662,6 +662,50 @@ code,
 
 .drawer[data-region="fixed-drawer"] .drawerheader .drawertoggle {
     margin-block: 0;
+}
+
+// Keep the open controls in the viewport gutters instead of over the course
+// title or tiles. Retain Boost's show/hide rules and its mobile vertical position.
+#page.drawers .drawer-toggles {
+    .drawer-toggler .btn {
+        margin: 0;
+
+        .icon {
+            color: $white;
+        }
+
+        img.icon {
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    .drawer-toggler.drawer-left-toggle {
+        left: 0;
+        right: auto;
+
+        .btn {
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+    }
+
+    .drawer-toggler.drawer-right-toggle {
+        left: auto;
+        right: 0;
+
+        .btn {
+            border-radius: 0.5rem 0 0 0.5rem;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .drawer-toggler {
+            top: calc(#{$navbar-height} + 1rem);
+        }
+    }
+}
+
+.drawer[data-region="fixed-drawer"] .drawerheader .drawertoggle img.icon {
+    filter: brightness(0) invert(1);
 }
 
 #course-index {
@@ -904,6 +948,47 @@ code,
 
 .navbar.fixed-top {
     border: none;
+}
+
+// Front-facing controls on the institutional blue header need light colours.
+// Keep dropdown menus and avatar initials on their own light-surface colours.
+.navbar.fixed-top {
+    --bs-navbar-color: #{$white};
+    --bs-navbar-hover-color: #{$white};
+    --bs-navbar-active-color: #{$white};
+    --bs-navbar-brand-color: #{$white};
+
+    .navbar-brand {
+        color: $white;
+    }
+
+    #usernavigation {
+        .userbutton .usertext,
+        .usermenu .dropdown-toggle,
+        .editmode-switch-form .mds-switch-label,
+        .popover-region-toggle,
+        > .login {
+            color: $white;
+        }
+
+        .usermenu > .login,
+        .usermenu > .login a,
+        .search-toggle {
+            color: $white;
+        }
+
+        .usermenu .dropdown-toggle:hover,
+        .popover-region-toggle:hover {
+            background-color: rgba($white, 0.12);
+            color: $white;
+        }
+
+        .popover-region-toggle img.icon,
+        .usermenu .dropdown-toggle > img.icon,
+        .search-toggle img.icon {
+            filter: brightness(0) invert(1);
+        }
+    }
 }
 
 .moremenu .nav-link {
@@ -1370,6 +1455,29 @@ form#login {
 
 /*#region*///FOOTER
 
+// Boost pads #page for its drawer controls. Extend only the institutional footer
+// through that gutter, without changing the content width or drawer anchors.
+#page.drawers {
+    --gflacso-footer-outset: 0px;
+
+    > .main-inner {
+        margin-bottom: 0;
+    }
+
+    > #page-footer.nova-foot {
+        margin-inline: calc(-1 * var(--gflacso-footer-outset));
+        width: auto;
+        max-width: none;
+        align-self: stretch;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    #page.drawers {
+        --gflacso-footer-outset: 3rem;
+    }
+}
+
 #page-footer.nova-foot {
     padding-top: 30px !important;
     padding-bottom: 30px !important;
@@ -1383,6 +1491,10 @@ form#login {
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: left;
+
+    .adres {
+        max-width: 100%;
+    }
 }
 
 .adres {
