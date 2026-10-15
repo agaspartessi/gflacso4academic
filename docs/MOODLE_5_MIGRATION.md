@@ -1,111 +1,136 @@
-# Adaptación de Académico a Moodle 5.1 y 5.3
+# Académico para Moodle 5.3 — cajones nativos de Boost
 
-Fecha: 7 de octubre de 2026. Rama: `moodle-5.1-5.3`. Release: `2.0.0-beta1`.
+Actualizado: 15 de octubre de 2026. Release: `2.0.0-beta2`.
 
-La rama parte de `main` de Académico en `b91fac1f31c2411f845007a750d40881f67d22a5`.
-Se usa como referencia la estructura de Cooperación en
-`0843e340c96e09b654fc8e2663115d8ff176f4c4` y su historial de ajustes de junio de 2026.
-No se fusiona ni modifica `main`. No se modifica Cooperación ni Uruguay.
+Se actualiza la misma rama `moodle-5.1-5.3`, conservando su nombre para mantener
+los enlaces y el PR #5. Desde esta revisión requiere **Moodle 5.3**; 5.1 deja
+de ser un objetivo de compatibilidad. `main` no se modifica ni se fusiona.
 
-## Archivos y motivos
+## Qué se corrige
 
-| Archivo | Cambio |
+Las capturas del campus muestran el cierre del cajón derecho fuera de la
+cabecera y el contenido lateral desalineado respecto de la columna central.
+El SCSS anterior forzaba la cabecera con `position: absolute`, `bottom: 15dvh`
+y desplazamientos negativos; ubicaba también los botones de apertura abajo,
+fijaba la altura al viewport y elevaba el z-index a 1050. Además fijaba el ancho
+y los márgenes de la columna central sin compartirlos con los cálculos de Boost.
+
+Boost 5.3 añade cajones de altura dinámica, anclajes junto al contenido y una
+cabecera con `drawerheadertop`, `drawerheading`, `draweractions` y `drawercontrols`.
+Esta revisión hereda esos templates y el controlador AMD del padre: no copia ni
+reescribe su apertura/cierre, preferencias, scroll, foco o comportamiento móvil.
+
+## Cambios por archivo
+
+| Archivo | Resultado |
 | --- | --- |
-| `config.php` | Carga explícita de `lib.php`, `editor_sheets = []` y callback nativo para `pre.scss`. Conserva Boost como padre, posición de bloques, interruptor de edición y exclusión de Home. |
-| `lib.php` | Separa las variables iniciales del preset y conserva los presets `default.scss`, `plain.scss`, subidos y fallback. Lee los ajustes del objeto del theme Académico. Mantiene `post.scss` después del preset y deja el Raw SCSS final al callback heredado de Boost. |
-| `lib.php` | Para `plain.scss`, importa `design-system` si ese archivo existe en Boost. En el código 5.3 revisado, el preset plain omite los tokens MDS requeridos por el SCSS de Moodle. En 5.1 no se añade esa importación. |
-| `version.php` | Versión `2026100700`; mínimo Moodle y Boost `2025100600` (5.1). Madurez `MATURITY_BETA`, release `2.0.0-beta1`. No impide instalar en 5.3 ni fija un máximo no verificado. |
-| `scss/post.scss` | Extiende las reglas de la navbar a `.bg-body` y a enlaces que ya no dependen de `.navbar-light`. Conserva colores y gradientes originales de Académico. Corrige el blanco del SVG del menú, que antes contenía el texto literal `$white`. |
-| `scss/post.scss` | Asigna colores y tipografía propios a los nuevos menús `.mds-nav-pill` de 5.3, con variables limitadas a cada enlace para no volver ilegibles los dropdowns. Mantiene el foco de teclado. |
-| `scss/post.scss` | Define explícitamente el contenedor flex del login, que Boost 5.3 ya no proporciona. |
-| `templates/core/login_layout.mustache` | Override del nuevo parcial de 5.3: conserva el fondo de página y formulario a la derecha de Académico. Mantiene `output.main_content` dinámico para autenticación, OAuth y MFA. 5.1 no utiliza este parcial. |
-| `tools/check_compatibility.php` | Verificación CLI reproducible con los callbacks, clase `theme_config`, compilador `core_scss` y SCSS reales de la instalación indicada; usa dobles para almacenamiento y servicios que requieren base de datos. No carga `config.php` del campus ni accede a su base. |
-| `README.md` y este documento | Estado de la rama, detalle de cambios, límites y pasos de testing. |
+| `scss/post.scss` | Retira las posiciones y alturas antiguas de cajones, cabeceras, contenidos y botones, el z-index forzado y sus transiciones propias. Conserva fondos, colores, tipografía y apariencia de los bloques. |
+| `scss/post.scss` | Los controles mantienen el tamaño y posición de Boost, con colores de Académico. Se excluye el padding general de `.btn` para que no comprima sus iconos, y se retira el margen vertical del cierre. Se conservan los indicadores de foco de Boost. |
+| `scss/post.scss` | Elimina el ancho forzado de `.main-inner`, el padding lateral cero, los márgenes superiores antiguos y el ancho `93vw` de informes de calificaciones. Boost calcula el espacio disponible y los anclajes de ambos cajones de forma consistente. |
+| `scss/post.scss` | Retira las alturas fijas de navbar y enlaces; usa la variable compartida de Boost. Devuelve al footer fijo su posición y espaciado nativos para respetar la altura disponible de los cajones. |
+| `scss/pre.scss` | Añade `$navbar-height: 62px !default` y `$course-content-maxwidth: 1000px !default`. Todos los cálculos nativos usan esas mismas medidas. La paleta y las tipografías propias se conservan. |
+| `version.php` | Versión `2026101500`, mínimo Moodle/Boost `2026100500` (5.3), release `2.0.0-beta2`, madurez BETA. |
+| `lib.php` | Mantiene preset default/plain/subido/fallback y la prioridad de Raw SCSS. La importación MDS de plain se aplica directamente porque esta rama ya requiere 5.3. |
+| `templates/core/login_layout.mustache` | Conserva el login propio ya preparado para 5.3 y elimina la referencia obsoleta a soporte 5.1. |
+| `tools/check_compatibility.php` | Verifica el mínimo 5.3 y compila con `core_scss`, `theme_config` y callbacks reales. |
+| `tools/check_drawers.cjs` | Prueba de navegador reproducible con los templates y controlador AMD reales de Boost, contenido de ejemplo y servicios externos simulados. |
+| `README.md` y este documento | Alcance actualizado, cambios, pruebas y pasos de instalación. |
 
-## Diferencia deliberada con Cooperación
+## Identidad y estructura conservadas
 
-Moodle ejecuta también los callbacks de los themes padres, con los ajustes del
-theme hijo. Boost ya añade `brandcolor`, `scsspre` y `scss`. Copiarlos nuevamente
-en callbacks propios puede repetir importaciones o reglas y calcular derivados
-antes de aplicar el color final.
+Se mantiene `theme_gflacso4academic` como componente, con Boost como padre.
+Se conserva la paleta azul/rosa, logos, imágenes, iconos, footer institucional,
+ajustes administrativos y diseños de cursos/contenidos. Siguen vigentes los
+ajustes de navbar y navegación MDS de la primera adaptación.
 
-En esta rama, el orden es:
+El orden SCSS sigue siendo:
 
-1. Callback inicial de Boost: color de marca y Raw initial SCSS de Académico.
-2. Callback de Académico: `scss/pre.scss`, con sus valores `!default`.
-3. Preset seleccionado y `scss/post.scss` de Académico.
-4. Callback final de Boost: Raw SCSS y reglas de fondos.
+1. Callback de Boost: color de marca y Raw initial SCSS de Académico.
+2. Callback de Académico: variables `!default` de `pre.scss`.
+3. Preset seleccionado y estilos de `post.scss`.
+4. Callback de Boost: Raw SCSS y fondos.
 
-El Raw SCSS se incluye una sola vez. Para conservar esa prioridad, `post.scss`
-queda en el contenido principal: no se registra un segundo callback final.
-`$CFG->dirroot` ya apunta a `public` en 5.1/5.3; no se agrega otro `/public`.
-Los archivos propios se localizan mediante `__DIR__`.
+Raw SCSS se incluye una sola vez y conserva su prioridad final. Los archivos
+propios se localizan con `__DIR__` y `$CFG->dirroot` ya apunta a `public`.
 
-## Identidad conservada
+## Validación realizada
 
-`scss/pre.scss` queda idéntico a `main`: primario azul `hsl(213, 59%, 50%)`,
-secundario `hsl(333, 59%, 50%)`, color institucional `hsl(213, 59%, 19%)`,
-paleta de actividades y familias Roboto. Se conservan las imágenes, logos,
-iconos, diseños de contenidos/cursos, settings y footer institucional.
-No se reemplaza el SCSS completo por el de Cooperación.
+Referencia de Moodle: `MOODLE_503_STABLE`, release 5.3,
+`42622298fe06f9626d988d60b2bf589bd8f850e8`. También se compara con la rama estable
+actual consultada el 15/10, `344c92d5bb70f37306829d7739e2710305a39c3e`:
+los archivos de producción de Boost y el compilador utilizados no cambian.
 
-El mixin `gradient-y-three-colors` sigue existiendo en el Bootstrap incluido
-en ambas versiones revisadas, por lo que no se cambia innecesariamente.
+- Sintaxis PHP y JavaScript, y `git diff --check`.
+- Cinco compilaciones con PHP 8.3 y el compilador SCSS real de Moodle 5.3:
+  default, plain, preset subido, fallback y marca/Raw SCSS.
+- Prueba en Chromium: 96 combinaciones entre nueve anchos de pantalla
+  (390, 767, 768, 991, 992, 1024, 1200, 1440 y 1920 px), tres layouts
+  (dashboard de ancho limitado, standard e informe ancho) y cajones cerrados,
+  izquierdo/derecho abiertos y ambos abiertos cuando corresponde.
+- Comprueba ausencia de desbordamiento horizontal, visibilidad, cabecera y
+  cierre dentro del cajón, scroll interno y separación respecto del contenido
+  en escritorio.
+- Comprueba clics reales de apertura/cierre, retorno del foco al botón de
+  apertura, espacio para el footer fijo, cierre al reducir pantalla y controles
+  operables en móvil. El icono de cierre mantiene su ancho.
+- El fixture con CSS anterior reproduce el cierre fuera del cajón, detectado
+  por los mismos límites geométricos que pasa esta revisión.
 
-## Validación
+**Límite:** son pruebas de integración aisladas, no una sesión en el campus.
+Se simulan persistencia de preferencias, servicios de templates, tooltip y
+backdrop. El DOM y el controlador de cajones provienen de Boost. Queda pendiente
+validar con bloques, cursos, plugins, ajustes Raw y autenticación reales.
 
-Se revisa contra estas revisiones de Moodle:
-
-- 5.1.8, `MOODLE_501_STABLE`: `cc0bf17da8b5fbd290faf95b2b14a03d64331923`.
-- 5.3, `MOODLE_503_STABLE`: `42622298fe06f9626d988d60b2bf589bd8f850e8`.
-
-El verificador utiliza PHP 8.3 y el compilador SCSS que viene con cada Moodle.
-Prueba default, plain, un preset subido basado en default, un preset faltante
-con fallback y ajustes de marca/Raw SCSS. Comprueba el orden y que los marcadores
-Raw aparezcan una sola vez. También se revisa la sintaxis PHP y el render del
-parcial Mustache con contenido dinámico.
-
-Estas comprobaciones no equivalen a un campus instalado ni a pruebas visuales
-completas. La rama queda beta hasta verificar autenticación, navegación, cursos,
-actividades y plugins con los ajustes reales de FLACSO.
-
-Para reproducir la compilación (requiere PHP con ctype y mbstring o iconv):
+Para reproducir la compilación (PHP con ctype y mbstring o iconv):
 
 ```bash
-php tools/check_compatibility.php /ruta/al/moodle
+php tools/check_compatibility.php /ruta/al/moodle /tmp/academic-css
 ```
 
-El segundo argumento opcional es una carpeta donde guardar el CSS compilado.
-Ejecutar en un checkout de testing. El script sólo admite CLI.
+Para reproducir el navegador en un checkout de trabajo con Node:
 
-## Instalación y prueba en testing
+```bash
+npm install --no-save playwright mustache
+npx playwright install chromium
+node tools/check_drawers.cjs /ruta/al/moodle /tmp/academic-css/moodle-default.css /tmp/academic-drawers
+```
 
-1. Descargar o clonar esta rama. La carpeta del plugin debe llamarse
-   `gflacso4academic`, sin el sufijo de la rama.
-2. Ubicarla en `<moodle>/public/theme/gflacso4academic` en Moodle 5.1/5.3.
-3. Visitar **Site administration > Notifications** para registrar la versión.
-4. Ejecutar **Site administration > Development > Purge caches**.
-5. Seleccionar Académico en **Site administration > Appearance > Theme selector**.
-6. Revisar primero con preset default. Probar luego plain y los presets propios.
-7. Probar login, recuperación de contraseña, autenticación externa y MFA si se
-   usan; navbar, menú More, navegación secundaria e interruptor de edición;
-   dashboard, My courses, índice y cajón de bloques; foros, cuestionarios,
-   tareas, H5P, formularios, modales y footer. Ver escritorio y móvil, con roles
-   de estudiante, docente y administrador.
-8. Probar color de marca, Raw initial SCSS y Raw SCSS con los valores del campus.
-   Comparar colores y diseños con el entorno actual y revisar logs PHP/consola.
+El nombre del CSS generado incluye el nombre de la carpeta de Moodle: sustituir
+`moodle-default.css` por el nombre que genere el primer comando. Se puede usar
+`CHROMIUM_EXECUTABLE_PATH` para seleccionar un Chromium ya instalado. El script
+no se conecta al campus ni requiere credenciales.
 
-Los presets subidos deben ser compatibles con el Moodle de destino. En 5.3,
-un preset propio basado en el plain antiguo puede necesitar
-`@import "design-system";` antes de Bootstrap/Moodle; no se reescriben archivos
-subidos por el administrador. Las URLs absolutas, IDs de cursos y reglas de
-plugins externos ya presentes se conservan y requieren revisión en el campus.
-El modo oscuro experimental de Boost 5.3 no está validado para esta identidad.
+## Instalar y comprobar en testing
 
-## Referencias oficiales
+1. Descargar la misma rama `moodle-5.1-5.3`. El directorio del theme debe llamarse
+   `gflacso4academic`, sin sufijos, dentro de `<moodle>/public/theme/`.
+2. Actualizar los archivos del theme por el procedimiento habitual. Entrar en
+   **Site administration > Notifications** para registrar `2026101500`.
+3. Ejecutar **Site administration > Development > Purge caches**. Después hacer
+   una recarga completa del navegador (`Ctrl+F5`).
+4. En **Site administration > Appearance > Themes > gflacso4academic**, revisar
+   Raw initial SCSS y Raw SCSS: si contienen copias antiguas de reglas de cajones,
+   cabeceras, toggles o `.main-inner`, esas reglas pueden reintroducir el problema
+   porque Raw SCSS tiene prioridad final. Conservar los ajustes propios que no
+   interfieran y retirar sólo las reglas antiguas identificadas.
+5. Probar en Tablero y en un curso con índice y bloques: ambos cajones cerrados,
+   cada uno abierto y ambos abiertos; cerrar desde su cabecera, desplazar una
+   lista larga y volver a abrir. Comprobar también teclado, móvil y cambio de
+   tamaño de la ventana.
+6. Probar añadir/mover bloques en edición, contraer/expandir índice, menú de
+   acciones de bloques, contenidos H5P, foros, tareas, cuestionarios y páginas con
+   navegación inferior. Revisar formatos externos como Tiles/Onetopic y cursos
+   representativos antes de fusionar.
 
-- [API de themes](https://moodledev.io/docs/5.1/apis/plugintypes/theme)
-- [Migración a Bootstrap 5](https://moodledev.io/docs/5.1/guides/bs5migration)
+Los presets subidos deben ser compatibles con 5.3. Un preset basado en el plain
+antiguo puede necesitar `@import "design-system";` antes de Bootstrap/Moodle.
+URLs absolutas, IDs de cursos y reglas de plugins externos existentes se conservan.
+El modo oscuro experimental de Boost no está validado para esta identidad.
+
+## Referencias
+
 - [Moodle 5.3](https://moodledev.io/general/releases/5.3)
-- [Código de Boost 5.1](https://github.com/moodle/moodle/tree/MOODLE_501_STABLE/public/theme/boost)
-- [Código de Boost 5.3](https://github.com/moodle/moodle/tree/MOODLE_503_STABLE/public/theme/boost)
+- [Notas de actualización de Boost 5.3](https://github.com/moodle/moodle/blob/MOODLE_503_STABLE/public/theme/boost/UPGRADING.md)
+- [SCSS nativo de cajones](https://github.com/moodle/moodle/blob/MOODLE_503_STABLE/public/theme/boost/scss/moodle/drawer.scss)
+- [Layout nativo](https://github.com/moodle/moodle/blob/MOODLE_503_STABLE/public/theme/boost/scss/moodle/layout.scss)
+- [Templates de Boost](https://github.com/moodle/moodle/tree/MOODLE_503_STABLE/public/theme/boost/templates)

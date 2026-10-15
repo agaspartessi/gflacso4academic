@@ -21,6 +21,11 @@ if (!is_file($moodleroot . '/theme/boost/config.php')) {
     fwrite(STDERR, "Moodle's Boost theme was not found.\n");
     exit(1);
 }
+$versioninfo = file_get_contents($moodleroot . '/version.php');
+if (!preg_match('/\$version\s*=\s*(\d+)/', $versioninfo, $matches) || (int)$matches[1] < 2026100500) {
+    fwrite(STDERR, "This branch requires Moodle 5.3 or later.\n");
+    exit(1);
+}
 $branch = basename(dirname($moodleroot));
 $outputdir = $argv[2] ?? null;
 if ($outputdir !== null && !is_dir($outputdir)) {

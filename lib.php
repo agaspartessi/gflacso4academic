@@ -40,14 +40,13 @@ function theme_gflacso4academic_get_main_scss_content($theme): string {
     }
 
     if ($scss === null) {
-        // In Moodle 5.1+ dirroot already points to public; do not append public.
+        // In Moodle 5.3 dirroot already points to public; do not append public.
         $filename = $preset === 'plain.scss' ? 'plain.scss' : 'default.scss';
         $scss = file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/' . $filename);
     }
 
     // Boost 5.3's plain preset omits MDS tokens used by Moodle's core SCSS.
-    // Feature detection keeps this working on 5.1, which has no design system.
-    if ($preset === 'plain.scss' && is_readable($CFG->dirroot . '/theme/boost/scss/design-system.scss')) {
+    if ($preset === 'plain.scss') {
         $scss = "@import \"design-system\";\n" . $scss;
     }
 
