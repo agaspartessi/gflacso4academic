@@ -123,7 +123,7 @@ no se conecta al campus ni requiere credenciales.
 1. Descargar la misma rama `moodle-5.1-5.3`. El directorio del theme debe llamarse
    `gflacso4academic`, sin sufijos, dentro de `<moodle>/public/theme/`.
 2. Actualizar los archivos del theme por el procedimiento habitual. Entrar en
-   **Site administration > Notifications** para registrar `2026101900`.
+   **Site administration > Notifications** para registrar `2026101901`.
 3. Ejecutar **Site administration > Development > Purge caches**. Después hacer
    una recarga completa del navegador (`Ctrl+F5`).
 4. En **Site administration > Appearance > Themes > gflacso4academic**, revisar
@@ -177,3 +177,22 @@ node tools/check_tiles_drawers.cjs /tmp/academic-drawers /ruta/a/format_tiles/st
 
 Estas pruebas usan fixtures locales y el controlador real de cajones de Boost.
 No reemplazan una prueba funcional de autenticación, MFA y plugins en el campus.
+
+## Corrección visual de Board, Página y Onetopic (2026101901)
+
+Se adapta el título de curso a la cabecera actual de Boost, conservando el texto
+azul institucional y la línea con el color del área. Board y Página muestran una
+sola cabecera de actividad, con fondo suave y borde fino del área; la descripción
+de Board conserva tipografía sin serif. Los contenedores vacíos de información
+no dejan recuadros en Página, pero los controles de finalización se conservan.
+Las pestañas verticales de Onetopic recuperan la forma redondeada y los estados
+activo/hover por área, incluidos los diseños vertical y vertical-all.
+
+Validación local con plantillas reales de Boost y CSS de Onetopic:
+
+```bash
+node tools/check_content.cjs /ruta/a/moodle /ruta/a/compiled.css /ruta/a/onetopic /tmp/academic-content
+```
+
+Las capturas locales no incluyen datos del campus. Comprobar después en testing
+el Board 2999545, Página 2999543 y curso 29836, incluyendo móvil y finalización.
