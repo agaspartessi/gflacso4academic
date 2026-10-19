@@ -9324,5 +9324,39 @@ body.format-onetopic.path-course-view #page {
     }
 }
 
+// The campus Raw SCSS still positions the old full-bleed footer at left:50%.
+// The drawer-aware width/margins above already fill #page; neutralise that offset.
+#page.drawers > #page-footer.nova-foot {
+    left: auto;
+    right: auto;
+}
+
+// Dashboard/Courses headings use .h2, so Bootstrap extends the decorative h2
+// rules onto both the h1 and Moodle's welcome span. Keep these headings plain.
+body.path-my #page-header {
+    .page-header-headings h1.h2,
+    span.h2 {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        width: auto !important;
+        line-height: 1.25;
+        font-family: $font-family-condensed;
+        color: $flacso !important;
+        font-weight: 500 !important;
+    }
+    .page-header-headings h1.h2 {
+        font-size: clamp(1.5rem, 2.2vw, 1.75rem) !important;
+        margin: 0 0 .75rem !important;
+    }
+    span.h2 {
+        display: inline-block;
+        font-size: 1.25rem !important;
+        margin: 0 0 1rem;
+    }
+}
+
 // A readable build marker also detects a browser-discarded stylesheet tail.
-:root { --gflacso-academic-build: 2026101902; }
+:root { --gflacso-academic-build: 2026101903; }

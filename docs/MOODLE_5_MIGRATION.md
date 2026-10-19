@@ -123,7 +123,7 @@ no se conecta al campus ni requiere credenciales.
 1. Descargar la misma rama `moodle-5.1-5.3`. El directorio del theme debe llamarse
    `gflacso4academic`, sin sufijos, dentro de `<moodle>/public/theme/`.
 2. Actualizar los archivos del theme por el procedimiento habitual. Entrar en
-   **Site administration > Notifications** para registrar `2026101902`.
+   **Site administration > Notifications** para registrar `2026101903`.
 3. Ejecutar **Site administration > Development > Purge caches**. Después hacer
    una recarga completa del navegador (`Ctrl+F5`).
 4. En **Site administration > Appearance > Themes > gflacso4academic**, revisar
@@ -283,7 +283,7 @@ todas las funciones/versiones de Onetopic con 5.3.
 
 ### Verificación tras instalar
 
-1. Instalar esta misma rama, registrar `2026101902`, purgar cachés y recargar.
+1. Instalar esta misma rama, registrar `2026101903`, purgar cachés y recargar.
 2. En consola, comprobar:
 
 ```js
@@ -313,3 +313,35 @@ combinaciones (12 vistas responsive por combinación). Pasaron además 96 estado
 de cajones, navegación en cuatro anchos de escritorio y login en cinco tamaños.
 Se repitió la prueba del preset default tras el último ajuste de fondo del
 contenedor. Estas pruebas no requieren base de datos ni credenciales del campus.
+
+## Beta7 / 2026101903: footer y títulos de Tablero/Mis cursos
+
+La inspección autenticada de Virtual Test con beta6 confirmó que el footer no
+estaba mal dimensionado: estaba desplazado. El SCSS adicional del campus conserva
+la técnica anterior de ancho completo (`width:100vw; left:50%; right:50%;
+margin-left:-50vw; margin-right:-50vw`). La regla nueva de cajones ya sustituía
+ancho y márgenes, pero dejaba esos offsets activos. A 1348px, el footer comenzaba
+en x=626px y terminaba en x=1974px: dirección/redes quedaban fuera de pantalla.
+
+Se restablecen `left:auto; right:auto` con el selector específico
+`#page.drawers > #page-footer.nova-foot`. Se conservan el mapa, colores,
+información institucional, redes y el ancho calculado por Boost. No se cambian
+las opciones guardadas ni la geometría de los cajones.
+
+Tablero y Mis cursos pertenecen a `body.path-my` y usan `h1.h2.mb-0`; el saludo
+es `span.h2`. Bootstrap extendía el recuadro genérico de h2 a ambos. Las reglas
+acotadas a ese encabezado eliminan fondo, bordes y sombra y mantienen Roboto
+Condensed azul institucional, con escala moderada. Los encabezados de cursos,
+Board, Página y títulos de contenidos conservan sus reglas anteriores.
+
+Prueba reproducible que carga además las reglas adicionales observadas en el
+campus, después del CSS compilado:
+
+```bash
+node tools/check_dashboard.cjs /tmp/academic-drawers /ruta/al/compiled.served.css /tmp/academic-dashboard
+```
+
+Verifica el ancho y posición del footer, dirección visible, ausencia de scroll
+horizontal y títulos/saludo sin recuadros en Tablero/Mis cursos a 390, 768, 1024,
+1440 y 1920px. Pasaron las diez vistas y la regresión de Board/Página/Onetopic.
+Tras instalar, el marcador CSS del final de la hoja debe devolver `2026101903`.

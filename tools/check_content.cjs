@@ -33,7 +33,7 @@ function html(kind) {
    await page.setViewportSize({width, height: 900});
    await page.goto('file://' + output + '/' + kind + '.html');
    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), kind + ' overflow ' + width);
-   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--gflacso-academic-build').trim()), '2026101902', 'browser must parse complete stylesheet tail');
+   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--gflacso-academic-build').trim()), '2026101903', 'browser must parse complete stylesheet tail');
    if (kind === 'course') {
     assert.equal(await page.locator('.course-content .verticaltabs').count(), 0, 'match the real Onetopic hierarchy');
     if (width <= 600) {
