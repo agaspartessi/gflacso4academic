@@ -123,7 +123,7 @@ no se conecta al campus ni requiere credenciales.
 1. Descargar la misma rama `moodle-5.1-5.3`. El directorio del theme debe llamarse
    `gflacso4academic`, sin sufijos, dentro de `<moodle>/public/theme/`.
 2. Actualizar los archivos del theme por el procedimiento habitual. Entrar en
-   **Site administration > Notifications** para registrar `2026101901`.
+   **Site administration > Notifications** para registrar `2026101902`.
 3. Ejecutar **Site administration > Development > Purge caches**. Después hacer
    una recarga completa del navegador (`Ctrl+F5`).
 4. En **Site administration > Appearance > Themes > gflacso4academic**, revisar
@@ -196,3 +196,120 @@ node tools/check_content.cjs /ruta/a/moodle /ruta/a/compiled.css /ruta/a/onetopi
 
 Las capturas locales no incluyen datos del campus. Comprobar después en testing
 el Board 2999545, Página 2999543 y curso 29836, incluyendo móvil y finalización.
+
+## Beta6 / 2026101902: diagnóstico confirmado en Virtual Test
+
+### Causa de que beta5 no se reflejara
+
+El 19/10 se inspeccionaron todas las reglas CSSOM accesibles de la hoja
+`gflacso4academic` servida por Virtual Test. Sus últimas reglas interpretadas eran
+`.my-3[data-for="sectioninfo"]` y su `.no-overflow`: no se llegaba a interpretar
+Onetopic ni el bloque de correcciones al final del archivo.
+
+Reproducción local con `core_scss` y scssphp incluidos en Moodle 5.3
+(MOODLE_503_STABLE, commit 344c92d5): Bootstrap extiende `h1`...`h6` mediante
+`.h1`...`.h6`. En selectores antiguos anidados como
+`:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div))`, scssphp genera extensiones
+con paréntesis sin cerrar. El CSS sigue conteniendo texto después de ese punto,
+pero Chromium deja de interpretar el resto de la hoja. No era una caché ni un
+problema de que el selector del Board no coincidiera.
+
+Se usan selectores estándar con namespace universal `*|h1`...`*|h6` dentro de las
+relaciones. Siguen coincidiendo con los mismos encabezados HTML sin disparar
+esas extensiones defectuosas. También se elimina el selector de atributo anidado
+`[role="button"]` de la condición de contenedor vacío, que provocaba avisos
+`Array to string conversion` en scssphp. Se preservan descripción, finalización,
+botones, campos, enlaces y alertas en esa condición.
+
+La validación anterior con Dart Sass no reproducía el compilador de Moodle.
+Beta6 valida compilación PHP, `theme_config::post_process`, `core_minify::css` y
+CSSOM de Chromium. Las advertencias PHP hacen fallar el chequeo; la mera presencia
+de las reglas en el texto compilado ya no se considera suficiente.
+
+### Board y Página
+
+Se confirmó en el DOM autenticado que `#region-main > h2` precede a
+`.activity-header`. El selector de beta5 sí coincidía, pero estaba en el tramo
+que el navegador descartaba. Se mantiene el encabezado liviano, fondo del área
+(crema en este curso), borde de 1px y descripción integrada. Se oculta sólo la
+cabecera duplicada, conservando breadcrumb y acciones. Página contiene wrappers
+`.activity-information > .activity-details` vacíos: se evita su recuadro sin
+ocultar información de finalización. Se contempla `.generalbox` dentro de
+`[role="main"]`, como en el HTML real.
+
+### Encabezado del curso
+
+Moodle emite `h1.h2.mb-0`. Las reglas globales `h2`, extendidas por Bootstrap a
+`.h2`, le aplicaban fondo gris y borde lateral. Las reglas específicas del curso
+restablecen tipografía institucional azul, fondo transparente y línea del área.
+
+### Onetopic: diseño y funcionamiento
+
+El DOM del curso 29836 contiene:
+
+```html
+<div class="course-content-header">
+  <div class="verticaltabs hastopictabs" id="tabs-tree-start">
+    <div class="tabs-wrapper">
+      <!-- checkbox/label nativos del menú móvil -->
+      <ul class="nav nav-tabs format_onetopic-tabs">
+        <li class="nav-item"><a class="nav-link active" href="...">...</a></li>
+      </ul>
+    </div>
+    <!-- contenido de la sección -->
+  </div>
+</div>
+```
+
+Las reglas de beta5 exigían un ancestro `.course-content` que no existe sobre las
+pestañas: coincidían con cero enlaces. La nueva regla
+`body.format-onetopic.path-course-view #page .verticaltabs > .tabs-wrapper .nav-item > .nav-link`
+coincidió con los ocho enlaces reales. No depende de IDs de cursos ni secciones.
+
+Se conservan forma píldora, columna de 200px, borde según el área y fondo del
+área oscuro para la activa (naranja/dorado en el curso de referencia). Hover de
+fondo suave con texto negro, activa con texto blanco y foco de teclado con
+contorno visible. Se neutraliza el antiguo ancho de 33% de los ítems verticales.
+En móvil se respeta el breakpoint nativo de 600px y el checkbox del menú; la lista
+abierta fluye dentro de la página para evitar superposiciones. No se cambia el
+JavaScript de Onetopic ni sus enlaces.
+
+Prueba autenticada con el plugin instalado en Virtual Test: seleccionar
+“Derecho Internacional” navegó a `section=1`, actualizó `.nav-link.active`, y
+entrar en Página 2999543 y volver por el breadcrumb “Derecho Internacional”
+conservó esa sección y su enlace activo. No se reprodujo una incompatibilidad
+funcional en ese recorrido; no se afirma por ello compatibilidad completa de
+todas las funciones/versiones de Onetopic con 5.3.
+
+### Verificación tras instalar
+
+1. Instalar esta misma rama, registrar `2026101902`, purgar cachés y recargar.
+2. En consola, comprobar:
+
+```js
+getComputedStyle(document.documentElement)
+  .getPropertyValue('--gflacso-academic-build').trim()
+// "2026101902"
+```
+
+El marcador está al final del SCSS: confirma que el navegador interpreta ese
+tramo, no sólo que la versión PHP se instaló. Si no aparece, inspeccionar todas
+las hojas del theme y los errores de compilación antes de cambiar especificidad.
+3. Revisar Board 2999545 y Página 2999543: una cabecera, borde fino y sin recuadro
+vacío; comprobar descripción y finalización cuando estén configuradas.
+4. Curso 29836: título sin fondo/borde lateral, línea del área y ocho píldoras;
+seleccionar sección 1, abrir una actividad y volver a la misma sección.
+5. A 390px, abrir “Tópicos”, seleccionar una sección y probar ambos cajones;
+repetir en escritorio con cajones cerrados, abiertos y ambos abiertos.
+
+Las pruebas visuales de la corrección se ejecutan localmente con la estructura
+observada en el campus y el CSS procesado por Moodle. La nueva versión de la rama
+no se instala automáticamente en Virtual Test.
+
+Resultado de la validación de beta6: cinco combinaciones de preset/configuración
+compilaron y pasaron posprocesado/minificación sin advertencias PHP; Chromium
+interpretó el marcador final y pasó las pruebas de contenido en las cinco
+combinaciones (12 vistas responsive por combinación). Pasaron además 96 estados
+de cajones, navegación en cuatro anchos de escritorio y login en cinco tamaños.
+Se repitió la prueba del preset default tras el último ajuste de fondo del
+contenedor. Estas pruebas no requieren base de datos ni credenciales del campus.

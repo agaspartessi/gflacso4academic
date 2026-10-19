@@ -10,6 +10,13 @@ if (empty($argv[1])) {
     exit(1);
 }
 define('MOODLE_INTERNAL', true);
+// Compiler warnings can accompany syntactically broken output. Never accept it.
+set_error_handler(function($severity, $message, $file, $line) {
+    if ($severity & (E_WARNING | E_NOTICE | E_USER_WARNING | E_USER_NOTICE)) {
+        throw new ErrorException($message, 0, $severity, $file, $line);
+    }
+    return false;
+});
 define('BLOCK_ADDBLOCK_POSITION_FLATNAV', 0);
 define('MATURITY_BETA', 100);
 $root = dirname(__DIR__);
@@ -44,6 +51,22 @@ spl_autoload_register(function($name) use ($moodleroot) {
         require $moodleroot . '/lib/scssphp/src/' . str_replace('\\', '/', substr($name, strlen($prefix))) . '.php';
     }
 });
+spl_autoload_register(function($name) use ($moodleroot) {
+    $roots = [
+        'MatthiasMullie\\Minify\\' => '/lib/minify/matthiasmullie-minify/src/',
+        'MatthiasMullie\\PathConverter\\' => '/lib/minify/matthiasmullie-pathconverter/src/',
+    ];
+    foreach ($roots as $prefix => $directory) {
+        if (str_starts_with($name, $prefix)) {
+            require $moodleroot . $directory . str_replace('\\', '/', substr($name, strlen($prefix))) . '.php';
+        }
+    }
+});
+require "$moodleroot/lib/classes/minify.php";
+class asset_url_stub {
+    public function __toString() { return $this->out(false); }
+    public function out($escaped = true) { return 'https://example.invalid/asset.svg'; }
+}
 require "$moodleroot/lib/classes/scss.php";
 require "$moodleroot/lib/classes/output/theme_config.php";
 require "$moodleroot/theme/boost/lib.php";
@@ -76,7 +99,8 @@ class theme_stub extends \core\output\theme_config {
         ]];
     }
     public function setting_file_url($name, $area) { return null; }
-    public function image_url($name, $component = '', $svg = null) { return 'https://example.invalid/image.svg'; }
+    public function font_url($name, $component = '') { return new asset_url_stub(); }
+    public function image_url($name, $component = '', $svg = null) { return new asset_url_stub(); }
 }
 $cases = [
     'default' => (object)['preset' => 'default.scss'],
@@ -114,8 +138,16 @@ foreach ($cases as $name => $settings) {
     $compiler->setImportPaths(["$root/scss", "$moodleroot/theme/boost/scss"]);
     $css = $compiler->compile($source);
     if (strlen($css) < 100000) { throw new Exception('Incomplete CSS'); }
+    $servedcss = core_minify::css($THEME->post_process($css));
+    if (str_contains($servedcss, 'Problem detected during CSS minimisation')) {
+        throw new Exception('Moodle minifier failed');
+    }
+    if (!str_contains($servedcss, '--gflacso-academic-build:2026101902')) {
+        throw new Exception('Build marker missing from the served CSS');
+    }
     if ($outputdir !== null) {
+        file_put_contents($outputdir . "/$branch-$name.served.css", $servedcss);
         file_put_contents($outputdir . "/$branch-$name.css", $css);
     }
-    echo "$branch $name: compiled " . strlen($css) . " bytes\n";
+    echo "$branch $name: compiled " . strlen($css) . " bytes; post-processed/minified " . strlen($servedcss) . " bytes\n";
 }

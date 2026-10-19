@@ -1,4 +1,5 @@
-// Local regression fixtures for the three views reported on 19 October 2026.
+// Minimal fixtures based on DOM inspected in Virtual Test on 19 October 2026.
+// Do not move Onetopic under .course-content: the live plugin uses course-content-header.
 // node tools/check_content.cjs /path/to/moodle /path/to/compiled.css /path/to/onetopic [output]
 const fs = require('fs'), path = require('path'), assert = require('node:assert/strict');
 const Mustache = require('mustache');
@@ -10,17 +11,17 @@ fs.mkdirSync(output, {recursive: true});
 fs.copyFileSync(process.argv[3], path.join(output, 'theme.css'));
 fs.copyFileSync(path.join(process.argv[4], 'styles.css'), path.join(output, 'onetopic.css'));
 const template = fs.readFileSync(path.join(root, 'lib/templates/activity_header.mustache'), 'utf8');
-const intro = '<div class="activity-information"><div class="activity-details"><div id="intro" class="activity-description"><p>Identificar los objetivos de los tratados y comprender su naturaleza jurídica.</p></div></div></div>';
+const intro = '<div class="activity-information"><div class="activity-details"><div id="intro" class="activity-description"><div class="no-overflow"><p>Descripción de la actividad.</p></div></div></div></div>';
 const empty = '<div class="activity-information"><div class="activity-details"></div></div>';
 const renderHeader = completion => Mustache.render(template, {title: 'Grabación de clase', completion});
 const title = 'Maestría en Derecho y Economía del Cambio Climático Cohorte 2026-2027 - Materias obligatorias';
-const header = `<header id="page-header"><div class="page-header-headings"><h1 class="h2 mb-0">${title}</h1></div></header>`;
+const header = `<header id="page-header"><div class="page-context-header d-flex"><div class="page-header-headings"><h1 class="h2 mb-0">${title}</h1></div></div></header>`;
 const tabs = ['Cartelera', 'Derecho Internacional', 'Economía Ambiental', 'Ciencia del CC'].map((t, i) => `<li class="nav-item"><a href="#" class="nav-link${i ? '' : ' active'}">${t}</a></li>`).join('');
-const course = `<div class="course-content"><div class="verticaltabs hastopictabs"><div class="tabs-wrapper"><ul class="nav nav-tabs format_onetopic-tabs">${tabs}</ul></div><div class="onetopic-tab-body"><p>Contenido del curso</p></div></div></div>`;
+const course = `<div class="course-content-header"><div class="verticaltabs hastopictabs"><div class="tabs-wrapper"><input type="checkbox" id="tabs-menu-fixture" class="tabs-menu-toggle" aria-label="Activar/desactivar menú"><label class="tabs-menu-overlay" for="tabs-menu-fixture"><span class="tabs-menu-expand-title">Tópicos</span></label><ul class="nav nav-tabs format_onetopic-tabs">${tabs}</ul></div><div class="onetopic-tab-body"><div class="course-content"><p>Contenido del curso</p></div></div></div></div>`;
 function html(kind) {
  const activity = kind !== 'course';
- const main = kind === 'course' ? course : renderHeader(kind === 'board' ? intro : empty) + '<div class="box generalbox"><p>Contenido de la actividad</p></div>';
- return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="onetopic.css"></head><body id="${activity ? 'page-mod-' + kind + '-view' : 'page-course-view-onetopic'}" class="uses-drawers limitedwidth ${activity ? 'path-mod pagelayout-incourse' : 'path-course-view format-onetopic pagelayout-course'}"><div id="page" class="drawers"><div class="main-inner">${header}<div id="page-content"><div id="region-main">${main}</div></div></div></div></body></html>`;
+ const main = kind === 'course' ? course : renderHeader(kind === 'board' ? intro : empty) + '<div role="main"><div class="box generalbox"><p>Contenido de la actividad</p></div></div>';
+ return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="onetopic.css"></head><body id="${activity ? 'page-mod-' + kind + '-view' : 'page-course-view-onetopic'}" class="uses-drawers limitedwidth category-3121 ${activity ? 'path-mod pagelayout-incourse' : 'path-course-view format-onetopic pagelayout-course'}"><div id="page" class="drawers"><div class="main-inner">${header}<div id="page-content"><div id="region-main">${main}</div></div></div></div></body></html>`;
 }
 (async () => {
  const browser = await chromium.launch({headless: true, ...(process.env.CHROMIUM_EXECUTABLE_PATH ? {executablePath: process.env.CHROMIUM_EXECUTABLE_PATH} : {}), args: ['--no-sandbox']});
@@ -32,10 +33,25 @@ function html(kind) {
    await page.setViewportSize({width, height: 900});
    await page.goto('file://' + output + '/' + kind + '.html');
    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), kind + ' overflow ' + width);
+   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--gflacso-academic-build').trim()), '2026101902', 'browser must parse complete stylesheet tail');
    if (kind === 'course') {
-    assert.equal(await page.locator('h1').evaluate(e => getComputedStyle(e).backgroundColor), 'rgba(0, 0, 0, 0)');
+    assert.equal(await page.locator('.course-content .verticaltabs').count(), 0, 'match the real Onetopic hierarchy');
+    if (width <= 600) {
+     assert(!(await page.locator('.format_onetopic-tabs').isVisible()), 'mobile menu initially collapsed');
+     await page.locator('label[for="tabs-menu-fixture"]').click();
+     assert(await page.locator('.format_onetopic-tabs').isVisible(), 'native checkbox opens mobile menu');
+    }
+
+    assert((await page.locator('h1').evaluate(e => getComputedStyle(e).backgroundColor)).endsWith(', 0)'), 'course title background is transparent');
     assert.equal(await page.locator('.nav-link').first().evaluate(e => getComputedStyle(e).borderRadius), '32px');
     assert.equal(await page.locator('.nav-link.active').evaluate(e => getComputedStyle(e).color), 'rgb(255, 255, 255)');
+    const inactive = page.locator('.nav-link:not(.active)').first();
+    await inactive.hover();
+    assert.equal(await inactive.evaluate(e => getComputedStyle(e).color), 'rgb(0, 0, 0)', 'hover retains readable text');
+    await inactive.focus();
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Shift+Tab');
+    assert.equal(await inactive.evaluate(e => getComputedStyle(e).outlineStyle), 'solid', 'keyboard focus is visible');
    } else {
     assert(!(await page.locator('#page-header .page-header-headings').isVisible()), 'duplicate heading hidden');
     assert.equal(await page.locator('#region-main > h2').evaluate(e => getComputedStyle(e).borderBottomWidth), '1px');
@@ -49,5 +65,5 @@ function html(kind) {
  await page.locator('.activity-header').evaluate(e => e.innerHTML = '<div class="completion-info"><button>Marcar como hecha</button></div>');
  assert(await page.locator('.activity-header button').isVisible(), 'completion preserved');
  await browser.close();
- console.log('PASS course title, Onetopic pills, Board description, Page empty header, completion and 12 responsive views');
+ console.log('PASS real DOM hierarchy, stylesheet tail, title, Onetopic menu/pills/focus, Board, Page and completion at 12 responsive views');
 })().catch(e => { console.error(e); process.exit(1); });

@@ -2080,7 +2080,9 @@ li[data-key="home"] {
     padding: 0;
 }
 
-.my-3[data-for="sectioninfo"]:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
+// Universal namespace heading selectors preserve HTML semantics and avoid
+// scssphp 1.x applying Bootstrap @extend inside nested relational selectors.
+.my-3[data-for="sectioninfo"]:not(:has(p, span, *|h1, *|h2, *|h3, *|h4, *|h5, *|h6, img, div)) {
     border: none;
     padding: 0;
 }
@@ -2531,7 +2533,7 @@ ul.onetopic {
     font-family: "Arial", sans-serif !important;
 }
 
-.activity .no-overflow:has(h3) {
+.activity .no-overflow:has(*|h3) {
     overflow: visible;
 }
 
@@ -2544,7 +2546,7 @@ ul.onetopic {
         border: none;
     }
 
-    &:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
+    &:not(:has(p, span, *|h1, *|h2, *|h3, *|h4, *|h5, *|h6, img, div)) {
         border: none;
         padding: 0;
     }
@@ -2966,7 +2968,7 @@ ul.onetopic {
         color: $black !important;
     }
 
-    h3:has(+ h4) {
+    h3:has(+ *|h4) {
         margin-bottom: 0 !important;
     }
 
@@ -3265,7 +3267,7 @@ ul.onetopic {
     border-radius: 0 0 .3rem .3rem;
     padding: 1em;
 
-    &:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
+    &:not(:has(p, span, *|h1, *|h2, *|h3, *|h4, *|h5, *|h6, img, div)) {
         border: none;
         padding: 0;
     }
@@ -4209,7 +4211,7 @@ table.mod-data-default-template {
         padding-inline: 0 !important;
         margin-bottom: 1lh !important;
 
-        &:has(h3, h4, h5, h6) {
+        &:has(*|h3, *|h4, *|h5, *|h6) {
             margin-bottom: 0 !important;
         }
     }
@@ -9162,6 +9164,7 @@ body.path-course-view,
 body#page-mod-board-view,
 body#page-mod-page-view {
     #page.drawers > .main-inner { background-color: $white; }
+    #region-main { background: transparent; }
     #page-header h1,
     #page-header h1.h2 {
         color: $flacso-1 !important;
@@ -9192,7 +9195,7 @@ body#page-mod-page-view {
 
 body#page-mod-board-view,
 body#page-mod-page-view {
-    #region-main > .generalbox { background: transparent; }
+    #region-main .generalbox { background: transparent; }
     // The module title is already rendered after the navigation. Keep actions.
     #page-header .page-header-headings { display: none; }
     #page-content #region-main > h2:has(+ .activity-header) {
@@ -9241,22 +9244,29 @@ body#page-mod-page-view {
         }
     }
     // Moodle emits nested empty information wrappers, so :empty is insufficient.
-    #page.drawers .activity-header:not(:has(.activity-description, .completion-info, button, input, select, [role="button"])) {
+    #page.drawers .activity-header:not(:has(.activity-description, .completion-info, button, input, select, a, .alert)) {
         display: none;
     }
 }
 
-// Onetopic's vertical and vertical-all layouts share Academic's pill appearance.
-// Cover nav-tabs/nav-pills while leaving horizontal tabs and their JS untouched.
-body.format-onetopic #page .course-content {
+// Onetopic emits the tabs in course-content-header, outside course-content.
+// Scope to its format and the course page, without depending on content ancestry.
+body.format-onetopic.path-course-view #page {
     .verticaltabs > .tabs-wrapper,
     .verticalalltabs > .tabs-wrapper {
         border: 0;
+        background: transparent;
         padding: 0 .75rem 0 0;
         width: 200px;
+        flex-shrink: 0;
         max-width: 100%;
         .nav { border: 0; background: transparent; }
-        .nav-item { width: 100%; margin: 0 0 .4rem; }
+        .nav-item {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            margin: 0 0 .4rem !important;
+        }
         .nav-item > .nav-link {
             display: block;
             width: 100% !important;
@@ -9274,23 +9284,45 @@ body.format-onetopic #page .course-content {
             overflow-wrap: anywhere;
             background: $white !important;
             color: $black !important;
-            &.active,
-            &:hover,
+            &:hover:not(.disabled) {
+                background: var(--color-area-3) !important;
+                border-color: var(--color-area) !important;
+            }
             &:focus-visible {
+                outline: 3px solid $flacso;
+                outline-offset: 2px;
+            }
+            &.active,
+            &.active:hover {
                 background: var(--color-area-4) !important;
                 color: $white !important;
                 border-color: var(--color-area) !important;
+                font-weight: 600 !important;
             }
-            &.active { font-weight: 600 !important; }
         }
     }
 }
-@media (max-width: 767.98px) {
-    body.format-onetopic #page .course-content {
+// Match Onetopic's own 600px menu breakpoint, retain its checkbox/navigation JS.
+@media (max-width: 600px) {
+    body.format-onetopic.path-course-view #page {
         .verticaltabs > .tabs-wrapper,
         .verticalalltabs > .tabs-wrapper {
             width: 100%;
-            padding-inline: 0;
+            padding: .25rem;
+            .tabs-menu-toggle:not(:checked) ~ .nav-tabs { display: none; }
+            .tabs-menu-toggle:checked ~ .nav-tabs {
+                display: flex;
+                position: static;
+                flex-direction: column;
+                max-height: 60vh;
+                overflow-y: auto;
+                padding: .5rem;
+                background: $white;
+            }
         }
+        .verticaltabs .onetopic-tab-body { width: 100%; padding-inline: 0; }
     }
 }
+
+// A readable build marker also detects a browser-discarded stylesheet tail.
+:root { --gflacso-academic-build: 2026101902; }
