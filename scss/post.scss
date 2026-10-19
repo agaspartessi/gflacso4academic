@@ -9331,9 +9331,10 @@ body.format-onetopic.path-course-view #page {
     right: auto;
 }
 
-// Dashboard/Courses headings use .h2, so Bootstrap extends the decorative h2
-// rules onto both the h1 and Moodle's welcome span. Keep these headings plain.
-body.path-my #page-header {
+// General page headings (including administration and dashboard) use .h2,
+// so Bootstrap extends decorative h2 rules onto h1 and the welcome span.
+// Keep course/activity identities in their dedicated rules above.
+body:not(.path-course-view):not(.path-mod) #page-header {
     .page-header-headings h1.h2,
     span.h2 {
         background: transparent;
@@ -9347,6 +9348,7 @@ body.path-my #page-header {
         color: $flacso !important;
         font-weight: 500 !important;
     }
+    .page-header-headings h1.h2::after { display: none; }
     .page-header-headings h1.h2 {
         font-size: clamp(1.5rem, 2.2vw, 1.75rem) !important;
         margin: 0 0 .75rem !important;
@@ -9364,13 +9366,49 @@ body.path-course-view .secondary-navigation .navigation.secondarynav-tabbar {
     background-color: transparent;
 }
 
-// Text/media labels contain their own authored panels and separators. Remove
-// only Boost's outer card surface; preserve spacing, focus and editing controls.
-body.path-course-view .modtype_label > .activity-item.activityinline {
+// Course activities include resources, inline labels and labels without the
+// inline class (notably while editing). Reset their outer Boost surface only;
+// preserve authored panels, spacing, focus and editing/completion controls.
+body.path-course-view .activity-item {
     background-color: transparent;
     border: 0;
     border-radius: 0;
 }
 
+// The current local_accessibility plugin renders a launcher button directly,
+// replacing the old buttoncontainer. Keep its controls and native panel intact.
+body .btn.local-accessibility-launcher {
+    position: fixed;
+    top: calc(#{$navbar-height} + 4rem);
+    bottom: auto;
+    left: auto;
+    right: 2rem;
+}
+@include media-breakpoint-up(lg) {
+    body:has(#page.drawers.show-drawer-right) .local-accessibility-launcher,
+    body:has(#page.drawers.show-drawer-right) .local-accessibility-buttoncontainer {
+        right: calc(100% - #{$drawer-anchor-solo-right-open} + 1rem);
+    }
+    body:has(#page.drawers.show-drawer-left.show-drawer-right) .local-accessibility-launcher,
+    body:has(#page.drawers.show-drawer-left.show-drawer-right) .local-accessibility-buttoncontainer {
+        right: calc(100% - #{$drawer-anchor-both-right} + 1rem);
+    }
+}
+@media (min-width: 850px) and (max-width: 991.98px) {
+    body:has(#page.drawers.show-drawer-right) .local-accessibility-launcher,
+    body:has(#page.drawers.show-drawer-right) .local-accessibility-buttoncontainer {
+        right: calc(#{$drawer-right-width} + 1rem);
+    }
+}
+@media (max-width: 849px) {
+    body .btn.local-accessibility-launcher {
+        z-index: 1031;
+        top: auto;
+        bottom: .5rem;
+        left: 1rem;
+        right: auto;
+    }
+}
+
 // A readable build marker also detects a browser-discarded stylesheet tail.
-:root { --gflacso-academic-build: 2026101904; }
+:root { --gflacso-academic-build: 2026101905; }

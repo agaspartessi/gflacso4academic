@@ -142,7 +142,7 @@ foreach ($cases as $name => $settings) {
     if (str_contains($servedcss, 'Problem detected during CSS minimisation')) {
         throw new Exception('Moodle minifier failed');
     }
-    if (!str_contains($servedcss, '--gflacso-academic-build:2026101904')) {
+    if (!str_contains($servedcss, '--gflacso-academic-build:2026101905')) {
         throw new Exception('Build marker missing from the served CSS');
     }
     if ($outputdir !== null) {

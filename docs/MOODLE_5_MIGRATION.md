@@ -374,3 +374,43 @@ en 10 vistas. Se verifican transparencia, ausencia del borde exterior,
 conservación del borde escrito dentro del contenido y controles de finalización.
 Estas son pruebas locales con la estructura observada en Virtual Test; la
 confirmación visual en el campus requiere instalar esta versión.
+
+
+## Beta9 / 2026101905: alcance de tarjetas, accesibilidad y títulos generales
+
+El DOM autenticado del curso 29882 y las capturas confirmaron que beta8 solo
+cubría etiquetas con `.activityinline`: recursos, foros y etiquetas sin esa
+clase (incluidas las observadas en edición) seguían heredando
+`background-color:var(--mds-bg-surface-subtle)`. Ahora se eliminan fondo, borde
+y radio de `.activity-item` en vistas de curso, conservando la variable global
+para botones, formularios y otras superficies de Moodle. No se alteran fondos
+ni bordes escritos dentro del contenido ni controles de edición/finalización.
+
+El plugin local_accessibility actual genera `.btn.local-accessibility-launcher`,
+ya no el antiguo `.local-accessibility-buttoncontainer`. Su regla fija el botón
+abajo con propiedades lógicas `inset-block-end:80px; inset-inline-end:24px`.
+Se incorpora el selector actual con especificidad superior, se vuelve a ubicar
+cerca del header y se usan las mismas fórmulas de anclaje de Boost para desplazarlo
+al abrir el cajón derecho, tanto solo como con ambos cajones abiertos. En móvil
+permanece accesible abajo a la izquierda y por debajo de los cajones modales.
+Se conserva el panel y toda la funcionalidad nativa del plugin.
+
+Administración del sitio también usa `#page-header h1.h2.mb-0`, pero beta7 solo
+normalizaba `body.path-my`. Se amplía el estilo de encabezado simple a las páginas
+generales, manteniendo las reglas particulares de cursos y actividades. Se quita
+el pseudoelemento decorativo heredado, junto con fondo y bordes de la caja.
+
+Comprobación en Virtual Test después de instalar beta9 y purgar cachés:
+- Curso 29882, con y sin edición: revisar PDF, foro y etiquetas con/sin inline.
+- Abrir/cerrar cajón derecho y luego ambos: botón de accesibilidad arriba y fuera
+  del cajón en escritorio. En móvil no tapa los bloques del cajón modal.
+- Abrir Administración del sitio: título simple azul, sin caja gris ni rayita.
+
+Prueba adicional: `node tools/check_accessibility.cjs /ruta/fixture-cajones
+/ruta/compiled.served.css /ruta/salida` verifica el título y 24 combinaciones de
+ancho/estado usando las plantillas reales de Boost y la regla del plugin cargada
+después del theme. La prueba de contenidos cubre los tres tipos de tarjeta.
+
+Resultados: pasaron las 24 combinaciones de cajones/accesibilidad, las 12 vistas
+de contenidos y las 10 de Tablero/Mis cursos/footer con CSS compilado y
+minificado por Moodle 5.3. No se ha instalado esta beta en el campus desde aquí.
