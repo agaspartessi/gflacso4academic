@@ -9358,5 +9358,19 @@ body.path-my #page-header {
     }
 }
 
+// Boost 5.3 paints the secondary tabbar with --bs-body-bg. Academic's
+// course navigation sits on the plain page, as in the production theme.
+body.path-course-view .secondary-navigation .navigation.secondarynav-tabbar {
+    background-color: transparent;
+}
+
+// Text/media labels contain their own authored panels and separators. Remove
+// only Boost's outer card surface; preserve spacing, focus and editing controls.
+body.path-course-view .modtype_label > .activity-item.activityinline {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
 // A readable build marker also detects a browser-discarded stylesheet tail.
-:root { --gflacso-academic-build: 2026101903; }
+:root { --gflacso-academic-build: 2026101904; }

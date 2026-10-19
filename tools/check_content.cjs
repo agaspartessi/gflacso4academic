@@ -17,7 +17,7 @@ const renderHeader = completion => Mustache.render(template, {title: 'Grabación
 const title = 'Maestría en Derecho y Economía del Cambio Climático Cohorte 2026-2027 - Materias obligatorias';
 const header = `<header id="page-header"><div class="page-context-header d-flex"><div class="page-header-headings"><h1 class="h2 mb-0">${title}</h1></div></div></header>`;
 const tabs = ['Cartelera', 'Derecho Internacional', 'Economía Ambiental', 'Ciencia del CC'].map((t, i) => `<li class="nav-item"><a href="#" class="nav-link${i ? '' : ' active'}">${t}</a></li>`).join('');
-const course = `<div class="course-content-header"><div class="verticaltabs hastopictabs"><div class="tabs-wrapper"><input type="checkbox" id="tabs-menu-fixture" class="tabs-menu-toggle" aria-label="Activar/desactivar menú"><label class="tabs-menu-overlay" for="tabs-menu-fixture"><span class="tabs-menu-expand-title">Tópicos</span></label><ul class="nav nav-tabs format_onetopic-tabs">${tabs}</ul></div><div class="onetopic-tab-body"><div class="course-content"><p>Contenido del curso</p></div></div></div></div>`;
+const course = `<div class="secondary-navigation"><div class="navigation secondarynav-tabbar"><a class="mds-nav-pill mds-nav-pill--selected" href="#">Curso</a></div></div><div class="course-content-header"><div class="verticaltabs hastopictabs"><div class="tabs-wrapper"><input type="checkbox" id="tabs-menu-fixture" class="tabs-menu-toggle" aria-label="Activar/desactivar menú"><label class="tabs-menu-overlay" for="tabs-menu-fixture"><span class="tabs-menu-expand-title">Tópicos</span></label><ul class="nav nav-tabs format_onetopic-tabs">${tabs}</ul></div><div class="onetopic-tab-body"><div class="course-content"><ul class="section"><li class="activity label modtype_label hasinfo"><div class="activity-item focus-control activityinline" data-region="activity-card"><div id="authored-panel" style="background:#eee;border-left:8px solid #999;padding:1rem">Documentación de la Maestría</div><a href="#">Presentación</a><div class="completion-info"><button>Marcar como hecha</button></div></div></li></ul></div></div></div></div>`;
 function html(kind) {
  const activity = kind !== 'course';
  const main = kind === 'course' ? course : renderHeader(kind === 'board' ? intro : empty) + '<div role="main"><div class="box generalbox"><p>Contenido de la actividad</p></div></div>';
@@ -33,8 +33,14 @@ function html(kind) {
    await page.setViewportSize({width, height: 900});
    await page.goto('file://' + output + '/' + kind + '.html');
    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), kind + ' overflow ' + width);
-   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--gflacso-academic-build').trim()), '2026101903', 'browser must parse complete stylesheet tail');
+   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--gflacso-academic-build').trim()), '2026101904', 'browser must parse complete stylesheet tail');
    if (kind === 'course') {
+    for (const selector of ['.secondarynav-tabbar', '.modtype_label > .activity-item']) {
+     assert((await page.locator(selector).evaluate(e => getComputedStyle(e).backgroundColor)).endsWith(', 0)'), selector + ' has no gray surface');
+    }
+    assert.equal(await page.locator('.modtype_label > .activity-item').evaluate(e => getComputedStyle(e).borderTopWidth), '0px', 'no outer label card border');
+    assert.equal(await page.locator('#authored-panel').evaluate(e => getComputedStyle(e).borderLeftWidth), '8px', 'authored decoration preserved');
+    assert(await page.locator('.completion-info button').isVisible(), 'label completion retained');
     assert.equal(await page.locator('.course-content .verticaltabs').count(), 0, 'match the real Onetopic hierarchy');
     if (width <= 600) {
      assert(!(await page.locator('.format_onetopic-tabs').isVisible()), 'mobile menu initially collapsed');

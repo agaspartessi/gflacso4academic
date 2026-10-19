@@ -345,3 +345,32 @@ Verifica el ancho y posición del footer, dirección visible, ausencia de scroll
 horizontal y títulos/saludo sin recuadros en Tablero/Mis cursos a 390, 768, 1024,
 1440 y 1920px. Pasaron las diez vistas y la regresión de Board/Página/Onetopic.
 Tras instalar, el marcador CSS del final de la hoja debe devolver `2026101903`.
+
+
+## Beta8 / 2026101904: superficies nuevas de Boost en cursos
+
+La comparación de capturas y del DOM autenticado del curso 29782 confirmó dos
+superficies nativas de Boost 5.3: `.navigation.secondarynav-tabbar` heredaba
+`--bs-body-bg` (rgb 248,249,250), y las etiquetas `modtype_label` conservaban
+la tarjeta `.activity-item.activityinline` con fondo `--mds-bg-surface-subtle`,
+borde de 1px y radio de 1rem. La regla histórica que eliminaba bordes excluía
+explícitamente `.activityinline`, por lo que esas tarjetas quedaban visibles.
+
+Se vuelve transparente la barra de navegación del curso y se elimina únicamente
+el fondo, borde y radio de la tarjeta exterior de las etiquetas de texto y
+multimedia. Se conservan el espaciado, foco, controles de edición/finalización,
+los recuadros y separadores escritos en el contenido, las pestañas Onetopic,
+el encabezado institucional y las correcciones del footer y cajones.
+
+Para comprobarlo: instalar beta8, purgar cachés y abrir el curso 29782, sección 0.
+El menú Curso/Configuración/Participantes debe quedar sobre fondo blanco y
+Documentación de la Maestría debe perder la tarjeta gris exterior, conservando
+su título gris y botones violetas. Comprobar también móvil y modo edición.
+
+Validación: compilador scssphp y minificador reales de Moodle 5.3; pruebas de
+Board/Página/Onetopic y superficies del curso a 390, 768, 1440 y 1920px (12
+vistas), más títulos de Tablero/Mis cursos y footer con SCSS adicional del campus
+en 10 vistas. Se verifican transparencia, ausencia del borde exterior,
+conservación del borde escrito dentro del contenido y controles de finalización.
+Estas son pruebas locales con la estructura observada en Virtual Test; la
+confirmación visual en el campus requiere instalar esta versión.
