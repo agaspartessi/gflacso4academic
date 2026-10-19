@@ -20,7 +20,7 @@ La revisión beta3 incorpora los ajustes solicitados al probar beta2:
   y los iconos de imagen son blancos sobre el azul. Se conserva el texto oscuro
   de las iniciales del avatar y de los menús desplegables sobre fondos claros.
 - Se limita el ancho de la dirección del pie al espacio disponible en móvil.
-- Versión de plugin `2026101501` para que Moodle detecte esta actualización.
+- Versión de plugin `2026101900` para que Moodle detecte esta actualización.
 
 Las capturas del campus muestran el cierre del cajón derecho fuera de la
 cabecera y el contenido lateral desalineado respecto de la columna central.
@@ -43,7 +43,7 @@ reescribe su apertura/cierre, preferencias, scroll, foco o comportamiento móvil
 | `scss/post.scss` | Elimina el ancho forzado de `.main-inner`, el padding lateral cero, los márgenes superiores antiguos y el ancho `93vw` de informes de calificaciones. Boost calcula el espacio disponible y los anclajes de ambos cajones de forma consistente. |
 | `scss/post.scss` | Retira las alturas fijas de navbar y enlaces; usa la variable compartida de Boost. Devuelve al footer fijo su posición y espaciado nativos para respetar la altura disponible de los cajones. |
 | `scss/pre.scss` | Añade `$navbar-height: 62px !default` y `$course-content-maxwidth: 1000px !default`. Todos los cálculos nativos usan esas mismas medidas. La paleta y las tipografías propias se conservan. |
-| `version.php` | Versión `2026101501`, mínimo Moodle/Boost `2026100500` (5.3), release `2.0.0-beta3`, madurez BETA. |
+| `version.php` | Versión `2026101900`, mínimo Moodle/Boost `2026100500` (5.3), release `2.0.0-beta3`, madurez BETA. |
 | `lib.php` | Mantiene preset default/plain/subido/fallback y la prioridad de Raw SCSS. La importación MDS de plain se aplica directamente porque esta rama ya requiere 5.3. |
 | `templates/core/login_layout.mustache` | Conserva el login propio ya preparado para 5.3 y elimina la referencia obsoleta a soporte 5.1. |
 | `tools/check_compatibility.php` | Verifica el mínimo 5.3 y compila con `core_scss`, `theme_config` y callbacks reales. |
@@ -123,7 +123,7 @@ no se conecta al campus ni requiere credenciales.
 1. Descargar la misma rama `moodle-5.1-5.3`. El directorio del theme debe llamarse
    `gflacso4academic`, sin sufijos, dentro de `<moodle>/public/theme/`.
 2. Actualizar los archivos del theme por el procedimiento habitual. Entrar en
-   **Site administration > Notifications** para registrar `2026101501`.
+   **Site administration > Notifications** para registrar `2026101900`.
 3. Ejecutar **Site administration > Development > Purge caches**. Después hacer
    una recarga completa del navegador (`Ctrl+F5`).
 4. En **Site administration > Appearance > Themes > gflacso4academic**, revisar
@@ -152,3 +152,28 @@ El modo oscuro experimental de Boost no está validado para esta identidad.
 - [SCSS nativo de cajones](https://github.com/moodle/moodle/blob/MOODLE_503_STABLE/public/theme/boost/scss/moodle/drawer.scss)
 - [Layout nativo](https://github.com/moodle/moodle/blob/MOODLE_503_STABLE/public/theme/boost/scss/moodle/layout.scss)
 - [Templates de Boost](https://github.com/moodle/moodle/tree/MOODLE_503_STABLE/public/theme/boost/templates)
+
+## Actualización del 19 de octubre de 2026
+
+- Se mantiene la identidad de Académico: paleta azul/magenta, Roboto, mapa,
+  logos, footer y colores particulares por categoría/curso.
+- Menús MDS con texto de 18 px, pestañas rectangulares, contraste de hover y
+  flecha de selección debajo del texto. Las listas desplegables mantienen su color.
+- Tiles utiliza el mismo ancho que los anclajes de Boost para evitar solapamientos
+  al expandir un mosaico. En móviles los cajones comienzan debajo del encabezado.
+- Formulario de ingreso clásico con campos, logo e inscripción; conserva token,
+  CAPTCHA, proveedores externos, invitado, mensajes y controles de Moodle 5.3.
+  La recuperación de contraseña y MFA continúan usando output.main_content.
+- Se corrige un cierre accidental de comentario Mustache en login_layout y una
+  ruta antigua mal escrita del icono ondemand_video_white.svg.
+
+Validación reproducible adicional (después de compilar CSS):
+
+```bash
+node tools/check_navigation.cjs /tmp/academic-drawers
+node tools/check_login.cjs /ruta/al/moodle /tmp/academic-css/moodle-default.css /tmp/academic-login
+node tools/check_tiles_drawers.cjs /tmp/academic-drawers /ruta/a/format_tiles/styles.css
+```
+
+Estas pruebas usan fixtures locales y el controlador real de cajones de Boost.
+No reemplazan una prueba funcional de autenticación, MFA y plugins en el campus.

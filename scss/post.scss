@@ -595,6 +595,20 @@ code,
 
 /*#region*///DRAWERS
 
+// Tiles removes Boost's limited content width on its multi-section page. Boost
+// anchors the drawers to that width, so the wider Tiles content runs underneath
+// them and can push the block drawer beyond the viewport after expansion.
+// Restore the same width used by Boost's drawer anchors for Tiles course pages.
+// The single-section view already uses this width; keep its header aligned too.
+@include media-breakpoint-up(md) {
+    body.format-tiles.limitedwidth.path-course-view {
+        #page.drawers .main-inner,
+        .header-maxwidth {
+            max-width: $course-content-maxwidth !important;
+        }
+    }
+}
+
 // Boost 5.3 owns drawer sizing, anchors, scrolling, stacking and transitions.
 // Keep only Academic's appearance here; inherit its templates and AMD modules.
 .drawer[data-region="fixed-drawer"] {
@@ -643,6 +657,15 @@ code,
 
     .drawercontent {
         scrollbar-color: var(--color-area) var(--color-area-3);
+    }
+}
+
+// Boost 5.3's generic .drawer rule resets the mobile top offset to zero.
+// Keep the close controls below Academic's persistent institutional header.
+@include media-breakpoint-down(lg) {
+    .drawer[data-region="fixed-drawer"] {
+        top: $navbar-height;
+        height: calc(100% - #{$navbar-height});
     }
 }
 
@@ -1052,24 +1075,105 @@ code,
 }
 
 // Moodle 5.3 renders navigation with MDS pills instead of Bootstrap nav links.
-// Scope tokens to each pill so dropdown menus keep their own readable colours.
+// Restore Academic's larger navigation text and its original rectangular tabs.
+// Keep the MDS focus ring, overflow handling and dropdown semantics.
 .primary-navigation .navigation.primarynav-navbar .mds-nav-pill,
 .secondary-navigation .navigation.secondarynav-tabbar .mds-nav-pill {
-    --mds-font-family-base: #{$font-family-base};
-    --mds-text-default: #{$white};
-    --mds-bg-nav-pill-selected: #{$primary};
-    --mds-bg-nav-pill-hover: #{$primary-1};
-    --mds-bg-nav-pill-pressed: #{$primary};
-    --mds-bg-interactive-primary-default: #{$white};
+    --mds-font-family-base: #{$font-family-condensed};
     --mds-focus-default: #{$primary-2};
+
+    border-radius: 0;
+
+    .mds-nav-pill__label {
+        font-size: 1.125rem;
+        font-weight: 400;
+    }
+
+    .mds-nav-pill__indicator {
+        display: none;
+    }
 }
 
 .primary-navigation .navigation.primarynav-navbar .mds-nav-pill {
     --mds-text-subtle: #{$white};
+    --mds-text-default: #{$white};
+    --mds-bg-nav-pill-hover: #{rgba($white, 0.18)};
+    --mds-bg-nav-pill-pressed: #{rgba($white, 0.18)};
+
+    position: relative;
+    height: 100%;
+    color: $white;
+
+    &.mds-nav-pill--selected,
+    &.mds-nav-pill--selected:visited,
+    &.mds-nav-pill--selected:hover {
+        background-color: transparent;
+        color: $white;
+    }
+
+    &.mds-nav-pill--selected::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 0.55rem);
+        border-right: 0.55rem solid transparent;
+        border-left: 0.55rem solid transparent;
+        border-bottom: 0.7rem solid $secondary;
+    }
+
+    &:hover:not([aria-disabled=true]):not(.mds-nav-pill--selected) {
+        color: $white;
+    }
+
+    // Some campus link rules colour the nested label separately on hover.
+    &:hover .mds-nav-pill__label,
+    &.mds-nav-pill--selected .mds-nav-pill__label {
+        color: $white !important;
+    }
 }
 
 .secondary-navigation .navigation.secondarynav-tabbar .mds-nav-pill {
-    --mds-text-subtle: #{$gray-600};
+    --mds-text-subtle: #{$base};
+    --mds-text-default: #{$white};
+    --mds-bg-nav-pill-hover: #{$primary};
+    --mds-bg-nav-pill-pressed: #{$primary-1};
+
+    color: $base;
+    height: 100%;
+    padding-inline: 1rem;
+    justify-content: center;
+    border-bottom: 4px solid transparent;
+
+    &.mds-nav-pill--selected,
+    &.mds-nav-pill--selected:visited,
+    &.active {
+        background-color: $primary;
+        color: $white;
+        border-bottom-color: $primary;
+    }
+
+    &.mds-nav-pill--selected:hover,
+    &.active:hover {
+        background-color: $primary-1;
+        border-bottom-color: $primary-1;
+        color: $white;
+    }
+
+    &.active::before {
+        display: none;
+    }
+
+    &:hover:not([aria-disabled=true]):not(.mds-nav-pill--selected):not(.active) {
+        color: $white;
+        background-color: $primary;
+        border-bottom-color: $primary;
+    }
+
+    &:hover .mds-nav-pill__label,
+    &.mds-nav-pill--selected .mds-nav-pill__label,
+    &.active .mds-nav-pill__label {
+        color: $white !important;
+    }
 }
 
 /*#endregion*/
@@ -1449,6 +1553,83 @@ code,
 
 form#login {
     width: 100%;
+}
+
+// Moodle 5.3 adds controls designed for a light login surface. Academic keeps
+// its navy panel: lighten its text, but retain dark text on white SSO buttons.
+.pagelayout-login .login-container {
+    color: $white;
+
+    .text-muted {
+        color: $gray-300 !important;
+    }
+
+    h1, h2, h3, .login-separator,
+    .login-cookiesnotice .btn-link {
+        color: $white;
+    }
+
+    a:not(.btn):not(.dropdown-item) {
+        color: $white;
+    }
+}
+
+#page-login-index .login-container a.login-identityprovider-btn {
+    color: $flacso !important;
+}
+
+// Course heading decorations must not style Moodle's new login welcome title.
+.pagelayout-login #page-content .login-container {
+    h1, h2, h3 {
+        color: $white;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+    }
+}
+
+// Keep the institutional form centred within Academic's right-hand column.
+#page-login-index .login-container {
+    .loginform {
+        width: 100%;
+        margin-inline: auto;
+        align-items: stretch;
+        flex-wrap: nowrap;
+    }
+    #loginlogo { width: 100%; margin-bottom: 2rem !important; }
+    .login-form .login-input-wrapper .form-control {
+        background-color: $white;
+        padding-inline: 1rem;
+        min-width: 0;
+    }
+    .login-form .login-form-username,
+    .login-form .login-form-password { margin-bottom: 1rem !important; }
+    .login-form .toggle-sensitive-wrapper {
+        flex-direction: row;
+        width: 100%;
+        .toggle-sensitive-btn {
+            background: $secondary;
+            color: $white;
+            padding: .5rem 1rem;
+            margin: 0;
+            align-self: stretch;
+        }
+    }
+    .academic-login-registration {
+        width: 100%;
+        margin-block: 1rem;
+        text-align: center;
+        h2.login-heading { text-align: center !important; padding: 0; font-size: 1.3em !important; }
+        .btn { max-width: 100%; white-space: normal; background: $secondary; color: $white; }
+    }
+    .login-identityprovider-btn {
+        background-color: $white;
+        color: $flacso !important;
+        white-space: normal;
+    }
+}
+@media (max-width: 852px) and (orientation: landscape) {
+    #page-login-index .login-container { width: 100% !important; max-width: 100% !important; }
 }
 
 /*#endregion*/
@@ -2318,7 +2499,7 @@ ul.onetopic {
 
 [data-for="cmlist"] .actividad_en_etiqueta h3:before {
     content: " ";
-    background: url(https://virtual.flacso.org.ar/theme/gflacso4academic/pix/ondemand_video_$white.svg);
+    background: url(https://virtual.flacso.org.ar/theme/gflacso4academic/pix/ondemand_video_white.svg);
     background-color: $blue;
     width: 50px;
     height: 50px;
