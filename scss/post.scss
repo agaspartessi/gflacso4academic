@@ -722,7 +722,7 @@ code,
 
     @include media-breakpoint-up(md) {
         .drawer-toggler {
-            top: calc(#{$navbar-height} + 1rem);
+            top: var(--academic-drawer-toggle-top, calc(#{$navbar-height} + 5rem));
         }
     }
 }
@@ -9375,10 +9375,14 @@ body.path-course-view .activity-item {
     border-radius: 0;
 }
 
+// Keep the legacy launcher below the navbar stacking context too.
+body .local-accessibility-buttoncontainer { z-index: $zindex-fixed - 1; }
+
 // The current local_accessibility plugin renders a launcher button directly,
 // replacing the old buttoncontainer. Keep its controls and native panel intact.
 body .btn.local-accessibility-launcher {
     position: fixed;
+    z-index: $zindex-fixed - 1;
     top: calc(#{$navbar-height} + 4rem);
     bottom: auto;
     left: auto;
@@ -9402,7 +9406,7 @@ body .btn.local-accessibility-launcher {
 }
 @media (max-width: 849px) {
     body .btn.local-accessibility-launcher {
-        z-index: 1031;
+        z-index: $zindex-sticky - 1;
         top: auto;
         bottom: .5rem;
         left: 1rem;
@@ -9411,4 +9415,4 @@ body .btn.local-accessibility-launcher {
 }
 
 // A readable build marker also detects a browser-discarded stylesheet tail.
-:root { --gflacso-academic-build: 2026101905; }
+:root { --gflacso-academic-build: 2026102000; }

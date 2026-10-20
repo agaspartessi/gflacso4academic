@@ -33,7 +33,7 @@ function html(kind) {
    await page.setViewportSize({width, height: 900});
    await page.goto('file://' + output + '/' + kind + '.html');
    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), kind + ' overflow ' + width);
-   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--gflacso-academic-build').trim()), '2026101905', 'browser must parse complete stylesheet tail');
+   assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--gflacso-academic-build').trim()), '2026102000', 'browser must parse complete stylesheet tail');
    if (kind === 'course') {
     for (const selector of ['.secondarynav-tabbar', '.activityinline', '#noninline-label', '#resource-card']) {
      assert((await page.locator(selector).evaluate(e => getComputedStyle(e).backgroundColor)).endsWith(', 0)'), selector + ' has no gray surface');

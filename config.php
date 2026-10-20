@@ -23,3 +23,6 @@ $THEME->prescsscallback = 'theme_gflacso4academic_get_pre_scss';
 $THEME->scss = function($theme) {
     return theme_gflacso4academic_get_main_scss_content($theme);
 };
+
+// Measure only the closed drawer tabs; Boost owns the actual drawers.
+$THEME->javascripts_footer = ['drawer_toggles'];

@@ -414,3 +414,49 @@ después del theme. La prueba de contenidos cubre los tres tipos de tarjeta.
 Resultados: pasaron las 24 combinaciones de cajones/accesibilidad, las 12 vistas
 de contenidos y las 10 de Tablero/Mis cursos/footer con CSS compilado y
 minificado por Moodle 5.3. No se ha instalado esta beta en el campus desde aquí.
+
+
+## Beta10 / 2026102000: pestañas de cajones y prioridad del perfil
+
+La posición anterior de las pestañas cerradas era `navbar-height + 1rem` desde
+768px: no medía breadcrumbs ni contemplaba sus saltos de línea. Se sustituye por
+una variable CSS medida por `javascript/drawer_toggles.js`, cargado mediante la
+opción nativa `javascripts_footer` en `config.php`. El script mide la navbar real,
+el borde inferior visible de `#page-navbar`/`.breadcrumb` y títulos/acciones que
+invadan los extremos. Aplica el mismo `top` a ambos botones. Se actualiza con
+ResizeObserver, carga de fuentes, resize y scroll (también el de `#page`),
+agrupando las lecturas mediante requestAnimationFrame. Al quedar atrás la
+navegación vuelve al margen bajo la navbar; si las breadcrumbs siguen fijas,
+conserva su espacio. El fallback sin JS es `navbar-height + 5rem`.
+
+Solo afecta a `.drawer-toggler` desde md. Por debajo de 768px sigue vigente la
+posición nativa de Boost. No se cambian plantillas, geometría, anclajes, controles
+de cierre, estados, scroll interno ni controlador AMD de los cajones abiertos.
+
+El plugin actual declara `.btn.local-accessibility-launcher {position:fixed;
+z-index:1050}`. La navbar fija usa la capa Bootstrap 1030: su dropdown, aunque
+tenga z-index propio, queda dentro de ese contexto y no podía superar al botón.
+Se baja únicamente el launcher a `$zindex-fixed - 1` (1029), incluido el selector
+antiguo del contenedor. En móvil el launcher usa `$zindex-sticky - 1` (1019), por
+debajo también del cajón modal. No se elevan globalmente navbar, dropdowns ni
+modales; no se oculta ni deshabilita el botón o el panel de accesibilidad.
+
+Pruebas locales con scssphp, postprocesado y minificador reales de Moodle 5.3:
+- Siete anchos: 390, 768, 991, 992, 1280, 1440 y 1920px, con breadcrumbs largas,
+  página larga y scroll de ventana/contenedor. Catorce estados ancho/scroll,
+  resize sin recarga y apertura/cierre por teclado con restauración del foco.
+- Prioridad comprobada con elementFromPoint en el área donde se cruzan menú y
+  launcher; además se verifica la relación entre sus contextos de apilamiento.
+- Regresión de 96 estados de cajones (tamaños, anclajes, scroll, cierre y foco),
+  más 12 vistas de Board/Página/Onetopic para conservar correcciones anteriores.
+
+Reproducir: `node tools/check_navigation_layers.cjs /ruta/fixture-cajones
+/ruta/compiled.served.css /ruta/salida`. Usa plantillas y controlador de Boost,
+el JS real del theme y la regla del plugin cargada después del CSS del theme.
+
+Virtual Test redirigió el Diario 3018523 al login porque la sesión anterior
+había vencido. No se instaló ni modificó la configuración del campus desde aquí.
+Después de instalar beta10 y purgar cachés, comprobar ese Diario, un curso con
+índice y una página con bloques; hacer scroll, abrir/cerrar ambos cajones y abrir
+el perfil con accesibilidad visible. Confirmar también Tab/Enter y ausencia de
+scroll horizontal en los siete anchos indicados.
